@@ -27,9 +27,9 @@ const features = [
     icon: Users,
     title: "Networking",
     subtitle: "bez barier",
-    description: "Founderzy, studenci, eksperci, pasjonaci technologii. Zero barier wejścia.",
-    stat: "200+",
-    statLabel: "uczestników",
+    description: "Founderzy, studenci i eksperci w jednym miejscu.",
+    stat: "200",
+    statLabel: "osób",
     gradient: "from-gradient-end to-gradient-start",
   },
   {
@@ -61,7 +61,7 @@ export function AboutSection() {
             <span className="w-12 h-px bg-gradient-to-r from-gradient-start to-gradient-mid" />
             Co Cię czeka
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 leading-[1.15]">
+          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 leading-[1.15]">
             <span className="text-foreground">Technologia zmienia reguły gry. </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
               Chcesz być gotowy?

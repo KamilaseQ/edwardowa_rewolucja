@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Check, ArrowRight, Loader2, Zap, Clock, Users } from "lucide-react"
+import { Check, ArrowRight, Loader2, Zap, Clock } from "lucide-react"
 
 export function SignupSection() {
   const [email, setEmail] = useState("")
@@ -65,17 +65,12 @@ export function SignupSection() {
           </p>
         </div>
 
-        {/* Urgency indicators */}
+        {/* Date indicator */}
         <div 
-          className={`flex justify-center gap-6 mb-10 transition-all duration-1000 delay-100 ${
+          className={`flex justify-center mb-10 transition-all duration-1000 delay-100 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="flex items-center gap-2 text-sm text-foreground/70">
-            <Users className="w-4 h-4 text-gradient-start" />
-            <span>Miejsca znikają</span>
-          </div>
-          <div className="w-px h-4 bg-gradient-mid/30" />
           <div className="flex items-center gap-2 text-sm text-foreground/70">
             <Clock className="w-4 h-4 text-gradient-mid" />
             <span>29 kwietnia 2026, Politechnika Warszawska</span>

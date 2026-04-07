@@ -3,8 +3,9 @@
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { AnimatedCounter } from "./animated-counter"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, ArrowUpRight, Star } from "lucide-react"
+import { ArrowUpRight, Star } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 const stats = [
   { end: 350, suffix: "M+", label: "Wyświetleń", gradient: "from-gradient-start to-gradient-mid" },
@@ -51,21 +52,26 @@ export function SpeakerSection() {
               <div className={`aspect-[4/5] rounded-3xl overflow-hidden relative transition-all duration-500 ${isHovered ? "scale-[1.02]" : ""}`}>
                 {/* Animated gradient border */}
                 <div className="absolute inset-0 p-[3px] rounded-3xl bg-gradient-to-br from-gradient-start via-gradient-mid to-gradient-end animate-gradient-rotate">
-                  <div className="w-full h-full rounded-3xl bg-card flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(100,149,237,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(100,149,237,0.04)_1px,transparent_1px)] bg-[size:30px_30px]" />
-                    <div className="text-center relative z-10">
-                      <div
-                        className={`w-44 h-44 rounded-full mx-auto mb-6 flex items-center justify-center transition-all duration-500 shadow-2xl`}
-                        style={{
-                          background: "linear-gradient(135deg, oklch(0.82 0.18 78), oklch(0.70 0.20 55), oklch(0.58 0.18 38))",
-                          boxShadow: isHovered ? "0 0 60px oklch(0.82 0.18 78 / 0.5)" : "0 0 30px oklch(0.82 0.18 78 / 0.2)",
-                        }}
-                      >
-                        <span className="text-6xl font-bold text-foreground">EW</span>
-                      </div>
-                      <p className="text-lg font-semibold text-foreground">Edward Warchocki</p>
-                      <p className="text-sm text-gradient-start mt-1">Pierwszy Robot Celebryta</p>
+                  <div className="w-full h-full rounded-3xl bg-card relative overflow-hidden">
+                    <Image
+                      src="/edekfotka.webp"
+                      alt="Edward Warchocki"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-[center_10%] opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent p-8 flex flex-col justify-end">
+                      <p className="text-2xl font-bold text-foreground">Edward Warchocki</p>
+                      <p className="text-sm text-gradient-start font-medium mt-1">Pierwszy Robot Celebryta</p>
                     </div>
+                    <a
+                      href="https://konfederacja.com.pl/dzisiaj-w-gmachu-sejmu-rp-z-inicjatywy-konfederacji-pojawil-sie-niejaki-edward-w/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="absolute bottom-2 right-3 text-[9px] text-muted-foreground/30 hover:text-muted-foreground transition-colors z-20"
+                    >
+                      Źródło: konfederacja.com.pl
+                    </a>
                   </div>
                 </div>
                 <div
@@ -102,11 +108,11 @@ export function SpeakerSection() {
             </h2>
 
             <p className="text-2xl text-foreground font-bold leading-relaxed mb-4 max-w-xl">
-              350 milionów odsłon. W jego żyłach płynie kod, nie krew.
+              350 milionów odsłon. Życie ciekawsze niż u nie jednego człowieka.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
-              Pierwszy polski robot influencer. Gość Sejmu, TVN, Polsat News. Na Edwardowej Rewolucji powie coś,
-              <span className="text-gradient-start font-medium"> czego jeszcze nikt w Polsce nie usłyszał. I co może zmienić wszystko.</span>
+              Pierwszy polski robot influencer. Fenomen na skalę światową. Gość Sejmu, TVN, Polsat News. Na Edwardowej Rewolucji powie coś,
+              <span className="text-gradient-start font-medium"> czego jeszcze nikt w Polsce nie usłyszał i co może na zawsze odmienić rynek.</span>
             </p>
 
             {/* Media mentions */}
@@ -155,7 +161,7 @@ export function SpeakerSection() {
               ))}
             </div>
 
-            {/* CTAs */}
+            {/* CTA */}
             <div className="flex flex-wrap gap-4">
               <Button
                 onClick={scrollToSignup}
@@ -169,18 +175,6 @@ export function SpeakerSection() {
               >
                 Chcę posłuchać Edwarda
                 <ArrowUpRight className="w-5 h-5 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 transition-all"
-                style={{ borderColor: "oklch(0.82 0.18 78 / 0.5)", color: "oklch(0.88 0.20 85)" }}
-                asChild
-              >
-                <a href="https://warchocki.pl" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  warchocki.pl
-                </a>
               </Button>
             </div>
           </div>

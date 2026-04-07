@@ -217,7 +217,7 @@ export function OrganizersSection() {
                 animation: "shimmer 4s linear infinite",
               }}
             >
-              KONFERENCJI.
+              WYDARZENIA.
             </span>
           </h2>
         </div>

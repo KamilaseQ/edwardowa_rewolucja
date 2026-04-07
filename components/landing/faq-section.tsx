@@ -50,7 +50,7 @@ export function FAQSection() {
     <section
       ref={ref}
       id="faq"
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative pt-32 pb-40 px-6"
     >
       {/* Background gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-gradient-mid/8 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -77,7 +77,7 @@ export function FAQSection() {
 
         {/* FAQ Accordion */}
         <div
-          className={`transition-all duration-1000 delay-200 ${
+          className={`pb-2 transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
