@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Zap } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 const navItems = [
   { label: "O wydarzeniu", href: "#o-wydarzeniu" },
@@ -35,19 +35,43 @@ export function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-gradient-start/10"
+          ? "backdrop-blur-xl border-b"
           : "bg-transparent"
       }`}
+      style={
+        isScrolled
+          ? {
+              backgroundColor: "oklch(0.06 0.005 60 / 0.92)",
+              borderBottomColor: "oklch(0.82 0.18 78 / 0.15)",
+            }
+          : undefined
+      }
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection("#hero")}
-            className="flex items-center gap-2 text-lg font-bold tracking-tight hover:opacity-80 transition-opacity group"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <Zap className="w-5 h-5 text-gradient-start" />
-            <span className="font-display uppercase text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-gradient-start group-hover:to-gradient-mid transition-all">
-              ER
+            {/* Gold bar accent */}
+            <div
+              className="w-0.5 h-6 rounded-full"
+              style={{
+                background: "linear-gradient(to bottom, oklch(0.88 0.20 85), oklch(0.58 0.18 38))",
+              }}
+            />
+            <span
+              className="font-display text-sm sm:text-base uppercase tracking-[0.15em] font-bold"
+              style={{
+                backgroundImage: "linear-gradient(90deg, oklch(0.97 0.005 80), oklch(0.82 0.18 78) 50%, oklch(0.97 0.005 80))",
+                backgroundSize: "200% auto",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: isScrolled ? "shimmer 4s linear infinite" : "none",
+              }}
+            >
+              EDWARDOWA REWOLUCJA
             </span>
           </button>
 
@@ -57,15 +81,30 @@ export function Navigation() {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors tracking-wide uppercase relative group"
+                className="relative text-sm font-medium uppercase tracking-wider transition-colors group"
+                style={{ color: "oklch(0.70 0.020 70)" }}
               >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-gradient-start to-gradient-mid group-hover:w-full transition-all duration-300" />
+                <span className="group-hover:text-foreground transition-colors">
+                  {item.label}
+                </span>
+                <span
+                  className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.70 0.20 55))",
+                  }}
+                />
               </button>
             ))}
             <Button
               onClick={() => scrollToSection("#zapisz-sie")}
-              className="bg-foreground text-background hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/20 font-semibold"
+              className="font-bold tracking-wide border-0 px-6"
+              style={{
+                background:
+                  "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                color: "oklch(0.06 0.005 60)",
+                boxShadow: "0 0 20px oklch(0.82 0.18 78 / 0.35)",
+              }}
             >
               Zapisz się
             </Button>
@@ -73,7 +112,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-foreground/5 rounded-lg transition-colors"
+            className="md:hidden p-2 rounded-lg transition-colors hover:bg-foreground/5"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Zamknij menu" : "Otwórz menu"}
           >
@@ -83,20 +122,34 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-gradient-start/10">
+          <div
+            className="md:hidden absolute top-full left-0 right-0 border-b backdrop-blur-xl"
+            style={{
+              backgroundColor: "oklch(0.06 0.005 60 / 0.97)",
+              borderBottomColor: "oklch(0.82 0.18 78 / 0.15)",
+            }}
+          >
             <div className="flex flex-col p-6 gap-4">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-lg text-foreground/70 hover:text-foreground transition-colors py-2"
+                  className="text-left text-lg transition-colors py-2"
+                  style={{ color: "oklch(0.70 0.020 70)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "oklch(0.97 0.005 80)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "oklch(0.70 0.020 70)")}
                 >
                   {item.label}
                 </button>
               ))}
               <Button
                 onClick={() => scrollToSection("#zapisz-sie")}
-                className="mt-4 w-full bg-foreground text-background hover:bg-foreground/90 font-semibold"
+                className="mt-4 w-full font-bold border-0"
+                style={{
+                  background:
+                    "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                  color: "oklch(0.06 0.005 60)",
+                }}
               >
                 Zapisz się
               </Button>

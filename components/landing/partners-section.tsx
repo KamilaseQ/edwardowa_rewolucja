@@ -1,105 +1,156 @@
 "use client"
 
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
+import { ArrowUpRight } from "lucide-react"
 
-const partners = [
-  "POLITECHNIKA WARSZAWSKA",
-  "MERA ROBOTICS",
-  "TECH POLSKA",
-  "INNOWACJE.PL",
-  "ROBOT VALLEY",
-  "AI VENTURES",
-  "FUTURE LAB",
-  "STARTUP POLAND",
+interface Partner {
+  name: string
+  role: string
+  hue: number
+}
+
+const partners: Partner[] = [
+  { name: "Politechnika Warszawska", role: "Partner akademicki", hue: 78 },
+  { name: "Mera Robotics", role: "Partner technologiczny", hue: 65 },
+  { name: "AI Ventures", role: "Partner inwestycyjny", hue: 70 },
+  { name: "Tech Polska", role: "Patron medialny", hue: 55 },
+  { name: "Robot Valley", role: "Partner branżowy", hue: 45 },
+  { name: "Startup Poland", role: "Partner ekosystemu", hue: 80 },
+  { name: "Innowacje.pl", role: "Patron medialny", hue: 85 },
+  { name: "Future Lab", role: "Partner R&D", hue: 58 },
 ]
 
+function PartnerCard({ partner }: { partner: Partner }) {
+  const initials = partner.name.split(" ").map(w => w[0]).join("").slice(0, 2)
+
+  return (
+    <div
+      className="flex-shrink-0 group cursor-default"
+      style={{ width: "260px" }}
+    >
+      <div
+        className="mx-3 flex items-center gap-5 px-6 py-7 rounded-2xl transition-all duration-300 group-hover:scale-[1.03]"
+        style={{
+          background: "oklch(0.09 0.008 60)",
+          border: `1px solid oklch(0.82 0.18 ${partner.hue} / 0.18)`,
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget
+          el.style.borderColor = `oklch(0.82 0.18 ${partner.hue} / 0.50)`
+          el.style.boxShadow = `0 0 30px oklch(0.82 0.18 ${partner.hue} / 0.15)`
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget
+          el.style.borderColor = `oklch(0.82 0.18 ${partner.hue} / 0.18)`
+          el.style.boxShadow = "none"
+        }}
+      >
+        {/* Logo */}
+        <div
+          className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{
+            background: `linear-gradient(135deg, oklch(0.82 0.18 ${partner.hue} / 0.22), oklch(0.82 0.18 ${partner.hue} / 0.06))`,
+            border: `1px solid oklch(0.82 0.18 ${partner.hue} / 0.30)`,
+          }}
+        >
+          <span
+            className="text-lg font-bold"
+            style={{ color: `oklch(0.85 0.16 ${partner.hue})` }}
+          >
+            {initials}
+          </span>
+        </div>
+
+        {/* Info */}
+        <div className="min-w-0">
+          <p className="text-base font-bold text-foreground leading-tight truncate group-hover:text-white transition-colors">
+            {partner.name}
+          </p>
+          <p
+            className="text-[11px] mt-1 uppercase tracking-wider font-medium"
+            style={{ color: `oklch(0.65 0.12 ${partner.hue})` }}
+          >
+            {partner.role}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function PartnersSection() {
-  const { ref, isVisible } = useIntersectionObserver<HTMLElement>({
-    threshold: 0.1,
-  })
+  const { ref, isVisible } = useIntersectionObserver<HTMLElement>({ threshold: 0.1 })
+  const quadrupled = [...partners, ...partners, ...partners, ...partners]
+
+  const scrollToSignup = () => {
+    document.querySelector("#zapisz-sie")?.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
     <section
       ref={ref}
       id="partnerzy"
-      className="relative py-16 border-y border-gradient-start/20 overflow-hidden bg-gradient-to-b from-background via-gradient-start/[0.03] to-background"
+      className="relative py-20 overflow-hidden"
+      style={{ background: "oklch(0.06 0.005 60)", borderTop: "1px solid oklch(0.82 0.18 78 / 0.10)", borderBottom: "1px solid oklch(0.82 0.18 78 / 0.10)" }}
     >
       <div
-        className={`transition-all duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
+        className={`transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
       >
-        {/* Section label */}
-        <div className="text-center mb-8">
-          <span className="text-xs uppercase tracking-[0.3em] text-gradient-start font-medium">
-            Partnerzy & Patroni
-          </span>
+        {/* Header */}
+        <div className="text-center mb-16 px-6">
+          <h2 className="font-display uppercase text-2xl md:text-3xl lg:text-4xl tracking-[0.2em] font-bold" style={{ color: "oklch(0.82 0.18 78)" }}>
+            Zaufali nam
+          </h2>
         </div>
 
-        {/* Scrolling partners */}
+        {/* Single-row carousel */}
         <div className="relative">
-          {/* Fade edges with gradient */}
-          <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-background via-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-background via-background to-transparent z-10 pointer-events-none" />
+          {/* Left fade */}
+          <div
+            className="absolute left-0 top-0 bottom-0 w-40 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to right, oklch(0.06 0.005 60), transparent)" }}
+          />
+          {/* Right fade */}
+          <div
+            className="absolute right-0 top-0 bottom-0 w-40 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to left, oklch(0.06 0.005 60), transparent)" }}
+          />
 
-          {/* Scrolling content - first row */}
-          <div className="flex animate-scroll mb-6">
-            {[...partners, ...partners, ...partners].map((partner, index) => (
-              <div
-                key={`${partner}-${index}`}
-                className="flex-shrink-0 px-10 md:px-14 group"
-              >
-                <span className="text-base md:text-lg font-semibold text-foreground/30 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-gradient-start group-hover:to-gradient-mid transition-all duration-300 whitespace-nowrap tracking-wider cursor-default">
-                  {partner}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Second row - reverse direction */}
-          <div className="flex animate-scroll-reverse">
-            {[...partners.slice().reverse(), ...partners.slice().reverse(), ...partners.slice().reverse()].map((partner, index) => (
-              <div
-                key={`reverse-${partner}-${index}`}
-                className="flex-shrink-0 px-10 md:px-14 group"
-              >
-                <span className="text-base md:text-lg font-semibold text-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-gradient-mid group-hover:to-gradient-end transition-all duration-300 whitespace-nowrap tracking-wider cursor-default">
-                  {partner}
-                </span>
-              </div>
+          <div className="partners-carousel flex">
+            {quadrupled.map((p, i) => (
+              <PartnerCard key={`p-${i}`} partner={p} />
             ))}
           </div>
         </div>
 
-        {/* Gradient line accent */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-gradient-start/30 to-transparent" />
+        {/* Bottom CTA nudge */}
+        <div
+          className={`mt-14 text-center transition-all duration-1000 delay-500`}
+        >
+          <p className="text-sm text-muted-foreground mb-4">
+            Takie podmioty wierzą w to wydarzenie.
+            <span className="text-gradient-start font-semibold"> A Ty?</span>
+          </p>
+          <button
+            onClick={scrollToSignup}
+            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all hover:gap-3 cursor-pointer"
+            style={{ color: "oklch(0.82 0.18 78)" }}
+          >
+            Dołącz za darmo
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.33%);
-          }
+        @keyframes partners-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-25%); }
         }
-        @keyframes scroll-reverse {
-          0% {
-            transform: translateX(-33.33%);
-          }
-          100% {
-            transform: translateX(0);
-          }
+        .partners-carousel {
+          animation: partners-scroll 40s linear infinite;
         }
-        .animate-scroll {
-          animation: scroll 35s linear infinite;
-        }
-        .animate-scroll-reverse {
-          animation: scroll-reverse 40s linear infinite;
-        }
-        .animate-scroll:hover,
-        .animate-scroll-reverse:hover {
+        .partners-carousel:hover {
           animation-play-state: paused;
         }
       `}</style>

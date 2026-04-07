@@ -1,149 +1,328 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, MapPin, Calendar, Ticket } from "lucide-react"
+import { ArrowDown, Zap, ChevronRight } from "lucide-react"
+
+interface TimeLeft {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
+function useCountdown(targetDate: Date): TimeLeft {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+
+  useEffect(() => {
+    const calculate = () => {
+      const now = new Date().getTime()
+      const distance = targetDate.getTime() - now
+      if (distance <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+        return
+      }
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      })
+    }
+    calculate()
+    const interval = setInterval(calculate, 1000)
+    return () => clearInterval(interval)
+  }, [targetDate])
+
+  return timeLeft
+}
+
+/* ── Cursor glow — smooth radial glow following mouse ── */
+function useCursorGlow(containerRef: React.RefObject<HTMLElement | null>) {
+  const pos = useRef({ x: -500, y: -500, currentX: -500, currentY: -500 })
+  const rafId = useRef<number>(0)
+  const element = useRef<HTMLDivElement | null>(null)
+  const hasEntered = useRef(false)
+
+  const onEnter = useCallback(() => {
+    hasEntered.current = true
+    if (element.current) element.current.style.opacity = "1"
+  }, [])
+
+  const onLeave = useCallback(() => {
+    hasEntered.current = false
+    if (element.current) element.current.style.opacity = "0"
+  }, [])
+
+  const onMove = useCallback((e: MouseEvent) => {
+    if (!containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    pos.current.x = e.clientX - rect.left
+    pos.current.y = e.clientY - rect.top
+  }, [containerRef])
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    container.addEventListener("mousemove", onMove)
+    container.addEventListener("mouseenter", onEnter)
+    container.addEventListener("mouseleave", onLeave)
+
+    const tick = () => {
+      const p = pos.current
+      p.currentX += (p.x - p.currentX) * 0.06
+      p.currentY += (p.y - p.currentY) * 0.06
+
+      if (element.current) {
+        element.current.style.transform = `translate(${p.currentX - 250}px, ${p.currentY - 250}px)`
+      }
+      rafId.current = requestAnimationFrame(tick)
+    }
+    rafId.current = requestAnimationFrame(tick)
+
+    return () => {
+      container.removeEventListener("mousemove", onMove)
+      container.removeEventListener("mouseenter", onEnter)
+      container.removeEventListener("mouseleave", onLeave)
+      cancelAnimationFrame(rafId.current)
+    }
+  }, [containerRef, onMove, onEnter, onLeave])
+
+  return element
+}
+
+const EVENT_DATE = new Date("2026-04-29T10:00:00")
 
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [tick, setTick] = useState(false)
+  const timeLeft = useCountdown(EVENT_DATE)
+  const sectionRef = useRef<HTMLElement>(null)
+  const glowRef = useCursorGlow(sectionRef)
 
   useEffect(() => {
-    setIsLoaded(true)
+    const t = setTimeout(() => setIsLoaded(true), 100)
+    return () => clearTimeout(t)
   }, [])
 
+  useEffect(() => {
+    setTick(true)
+    const t = setTimeout(() => setTick(false), 150)
+    return () => clearTimeout(t)
+  }, [timeLeft.seconds])
+
   const scrollToSignup = () => {
-    const element = document.querySelector("#zapisz-sie")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    document.querySelector("#zapisz-sie")?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const scrollToPartners = () => {
-    const element = document.querySelector("#partnerzy")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+  const scrollToSpeaker = () => {
+    document.querySelector("#prelegent")?.scrollIntoView({ behavior: "smooth" })
   }
+
+  const CountdownBox = ({ value, label }: { value: number; label: string }) => (
+    <div className="flex flex-col items-center">
+      <div
+        className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center transition-all duration-150 ${tick && label === "SEK" ? "scale-110" : "scale-100"}`}
+        style={{
+          background: "linear-gradient(135deg, oklch(0.13 0.020 60), oklch(0.09 0.015 60))",
+          border: "1px solid oklch(0.82 0.18 78 / 0.35)",
+          boxShadow: "0 0 20px oklch(0.82 0.18 78 / 0.12), inset 0 1px 0 oklch(0.82 0.18 78 / 0.20)",
+        }}
+      >
+        <span
+          className="text-xl sm:text-2xl font-bold tabular-nums"
+          style={{ color: "oklch(0.92 0.18 85)", textShadow: "0 0 20px oklch(0.82 0.18 78 / 0.7)" }}
+        >
+          {String(value).padStart(2, "0")}
+        </span>
+      </div>
+      <span className="mt-1.5 text-[9px] uppercase tracking-[0.18em] font-semibold" style={{ color: "oklch(0.82 0.18 78 / 0.7)" }}>
+        {label}
+      </span>
+    </div>
+  )
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute -top-1/4 -left-1/4 w-[60%] h-[60%] bg-gradient-to-br from-gradient-start/10 via-gradient-mid/5 to-transparent rounded-full blur-[150px]" 
+      {/* Aurora background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-background" />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full animate-gold-flare"
+          style={{ background: "radial-gradient(circle, oklch(0.82 0.18 78 / 0.10) 0%, oklch(0.70 0.20 55 / 0.05) 40%, transparent 70%)" }}
         />
-        <div 
-          className="absolute -bottom-1/4 -right-1/4 w-[50%] h-[50%] bg-gradient-to-tl from-gradient-end/8 to-transparent rounded-full blur-[150px]" 
+        <div
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full animate-hero-aurora"
+          style={{ background: "radial-gradient(circle, oklch(0.82 0.18 78 / 0.15) 0%, transparent 60%)", filter: "blur(60px)" }}
+        />
+        <div
+          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full"
+          style={{ background: "radial-gradient(circle, oklch(0.58 0.18 38 / 0.12) 0%, transparent 60%)", filter: "blur(80px)", animation: "hero-aurora 16s ease-in-out infinite reverse" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundImage: "linear-gradient(oklch(0.82 0.18 78 / 0.025) 1px, transparent 1px), linear-gradient(90deg, oklch(0.82 0.18 78 / 0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 80% 80% at center, transparent 0%, oklch(0.06 0.005 60) 80%)" }}
+        />
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 rounded-full"
+            style={{ left: `${12 + i * 15}%`, bottom: "15%", backgroundColor: `oklch(0.82 0.18 78 / ${0.3 + (i % 3) * 0.2})`, animation: `float-particle ${4 + i * 1.2}s linear infinite`, animationDelay: `${i * 0.8}s` }}
+          />
+        ))}
+      </div>
+
+      {/* Cursor glow — visible warm radial that follows mouse */}
+      <div
+        ref={glowRef}
+        className="absolute top-0 left-0 pointer-events-none hidden md:block z-[1]"
+        style={{
+          width: "500px",
+          height: "500px",
+          opacity: 0,
+          transition: "opacity 0.6s ease",
+        }}
+      >
+        <div
+          className="w-full h-full rounded-full"
+          style={{
+            background: "radial-gradient(circle, oklch(0.82 0.18 78 / 0.22) 0%, oklch(0.70 0.20 55 / 0.08) 35%, transparent 65%)",
+            filter: "blur(40px)",
+          }}
         />
       </div>
-      
-      {/* Grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      
-      {/* Radial overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--background)_70%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-        {/* Date badge */}
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-20 text-center flex-1 flex flex-col items-center justify-center">
+
+        {/* Live badge */}
         <div
-          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/50 border border-border backdrop-blur-sm mb-10 transition-all duration-1000 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+          className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-5 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          style={{ background: "oklch(0.12 0.015 60 / 0.8)", border: "1px solid oklch(0.82 0.18 78 / 0.35)", backdropFilter: "blur(12px)" }}
         >
-          <span className="text-sm font-medium tracking-wide text-foreground">
-            29 Kwietnia 2025 &bull; Politechnika Warszawska
+          <span className="relative flex w-2 h-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "oklch(0.82 0.18 78)" }} />
+            <span className="relative inline-flex rounded-full w-2 h-2" style={{ backgroundColor: "oklch(0.82 0.18 78)" }} />
+          </span>
+          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "oklch(0.88 0.20 85)" }}>
+            29 Kwietnia 2026 &bull; Politechnika Warszawska
           </span>
         </div>
 
-        {/* Main title - Space Grotesk like navbar */}
+        {/* Main Title */}
         <h1
-          className={`font-sans tracking-tight leading-[1.1] mb-8 transition-all duration-1000 delay-200 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`font-display uppercase leading-[0.92] mb-4 transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground">
-            Edwardowa
+          <span className="block font-bold tracking-tight text-foreground" style={{ fontSize: "clamp(2.2rem, 7.5vw, 7rem)" }}>
+            EDWARDOWA
           </span>
-          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground">
-            Rewolucja
+          <span
+            className="block font-bold tracking-tight"
+            style={{
+              fontSize: "clamp(2.2rem, 7.5vw, 7rem)",
+              backgroundImage: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55), oklch(0.82 0.18 78))",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              animation: "shimmer 3s linear infinite",
+            }}
+          >
+            REWOLUCJA
           </span>
         </h1>
 
-        {/* Subtitle */}
+        {/* Tagline */}
         <p
-          className={`max-w-2xl mx-auto text-xl md:text-2xl text-foreground/80 mb-6 leading-relaxed transition-all duration-1000 delay-400 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-bold text-foreground mb-6 leading-snug transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          Roboty humanoidalne wchodzą do gry. Ty też powinieneś.
+          Nowe technologie rozdają karty.{" "}
+          <span style={{ backgroundImage: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            Czas zrobić pierwszy krok we właściwym kierunku.
+          </span>
         </p>
 
-        <p
-          className={`max-w-xl mx-auto text-base md:text-lg text-muted-foreground mb-12 transition-all duration-1000 delay-500 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          Jeden wieczór. Jeden robot celebryta. Setki osób, które nie chcą przegapić tego, co nadchodzi.
-        </p>
-
-        {/* Info badges */}
+        {/* Countdown — highlighted */}
         <div
-          className={`flex flex-wrap justify-center gap-6 mb-14 transition-all duration-1000 delay-600 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`inline-flex items-center gap-3 sm:gap-4 px-6 py-4 rounded-2xl mb-6 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          style={{
+            background: "oklch(0.08 0.010 60 / 0.7)",
+            border: "1px solid oklch(0.82 0.18 78 / 0.20)",
+            backdropFilter: "blur(12px)",
+            boxShadow: "0 0 40px oklch(0.82 0.18 78 / 0.06)",
+          }}
         >
-          <div className="flex items-center gap-2 text-sm text-foreground/70">
-            <MapPin className="w-4 h-4 text-gradient-start" />
-            <span>Politechnika Warszawska</span>
+          <CountdownBox value={timeLeft.days} label="DNI" />
+          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.82 0.18 78 / 0.5)" }}>:</span>
+          <CountdownBox value={timeLeft.hours} label="GODZ" />
+          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.82 0.18 78 / 0.5)" }}>:</span>
+          <CountdownBox value={timeLeft.minutes} label="MIN" />
+          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.82 0.18 78 / 0.5)" }}>:</span>
+          <CountdownBox value={timeLeft.seconds} label="SEK" />
+        </div>
+
+        {/* Info row */}
+        <div
+          className={`flex flex-wrap justify-center items-center gap-3 sm:gap-4 mb-8 transition-all duration-1000 delay-[600ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <div className="flex items-center gap-2 text-foreground/80 font-medium">
+            <Zap className="w-4 h-4" style={{ color: "oklch(0.88 0.20 85)" }} />
+            <span className="text-sm tracking-wide">Wstęp wolny</span>
           </div>
-          <div className="w-px h-4 bg-border hidden sm:block" />
-          <div className="flex items-center gap-2 text-sm text-foreground/70">
-            <Calendar className="w-4 h-4 text-gradient-start" />
-            <span>29 Kwietnia 2025</span>
-          </div>
-          <div className="w-px h-4 bg-border hidden sm:block" />
-          <div className="flex items-center gap-2 text-sm text-foreground/70">
-            <Ticket className="w-4 h-4 text-gradient-start" />
-            <span className="font-semibold">Wstęp wolny</span>
+
+          <span className="text-muted-foreground/30 hidden sm:block">|</span>
+
+          <div className="flex items-center gap-2 font-bold">
+            <span className="text-sm tracking-wide" style={{ color: "oklch(0.82 0.18 78)" }}>Ograniczona pula 200 miejsc</span>
           </div>
         </div>
 
         {/* CTA Buttons */}
         <div
-          className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-700 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`flex flex-col sm:flex-row gap-3 justify-center transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <Button
             onClick={scrollToSignup}
             size="lg"
-            className="text-lg px-10 py-7 bg-foreground text-background hover:bg-foreground/90 transition-all hover:scale-105 font-semibold"
+            className="relative overflow-hidden text-sm sm:text-base px-7 py-5 font-bold tracking-wide border-0 group"
+            style={{ background: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55), oklch(0.82 0.18 78))", backgroundSize: "200% auto", animation: "shimmer 2.5s linear infinite, pulse-glow 2s ease-in-out infinite", color: "oklch(0.06 0.005 60)" }}
           >
-            Zapisz się za darmo
+            <span className="flex items-center gap-2">
+              Rezerwuję miejsce
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </span>
           </Button>
           <Button
-            onClick={scrollToPartners}
+            onClick={scrollToSpeaker}
             variant="outline"
             size="lg"
-            className="text-lg px-10 py-7 border-border text-foreground hover:bg-card hover:border-gradient-start/50 transition-all"
+            className="text-sm sm:text-base px-7 py-5 font-semibold transition-all hover:scale-[1.02]"
+            style={{ borderColor: "oklch(0.82 0.18 78 / 0.40)", color: "oklch(0.88 0.20 85)", backgroundColor: "oklch(0.82 0.18 78 / 0.06)" }}
           >
-            Zobacz kto wspiera
+            Kim jest Edward?
           </Button>
         </div>
+      </div>
 
-        {/* Scroll indicator */}
+      {/* Scroll indicator — pinned to bottom with guaranteed spacing */}
+      <div className="relative z-10 pb-6 pt-8">
         <button
-          onClick={scrollToPartners}
-          className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-all cursor-pointer duration-1000 delay-1000 ${
-            isLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          onClick={scrollToSpeaker}
+          className={`flex flex-col items-center gap-1.5 transition-all duration-1000 delay-[1200ms] cursor-pointer ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          style={{ color: "oklch(0.50 0.025 70)" }}
           aria-label="Przewiń w dół"
         >
-          <span className="text-xs uppercase tracking-widest">Przewiń</span>
-          <ArrowDown className="w-5 h-5 animate-bounce" />
+          <span className="text-[10px] uppercase tracking-[0.2em]">Odkryj</span>
+          <ArrowDown className="w-4 h-4 animate-bounce" style={{ color: "oklch(0.82 0.18 78 / 0.6)" }} />
         </button>
       </div>
     </section>

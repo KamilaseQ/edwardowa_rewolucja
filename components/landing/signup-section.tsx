@@ -50,18 +50,18 @@ export function SignupSection() {
             <Zap className="w-4 h-4" />
             Ostatni krok
           </span>
-          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6 leading-none">
-            <span className="text-foreground">NIE PRZEGAP</span>
+          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6 leading-[1.15]">
+            <span className="text-foreground">NIE PRZEGAP</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
-              TEGO WIECZORU
+              SWOJEJ SZANSY
             </span>
           </h2>
           <p className="text-xl text-foreground/80 leading-relaxed mb-2">
-            200 miejsc. Jeden wieczór. Zero powtórek.
+            200 miejsc. Jedno wydarzenie. Zero powtórek.
           </p>
-          <p className="text-base text-muted-foreground">
-            Zapisz się teraz — za darmo.
+          <p className="text-base font-medium" style={{ color: "oklch(0.82 0.18 78)" }}>
+            Zapisz się teraz, za darmo.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export function SignupSection() {
           <div className="w-px h-4 bg-gradient-mid/30" />
           <div className="flex items-center gap-2 text-sm text-foreground/70">
             <Clock className="w-4 h-4 text-gradient-mid" />
-            <span>29 kwietnia 2025</span>
+            <span>29 kwietnia 2026, Politechnika Warszawska</span>
           </div>
         </div>
 
@@ -101,7 +101,7 @@ export function SignupSection() {
                 <p className="text-muted-foreground text-lg">
                   Potwierdzenie leci na Twój email.
                   <br />
-                  <span className="text-gradient-start font-semibold">29 kwietnia, Politechnika Warszawska.</span>
+                  <span className="text-gradient-start font-semibold">29 kwietnia 2026, Politechnika Warszawska. 🔥</span>
                 </p>
               </div>
             </div>
@@ -155,7 +155,12 @@ export function SignupSection() {
                   type="submit"
                   size="lg"
                   disabled={isLoading || !email || !name}
-                  className="w-full h-14 bg-foreground text-background hover:bg-foreground/90 transition-all group text-lg font-semibold rounded-xl hover:shadow-xl hover:shadow-foreground/20 hover:scale-[1.02]"
+                  className="w-full h-14 transition-all group text-lg font-bold rounded-xl hover:shadow-xl hover:scale-[1.02] border-0"
+                  style={{
+                    background: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                    color: "oklch(0.06 0.005 60)",
+                    boxShadow: "0 0 24px oklch(0.82 0.18 78 / 0.3)",
+                  }}
                 >
                   {isLoading ? (
                     <>

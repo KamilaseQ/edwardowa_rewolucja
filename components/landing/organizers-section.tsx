@@ -1,220 +1,265 @@
 "use client"
 
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
-import { ArrowUpRight, Zap } from "lucide-react"
 import { useState } from "react"
+import { Camera, Zap } from "lucide-react"
+
+const organizers = [
+  {
+    id: "kamil",
+    number: "01",
+    firstName: "Kamil",
+    lastName: "Tański",
+    initials: "KT",
+    tags: ["PW", "Builder", "AI"],
+    quote: "Nie czeka aż ktoś mu pozwoli.",
+    description:
+      "Projekty na styku AI, automatyzacji i realnego biznesu. Politechnika to baza, reszta dzieje się poza salami wykładowymi.",
+    gradientFrom: "oklch(0.82 0.18 78)",
+    gradientTo: "oklch(0.70 0.20 55)",
+    borderColor: "oklch(0.82 0.18 78 / 0.25)",
+    activeBorder: "oklch(0.82 0.18 78 / 0.55)",
+  },
+  {
+    id: "leon",
+    number: "02",
+    firstName: "Leon",
+    lastName: "Bednarski",
+    initials: "LB",
+    tags: ["PW", "Strategy", "Events"],
+    quote: "Wie, jak robić rzeczy, które ludzie zapamiętują.",
+    description:
+      "Porusza się tam, gdzie studenci rozmawiają z founderami jak równy z równym. Ma oko do detali i alergię na przeciętność.",
+    gradientFrom: "oklch(0.70 0.20 55)",
+    gradientTo: "oklch(0.58 0.18 38)",
+    borderColor: "oklch(0.70 0.20 55 / 0.25)",
+    activeBorder: "oklch(0.70 0.20 55 / 0.55)",
+  },
+]
+
+function OrganizerCard({
+  org,
+  isActive,
+  onEnter,
+  onLeave,
+  delay,
+  isVisible,
+}: {
+  org: (typeof organizers)[0]
+  isActive: boolean
+  onEnter: () => void
+  onLeave: () => void
+  delay: string
+  isVisible: boolean
+}) {
+  return (
+    <div
+      className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+      style={{ transitionDelay: delay }}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
+      <div
+        className="relative h-full rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer"
+        style={{
+          background: "oklch(0.10 0.008 60)",
+          border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
+          transform: isActive ? "scale(1.015)" : "scale(1)",
+        }}
+      >
+        {/* Glow overlay */}
+        <div
+          className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+          style={{
+            background: `linear-gradient(135deg, ${org.gradientFrom}16, transparent 60%)`,
+            opacity: isActive ? 1 : 0,
+          }}
+        />
+
+        {/* Photo placeholder */}
+        <div className="p-4 pb-0">
+          <div
+            className="w-full aspect-video rounded-xl flex items-center justify-center relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, ${org.gradientFrom}12, ${org.gradientTo}06)`,
+              border: `1px dashed ${org.borderColor}`,
+            }}
+          >
+            <div className="flex flex-col items-center gap-2 opacity-50">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center"
+                style={{ background: `linear-gradient(135deg, ${org.gradientFrom}, ${org.gradientTo})` }}
+              >
+                <span className="text-base font-bold" style={{ color: "oklch(0.06 0.005 60)" }}>
+                  {org.initials}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5" style={{ color: org.gradientFrom }}>
+                <Camera className="w-3 h-3" />
+                <span className="text-[10px] uppercase tracking-wider">Zdjęcie wkrótce</span>
+              </div>
+            </div>
+            <span
+              className="absolute top-2 left-3 text-2xl font-bold tabular-nums opacity-40"
+              style={{
+                backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {org.number}
+            </span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-4 relative">
+          <div className="mb-3">
+            <h3 className="text-2xl font-bold tracking-tight text-foreground leading-none">{org.firstName}</h3>
+            <h3
+              className="text-2xl font-bold tracking-tight leading-none mt-1"
+              style={{
+                backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {org.lastName}
+            </h3>
+          </div>
+
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {org.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 text-[10px] uppercase tracking-wider rounded-full transition-all duration-300"
+                style={{
+                  border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
+                  color: isActive ? "oklch(0.97 0.005 80)" : "oklch(0.50 0.025 70)",
+                  backgroundColor: isActive ? `${org.gradientFrom}12` : "transparent",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-sm font-bold text-foreground mb-2">{org.quote}</p>
+          <p className="text-sm leading-relaxed text-muted-foreground">{org.description}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CenterDivider({ isVisible }: { isVisible: boolean }) {
+  return (
+    <div
+      className={`flex items-center justify-center transition-all duration-700 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+      style={{ transitionDelay: "300ms" }}
+    >
+      <div className="relative py-8 lg:py-0 flex flex-col items-center gap-3">
+        {/* Simple icon + text */}
+        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-card shadow-[0_0_15px_rgba(var(--gradient-start),0.1)] transition-transform hover:scale-105 cursor-default"
+             style={{ border: "1px solid oklch(0.82 0.18 78 / 0.3)" }}>
+          <Zap className="w-5 h-5" style={{ color: "oklch(0.82 0.18 78)" }} />
+        </div>
+        <p className="text-[10px] uppercase tracking-[0.16em] font-bold text-center max-w-[140px] leading-snug"
+           style={{ color: "oklch(0.82 0.18 78)" }}>
+          To nie jest kolejna studencka konferencja
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export function OrganizersSection() {
-  const { ref, isVisible } = useIntersectionObserver<HTMLElement>({
-    threshold: 0.1,
-  })
-  const [activeOrganizer, setActiveOrganizer] = useState<'kamil' | 'leon' | null>(null)
+  const { ref, isVisible } = useIntersectionObserver<HTMLElement>({ threshold: 0.1 })
+  const [activeOrganizer, setActiveOrganizer] = useState<string | null>(null)
 
   return (
-    <section
-      ref={ref}
-      id="organizatorzy"
-      className="relative py-32 px-6 overflow-hidden"
-    >
-      {/* Background elements */}
+    <section ref={ref} id="organizatorzy" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-gradient-to-r from-gradient-start/12 via-gradient-mid/8 to-transparent rounded-full blur-[80px]" />
-        <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-gradient-to-l from-gradient-end/12 via-gradient-mid/8 to-transparent rounded-full blur-[80px]" />
+        <div
+          className="absolute top-1/4 left-0 w-[400px] h-[400px] rounded-full blur-[80px]"
+          style={{ background: "radial-gradient(circle, oklch(0.82 0.18 78 / 0.08), transparent)" }}
+        />
+        <div
+          className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full blur-[80px]"
+          style={{ background: "radial-gradient(circle, oklch(0.58 0.18 38 / 0.08), transparent)" }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative">
-        {/* Section header */}
+        {/* Header */}
         <div
-          className={`mb-20 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-sm uppercase tracking-[0.3em] text-gradient-start font-medium">Kto za tym stoi</span>
+            <span className="text-sm uppercase tracking-[0.3em] text-gradient-start font-medium">Za kulisami</span>
             <div className="flex-1 h-px bg-gradient-to-r from-gradient-start/50 to-transparent" />
           </div>
-          
-          <h2 className="font-display uppercase text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none">
-            <span className="text-foreground">DWÓCH LUDZI.</span>
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
-              ZERO WYMÓWEK.
+
+          <h2 className="font-display uppercase leading-[1.15]">
+            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
+              ORGANIZATORZY
+            </span>
+            <span
+              className="block text-5xl md:text-6xl lg:text-7xl font-bold"
+              style={{
+                backgroundImage: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                backgroundSize: "200% auto",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "shimmer 4s linear infinite",
+              }}
+            >
+              KONFERENCJI.
             </span>
           </h2>
         </div>
 
-        {/* Cards layout */}
-        <div className="grid lg:grid-cols-12 gap-6">
-          {/* Kamil */}
-          <div 
-            className={`lg:col-span-5 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-            style={{ transitionDelay: '200ms' }}
-            onMouseEnter={() => setActiveOrganizer('kamil')}
-            onMouseLeave={() => setActiveOrganizer(null)}
-          >
-            <div className={`group relative h-full p-8 lg:p-10 rounded-3xl border transition-all duration-500 cursor-pointer overflow-hidden ${
-              activeOrganizer === 'kamil' 
-                ? 'bg-card border-gradient-start/50 scale-[1.02]' 
-                : 'bg-card/50 border-border/50 hover:border-gradient-start/30'
-            }`}>
-              {/* Glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br from-gradient-start/20 via-gradient-mid/10 to-transparent blur-2xl transition-opacity duration-500 ${activeOrganizer === 'kamil' ? 'opacity-100' : 'opacity-0'}`} />
-              
-              <div className="relative">
-                {/* Number + Name */}
-                <div className="mb-8">
-                  <span className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-mid">01</span>
-                  <h3 className="text-4xl lg:text-5xl font-bold tracking-tight text-foreground mt-2">Kamil</h3>
-                </div>
+        {/* 3-column grid: card | circle | card */}
+        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-5 items-center mb-14">
+          <OrganizerCard
+            org={organizers[0]}
+            isActive={activeOrganizer === "kamil"}
+            onEnter={() => setActiveOrganizer("kamil")}
+            onLeave={() => setActiveOrganizer(null)}
+            delay="100ms"
+            isVisible={isVisible}
+          />
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {['PW', 'Builder', 'Tech'].map((tag) => (
-                    <span 
-                      key={tag}
-                      className={`px-4 py-1.5 text-xs uppercase tracking-wider rounded-full border transition-all ${
-                        activeOrganizer === 'kamil' 
-                          ? 'border-gradient-start/50 bg-gradient-start/10 text-foreground' 
-                          : 'border-border/50 text-muted-foreground'
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+          <CenterDivider isVisible={isVisible} />
 
-                {/* Description */}
-                <p className="text-lg leading-relaxed text-foreground/80 mb-6">
-                  Nie czeka aż ktoś mu pozwoli. 
-                  <span className="text-gradient-start font-medium"> Buduje rzeczy, które mają sens.</span>
-                </p>
-                <p className="text-base leading-relaxed text-muted-foreground mb-8">
-                  Projekty na styku AI, automatyzacji i realnego biznesu. 
-                  Politechnika to baza — reszta dzieje się poza salami wykładowymi.
-                </p>
-
-                {/* Subtle line */}
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <div className="w-8 h-px bg-gradient-to-r from-gradient-start to-transparent" />
-                  <span>Politechnika Warszawska</span>
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <ArrowUpRight className={`absolute top-8 right-8 w-6 h-6 transition-all duration-300 ${
-                activeOrganizer === 'kamil' 
-                  ? 'text-gradient-start translate-x-1 -translate-y-1' 
-                  : 'text-border'
-              }`} />
-            </div>
-          </div>
-
-          {/* Middle connector */}
-          <div 
-            className={`lg:col-span-2 flex items-center justify-center transition-all duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
-            <div className="relative py-8 lg:py-0">
-              {/* Vertical line */}
-              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gradient-mid/40 to-transparent" />
-              
-              {/* Center element */}
-              <div className="relative bg-background px-4 py-6 text-center">
-                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-br from-gradient-start to-gradient-mid flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-foreground" />
-                </div>
-                <p className="text-xs uppercase tracking-[0.2em] text-gradient-start mb-2">Studenci PW</p>
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-[160px] mx-auto">
-                  Event studencki?
-                  <br />
-                  <span className="text-foreground/80 font-medium">Zapomnij o stereotypach.</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Leon */}
-          <div 
-            className={`lg:col-span-5 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-            style={{ transitionDelay: '300ms' }}
-            onMouseEnter={() => setActiveOrganizer('leon')}
-            onMouseLeave={() => setActiveOrganizer(null)}
-          >
-            <div className={`group relative h-full p-8 lg:p-10 rounded-3xl border transition-all duration-500 cursor-pointer overflow-hidden ${
-              activeOrganizer === 'leon' 
-                ? 'bg-card border-gradient-mid/50 scale-[1.02]' 
-                : 'bg-card/50 border-border/50 hover:border-gradient-mid/30'
-            }`}>
-              {/* Glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br from-gradient-mid/20 via-gradient-end/10 to-transparent blur-2xl transition-opacity duration-500 ${activeOrganizer === 'leon' ? 'opacity-100' : 'opacity-0'}`} />
-              
-              <div className="relative">
-                {/* Number + Name */}
-                <div className="mb-8">
-                  <span className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gradient-mid to-gradient-end">02</span>
-                  <h3 className="text-4xl lg:text-5xl font-bold tracking-tight text-foreground mt-2">Leon</h3>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {['PW', 'Strategy', 'Premium'].map((tag) => (
-                    <span 
-                      key={tag}
-                      className={`px-4 py-1.5 text-xs uppercase tracking-wider rounded-full border transition-all ${
-                        activeOrganizer === 'leon' 
-                          ? 'border-gradient-mid/50 bg-gradient-mid/10 text-foreground' 
-                          : 'border-border/50 text-muted-foreground'
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Description */}
-                <p className="text-lg leading-relaxed text-foreground/80 mb-6">
-                  Wie, jak robić eventy, które 
-                  <span className="text-gradient-mid font-medium"> ludzie zapamiętują.</span>
-                </p>
-                <p className="text-base leading-relaxed text-muted-foreground mb-8">
-                  Porusza się tam, gdzie studenci rozmawiają z founderami jak równy z równym. 
-                  Ma oko do detali i alergię na przeciętność.
-                </p>
-
-                {/* Subtle line */}
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <div className="w-8 h-px bg-gradient-to-r from-gradient-mid to-transparent" />
-                  <span>Politechnika Warszawska</span>
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <ArrowUpRight className={`absolute top-8 right-8 w-6 h-6 transition-all duration-300 ${
-                activeOrganizer === 'leon' 
-                  ? 'text-gradient-mid translate-x-1 -translate-y-1' 
-                  : 'text-border'
-              }`} />
-            </div>
-          </div>
+          <OrganizerCard
+            org={organizers[1]}
+            isActive={activeOrganizer === "leon"}
+            onEnter={() => setActiveOrganizer("leon")}
+            onLeave={() => setActiveOrganizer(null)}
+            delay="200ms"
+            isVisible={isVisible}
+          />
         </div>
 
         {/* Bottom statement */}
-        <div 
-          className={`mt-16 text-center transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ transitionDelay: '600ms' }}
+        <div
+          className={`text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          style={{ transitionDelay: "500ms" }}
         >
-          <p className="text-lg text-foreground/60 max-w-lg mx-auto">
-            Dwóch studentów, którzy postanowili, że 
-            <span className="text-gradient-start font-medium"> najlepsze rzeczy nie dzieją się same.</span>
-          </p>
+          <div
+            className="inline-flex items-center gap-4 px-7 py-3.5 rounded-full"
+            style={{ background: "oklch(0.10 0.008 60)", border: "1px solid oklch(0.82 0.18 78 / 0.18)" }}
+          >
+            <span className="text-muted-foreground text-sm">Dwóch studentów Politechniki Warszawskiej</span>
+            <span className="w-px h-4" style={{ backgroundColor: "oklch(0.82 0.18 78 / 0.30)" }} />
+            <span className="text-sm font-semibold" style={{ color: "oklch(0.82 0.18 78)" }}>
+              200 osób, jeden robot, zero kompromisów
+            </span>
+          </div>
         </div>
       </div>
     </section>

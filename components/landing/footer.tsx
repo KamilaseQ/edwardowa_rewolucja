@@ -23,7 +23,7 @@ export function Footer() {
               </h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Jedno wydarzenie. Jedna szansa. Jeden wieczór, który zmieni Twoje spojrzenie na przyszłość.
+              Jedno wydarzenie. Jedna szansa. Jeden dzień, który zmieni Twoje spojrzenie na przyszłość.
             </p>
             <div className="flex gap-3">
               <a 
@@ -56,7 +56,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-sm text-foreground/80 group">
                 <Calendar className="w-4 h-4 text-gradient-start" />
-                <span className="group-hover:text-foreground transition-colors">29 Kwietnia 2025</span>
+                <span className="group-hover:text-foreground transition-colors">29 Kwietnia 2026</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-foreground/80 group">
                 <MapPin className="w-4 h-4 text-gradient-mid" />
@@ -102,11 +102,11 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-gradient-start/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} Edwardowa Rewolucja. Wszelkie prawa zastrzeżone.
+          <p className="text-sm text-muted-foreground uppercase tracking-widest text-[10px]">
+            © {currentYear} Edwardowa Rewolucja
           </p>
           <p className="text-sm text-foreground/50">
-            Stworzono przez <span className="text-gradient-start">Kamila</span> i <span className="text-gradient-mid">Leona</span> na Politechnice Warszawskiej
+            200 miejsc. Zero powtórek. <span className="text-gradient-start font-semibold">Zapisz się, zanim znikną.</span>
           </p>
         </div>
       </div>

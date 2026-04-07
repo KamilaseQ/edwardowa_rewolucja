@@ -47,21 +47,25 @@ export function WhySection() {
           >
             <span className="inline-flex items-center gap-3 text-sm uppercase tracking-widest text-gradient-start mb-6">
               <span className="w-12 h-px bg-gradient-to-r from-gradient-start to-gradient-mid" />
-              Timing jest wszystkim
+              Dlaczego teraz
             </span>
-            <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight mb-8 leading-none">
-              <span className="text-foreground">JESTEŚMY NA</span>
+            <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight mb-8 leading-[1.25]">
+              <span className="text-foreground">NOWA ERA</span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
-                SAMYM POCZĄTKU
+                WŁAŚNIE SIĘ ZACZYNA
               </span>
             </h2>
             <p className="text-xl text-foreground font-medium leading-relaxed mb-4">
-              Rynek robotyki humanoidalnej eksploduje właśnie teraz.
+              Robotyka humanoidalna otwiera drzwi, które do tej pory były zamknięte.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+              Dla tych, którzy dopiero wchodzą w temat, to szansa by zacząć od razu we właściwym miejscu.
+              Dla tych, którzy już działają, to moment by obrać nowy kierunek i wyprzedzić resztę.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Early adopterzy definiują branże przez dekady. 
-              <span className="text-gradient-start font-medium"> Pytanie brzmi: będziesz wśród nich?</span>
+              Ta konferencja otwiera drzwi do okazji, o których dowiesz się tylko będąc na sali.
+              <span className="text-gradient-start font-medium"> Punkt kulminacyjny? Orędzie Edwarda. Więcej nie zdradzimy.</span>
             </p>
 
             {/* Mini stats */}
@@ -73,8 +77,8 @@ export function WhySection() {
               </div>
               <div className="p-4 rounded-xl bg-card/50 border border-border/50">
                 <Clock className="w-5 h-5 text-gradient-mid mb-2" />
-                <p className="text-2xl font-bold text-foreground">24-36</p>
-                <p className="text-xs text-muted-foreground">miesięcy okna</p>
+                <p className="text-2xl font-bold text-foreground">Ucieka</p>
+                <p className="text-xs text-muted-foreground">czas na decyzję</p>
               </div>
               <div className="p-4 rounded-xl bg-card/50 border border-border/50">
                 <Target className="w-5 h-5 text-gradient-end mb-2" />
@@ -86,9 +90,14 @@ export function WhySection() {
             <Button
               onClick={scrollToSignup}
               size="lg"
-              className="bg-foreground text-background hover:bg-foreground/90 transition-all hover:scale-105 hover:shadow-xl hover:shadow-foreground/20 font-semibold text-lg px-8 group"
+              className="font-bold text-lg px-8 group border-0 transition-all hover:scale-105"
+              style={{
+                background: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                color: "oklch(0.06 0.005 60)",
+                boxShadow: "0 0 24px oklch(0.82 0.18 78 / 0.4)",
+              }}
             >
-              Zostań Early Moverem
+              Chcę tam być
               <ArrowUpRight className="w-5 h-5 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Button>
           </div>
