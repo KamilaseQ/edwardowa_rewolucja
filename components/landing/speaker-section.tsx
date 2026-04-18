@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Star } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
+import { FORM_URL } from "@/lib/constants"
 
 const stats = [
   { end: 350, suffix: "M+", label: "Wyświetleń", gradient: "from-gradient-start to-gradient-mid" },
@@ -19,9 +20,7 @@ export function SpeakerSection() {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>({ threshold: 0.1 })
   const [isHovered, setIsHovered] = useState(false)
 
-  const scrollToSignup = () => {
-    document.querySelector("#zapisz-sie")?.scrollIntoView({ behavior: "smooth" })
-  }
+  const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
 
   return (
     <section ref={ref} id="prelegent" className="relative py-32 px-6 overflow-hidden">
@@ -62,7 +61,7 @@ export function SpeakerSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent p-8 flex flex-col justify-end">
                       <p className="text-2xl font-bold text-foreground">Edward Warchocki</p>
-                      <p className="text-sm text-gradient-start font-medium mt-1">Pierwszy Robot Celebryta</p>
+                      <p className="text-sm text-foreground/60 font-medium mt-1">Pierwszy Robot Celebryta</p>
                     </div>
                     <a
                       href="https://konfederacja.com.pl/dzisiaj-w-gmachu-sejmu-rp-z-inicjatywy-konfederacji-pojawil-sie-niejaki-edward-w/"
@@ -77,7 +76,7 @@ export function SpeakerSection() {
                 <div
                   className={`absolute inset-0 blur-[60px] -z-10 transition-opacity duration-500`}
                   style={{
-                    background: "linear-gradient(135deg, oklch(0.82 0.18 78 / 0.5), oklch(0.58 0.18 38 / 0.5))",
+                    background: "linear-gradient(135deg, oklch(0.68 0.20 150 / 0.5), oklch(0.62 0.22 290 / 0.5))",
                     opacity: isHovered ? 0.6 : 0.2,
                   }}
                 />
@@ -95,7 +94,7 @@ export function SpeakerSection() {
             <h2 className="font-display uppercase text-6xl md:text-7xl lg:text-8xl tracking-tight mb-10 leading-[1.15]">
               <span
                 style={{
-                  backgroundImage: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                  backgroundImage: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
                   backgroundSize: "200% auto",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -111,8 +110,7 @@ export function SpeakerSection() {
               350 milionów odsłon. Życie ciekawsze niż u nie jednego człowieka.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
-              Pierwszy polski robot influencer. Fenomen na skalę światową. Gość Sejmu, TVN, Polsat News. Na Edwardowej Rewolucji powie coś,
-              <span className="text-gradient-start font-medium"> czego jeszcze nikt w Polsce nie usłyszał i co może na zawsze odmienić rynek.</span>
+              Pierwszy polski robot influencer. Fenomen na skalę światową. Gość Sejmu, TVN, Polsat News. Na tym wydarzeniu powie coś, czego jeszcze nikt w Polsce nie usłyszał i co może na zawsze odmienić rynek.
             </p>
 
             {/* Media mentions */}
@@ -124,15 +122,15 @@ export function SpeakerSection() {
                     key={logo}
                     className="px-4 py-2 text-xs uppercase tracking-wider border rounded-full text-foreground/80 hover:text-foreground transition-all cursor-default"
                     style={{
-                      borderColor: "oklch(0.82 0.18 78 / 0.30)",
+                      borderColor: "oklch(0.68 0.20 150 / 0.30)",
                       transition: "all 0.2s",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "oklch(0.82 0.18 78)"
-                      e.currentTarget.style.backgroundColor = "oklch(0.82 0.18 78 / 0.1)"
+                      e.currentTarget.style.borderColor = "oklch(0.68 0.20 150)"
+                      e.currentTarget.style.backgroundColor = "oklch(0.68 0.20 150 / 0.1)"
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "oklch(0.82 0.18 78 / 0.30)"
+                      e.currentTarget.style.borderColor = "oklch(0.68 0.20 150 / 0.30)"
                       e.currentTarget.style.backgroundColor = "transparent"
                     }}
                   >
@@ -146,15 +144,7 @@ export function SpeakerSection() {
             <div className="grid grid-cols-3 gap-8 py-8 border-y border-gradient-start/20 mb-10">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <div
-                    className="text-3xl md:text-4xl font-bold"
-                    style={{
-                      backgroundImage: `linear-gradient(90deg, var(--gradient-start), var(--gradient-mid))`,
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
+                  <div className="text-3xl md:text-4xl font-bold text-foreground">
                     <AnimatedCounter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} label={stat.label} />
                   </div>
                 </div>
@@ -164,13 +154,13 @@ export function SpeakerSection() {
             {/* CTA */}
             <div className="flex flex-wrap gap-4">
               <Button
-                onClick={scrollToSignup}
+                onClick={openForm}
                 size="lg"
                 className="font-bold text-lg px-8 group border-0 transition-all hover:scale-105"
                 style={{
-                  background: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
-                  color: "oklch(0.06 0.005 60)",
-                  boxShadow: "0 0 24px oklch(0.82 0.18 78 / 0.4)",
+                  background: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                  color: "oklch(0.06 0.005 270)",
+                  boxShadow: "0 0 24px oklch(0.68 0.20 150 / 0.4)",
                 }}
               >
                 Chcę posłuchać Edwarda

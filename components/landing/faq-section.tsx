@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "Gdzie i kiedy?",
     answer:
-      "29 kwietnia 2026, Politechnika Warszawska. Dokładny budynek i sala — wyślemy do zarejestrowanych uczestników.",
+      "29 kwietnia 2026, godz. 14:00, Politechnika Warszawska. Dokładny budynek i sala — wyślemy do zarejestrowanych uczestników.",
   },
   {
     question: "Jak długo to potrwa?",

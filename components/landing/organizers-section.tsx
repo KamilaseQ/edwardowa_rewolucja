@@ -15,10 +15,10 @@ const organizers = [
     quote: "Nie czeka aż ktoś mu pozwoli.",
     description:
       "Projekty na styku AI, automatyzacji i realnego biznesu. Politechnika to baza, reszta dzieje się poza salami wykładowymi.",
-    gradientFrom: "oklch(0.82 0.18 78)",
-    gradientTo: "oklch(0.70 0.20 55)",
-    borderColor: "oklch(0.82 0.18 78 / 0.25)",
-    activeBorder: "oklch(0.82 0.18 78 / 0.55)",
+    gradientFrom: "oklch(0.68 0.20 150)",
+    gradientTo: "oklch(0.58 0.17 240)",
+    borderColor: "oklch(0.68 0.20 150 / 0.25)",
+    activeBorder: "oklch(0.68 0.20 150 / 0.55)",
   },
   {
     id: "leon",
@@ -30,10 +30,10 @@ const organizers = [
     quote: "Wie, jak robić rzeczy, które ludzie zapamiętują.",
     description:
       "Porusza się tam, gdzie studenci rozmawiają z founderami jak równy z równym. Ma oko do detali i alergię na przeciętność.",
-    gradientFrom: "oklch(0.70 0.20 55)",
-    gradientTo: "oklch(0.58 0.18 38)",
-    borderColor: "oklch(0.70 0.20 55 / 0.25)",
-    activeBorder: "oklch(0.70 0.20 55 / 0.55)",
+    gradientFrom: "oklch(0.58 0.17 240)",
+    gradientTo: "oklch(0.62 0.22 290)",
+    borderColor: "oklch(0.58 0.17 240 / 0.25)",
+    activeBorder: "oklch(0.58 0.17 240 / 0.55)",
   },
 ]
 
@@ -62,7 +62,7 @@ function OrganizerCard({
       <div
         className="relative h-full rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer"
         style={{
-          background: "oklch(0.10 0.008 60)",
+          background: "oklch(0.10 0.008 270)",
           border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
           transform: isActive ? "scale(1.015)" : "scale(1)",
         }}
@@ -90,7 +90,7 @@ function OrganizerCard({
                 className="w-12 h-12 rounded-full flex items-center justify-center"
                 style={{ background: `linear-gradient(135deg, ${org.gradientFrom}, ${org.gradientTo})` }}
               >
-                <span className="text-base font-bold" style={{ color: "oklch(0.06 0.005 60)" }}>
+                <span className="text-base font-bold" style={{ color: "oklch(0.06 0.005 270)" }}>
                   {org.initials}
                 </span>
               </div>
@@ -137,7 +137,7 @@ function OrganizerCard({
                 className="px-2 py-0.5 text-[10px] uppercase tracking-wider rounded-full transition-all duration-300"
                 style={{
                   border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
-                  color: isActive ? "oklch(0.97 0.005 80)" : "oklch(0.50 0.025 70)",
+                  color: isActive ? "oklch(0.97 0.005 80)" : "oklch(0.50 0.015 270)",
                   backgroundColor: isActive ? `${org.gradientFrom}12` : "transparent",
                 }}
               >
@@ -163,11 +163,11 @@ function CenterDivider({ isVisible }: { isVisible: boolean }) {
       <div className="relative py-8 lg:py-0 flex flex-col items-center gap-3">
         {/* Simple icon + text */}
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-card shadow-[0_0_15px_rgba(var(--gradient-start),0.1)] transition-transform hover:scale-105 cursor-default"
-             style={{ border: "1px solid oklch(0.82 0.18 78 / 0.3)" }}>
-          <Zap className="w-5 h-5" style={{ color: "oklch(0.82 0.18 78)" }} />
+             style={{ border: "1px solid oklch(0.68 0.20 150 / 0.3)" }}>
+          <Zap className="w-5 h-5" style={{ color: "oklch(0.68 0.20 150)" }} />
         </div>
         <p className="text-[10px] uppercase tracking-[0.16em] font-bold text-center max-w-[140px] leading-snug"
-           style={{ color: "oklch(0.82 0.18 78)" }}>
+           style={{ color: "oklch(0.68 0.20 150)" }}>
           To nie jest kolejna studencka konferencja
         </p>
       </div>
@@ -184,11 +184,11 @@ export function OrganizersSection() {
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-1/4 left-0 w-[400px] h-[400px] rounded-full blur-[80px]"
-          style={{ background: "radial-gradient(circle, oklch(0.82 0.18 78 / 0.08), transparent)" }}
+          style={{ background: "radial-gradient(circle, oklch(0.68 0.20 150 / 0.08), transparent)" }}
         />
         <div
           className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full blur-[80px]"
-          style={{ background: "radial-gradient(circle, oklch(0.58 0.18 38 / 0.08), transparent)" }}
+          style={{ background: "radial-gradient(circle, oklch(0.62 0.22 290 / 0.08), transparent)" }}
         />
       </div>
 
@@ -209,7 +209,7 @@ export function OrganizersSection() {
             <span
               className="block text-5xl md:text-6xl lg:text-7xl font-bold"
               style={{
-                backgroundImage: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
+                backgroundImage: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -252,12 +252,12 @@ export function OrganizersSection() {
         >
           <div
             className="inline-flex items-center gap-4 px-7 py-3.5 rounded-full"
-            style={{ background: "oklch(0.10 0.008 60)", border: "1px solid oklch(0.82 0.18 78 / 0.18)" }}
+            style={{ background: "oklch(0.10 0.008 270)", border: "1px solid oklch(0.68 0.20 150 / 0.18)" }}
           >
             <span className="text-muted-foreground text-sm">Dwóch studentów Politechniki Warszawskiej</span>
-            <span className="w-px h-4" style={{ backgroundColor: "oklch(0.82 0.18 78 / 0.30)" }} />
-            <span className="text-sm font-semibold" style={{ color: "oklch(0.82 0.18 78)" }}>
-              200 osób, jeden robot, zero kompromisów
+            <span className="w-px h-4" style={{ backgroundColor: "oklch(0.68 0.20 150 / 0.30)" }} />
+            <span className="text-sm font-semibold" style={{ color: "oklch(0.68 0.20 150)" }}>
+              350 osób, jeden robot, zero kompromisów
             </span>
           </div>
         </div>

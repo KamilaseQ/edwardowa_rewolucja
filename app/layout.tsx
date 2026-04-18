@@ -23,8 +23,8 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  title: 'Edwardowa Rewolucja | 29 Kwietnia 2026 | Politechnika Warszawska',
-  description: 'Konferencja biznesowa właścicieli — robotyka humanoidalna, AI, przyszłość biznesu. Edward Warchocki na Politechnice Warszawskiej. Wstęp wolny.',
+  title: 'Człowieku! Edek na uczelni | 29 Kwietnia 2026 | Politechnika Warszawska',
+  description: 'Konferencja z Edwardem Warchockim — robotyka humanoidalna, AI, przyszłość biznesu. Na Politechnice Warszawskiej. Wstęp wolny.',
   generator: 'v0.app',
   keywords: ['Edward Warchocki', 'robotyka humanoidalna', 'konferencja biznesowa', 'Politechnika Warszawska', 'event warszawa 2026'],
   icons: {
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Edwardowa Rewolucja | 29 Kwietnia 2026',
-    description: 'Konferencja biznesowa dla właścicieli. Robotyka humanoidalna. Edward Warchocki. 29.04.2026 Politechnika Warszawska.',
+    title: 'Człowieku! Edek na uczelni | 29 Kwietnia 2026',
+    description: 'Konferencja z Edwardem Warchockim. Robotyka humanoidalna. 29.04.2026 Politechnika Warszawska.',
     type: 'website',
   },
 }

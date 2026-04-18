@@ -4,6 +4,7 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 import { ArrowUpRight, TrendingUp, Clock, Target } from "lucide-react"
+import { FORM_URL } from "@/lib/constants"
 
 export function WhySection() {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>({
@@ -18,12 +19,7 @@ export function WhySection() {
     }
   }, [isVisible])
 
-  const scrollToSignup = () => {
-    const element = document.querySelector("#zapisz-sie")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
+  const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
 
   return (
     <section
@@ -64,8 +60,7 @@ export function WhySection() {
               Dla tych, którzy już działają, to moment by obrać nowy kierunek i wyprzedzić resztę.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Ta konferencja otwiera drzwi do okazji, o których dowiesz się tylko będąc na sali.
-              <span className="text-gradient-start font-medium"> Punkt kulminacyjny? Orędzie Edwarda. Więcej nie zdradzimy.</span>
+              Ta konferencja otwiera drzwi do okazji, o których dowiesz się tylko będąc na sali. Punkt kulminacyjny? Orędzie Edwarda. Więcej nie zdradzimy.
             </p>
 
             {/* Mini stats */}
@@ -88,13 +83,13 @@ export function WhySection() {
             </div>
 
             <Button
-              onClick={scrollToSignup}
+              onClick={openForm}
               size="lg"
               className="font-bold text-lg px-8 group border-0 transition-all hover:scale-105"
               style={{
-                background: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
-                color: "oklch(0.06 0.005 60)",
-                boxShadow: "0 0 24px oklch(0.82 0.18 78 / 0.4)",
+                background: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                color: "oklch(0.06 0.005 270)",
+                boxShadow: "0 0 24px oklch(0.68 0.20 150 / 0.4)",
               }}
             >
               Chcę tam być

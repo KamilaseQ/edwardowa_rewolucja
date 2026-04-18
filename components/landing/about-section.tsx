@@ -3,6 +3,7 @@
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { Cpu, Users, Lightbulb, Rocket, ArrowUpRight, Flame, Lock, Clock } from "lucide-react"
 import { useState } from "react"
+import { FORM_URL } from "@/lib/constants"
 
 const features = [
   {
@@ -28,7 +29,7 @@ const features = [
     title: "Networking",
     subtitle: "bez barier",
     description: "Founderzy, studenci i eksperci w jednym miejscu.",
-    stat: "200",
+    stat: "350",
     statLabel: "osób",
     gradient: "from-gradient-end to-gradient-start",
   },
@@ -63,13 +64,10 @@ export function AboutSection() {
           </span>
           <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 leading-[1.15]">
             <span className="text-foreground">Technologia zmienia reguły gry. </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
-              Chcesz być gotowy?
-            </span>
+            <span className="text-foreground/60">Chcesz być gotowy?</span>
           </h2>
-          <p className="text-xl text-foreground/80 leading-relaxed">
-            Ci, którzy rozumieją tę technologię pierwsi, budują przewagę na lata.
-            <span className="text-gradient-start font-medium"> Jedna konferencja. Jeden robot. Zero teorii.</span>
+          <p className="text-xl text-foreground/70 leading-relaxed">
+            Ci, którzy rozumieją tę technologię pierwsi, budują przewagę na lata. Jedna konferencja. Jeden robot. Zero teorii.
           </p>
         </div>
 
@@ -94,12 +92,12 @@ export function AboutSection() {
                 </div>
                 <h3 className="text-xl font-bold mb-1 text-foreground">
                   {feature.title}
-                  <span className="text-gradient-start font-medium"> {feature.subtitle}</span>
+                  <span className="text-foreground/50 font-normal"> {feature.subtitle}</span>
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">{feature.description}</p>
                 <div className="flex items-end justify-between">
                   <div>
-                    <div className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${feature.gradient}`}>
+                    <div className="text-2xl font-bold text-foreground">
                       {feature.stat}
                     </div>
                     <div className="text-xs uppercase tracking-wider text-muted-foreground">{feature.statLabel}</div>
@@ -116,23 +114,23 @@ export function AboutSection() {
           className={`mt-14 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           style={{ transitionDelay: "600ms" }}
         >
-          <div className="grid sm:grid-cols-3 gap-px rounded-2xl overflow-hidden" style={{ background: "oklch(0.82 0.18 78 / 0.12)" }}>
+          <div className="grid sm:grid-cols-3 gap-px rounded-2xl overflow-hidden" style={{ background: "oklch(0.68 0.20 150 / 0.12)" }}>
             {/* Seats */}
             <div
               className="relative p-6 flex items-center gap-4 group cursor-pointer overflow-hidden"
-              style={{ background: "oklch(0.08 0.008 60)" }}
+              style={{ background: "oklch(0.08 0.008 270)" }}
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, oklch(0.82 0.18 78 / 0.08), transparent)" }} />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, oklch(0.68 0.20 150 / 0.08), transparent)" }} />
               <div className="relative flex items-center gap-4">
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg, oklch(0.82 0.18 78 / 0.20), oklch(0.82 0.18 78 / 0.08))", border: "1px solid oklch(0.82 0.18 78 / 0.25)" }}
+                  style={{ background: "linear-gradient(135deg, oklch(0.68 0.20 150 / 0.20), oklch(0.68 0.20 150 / 0.08))", border: "1px solid oklch(0.68 0.20 150 / 0.25)" }}
                 >
-                  <Lock className="w-5 h-5" style={{ color: "oklch(0.82 0.18 78)" }} />
+                  <Lock className="w-5 h-5" style={{ color: "oklch(0.68 0.20 150)" }} />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-foreground leading-tight">Tylko 200 miejsc</p>
-                  <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.82 0.18 78 / 0.80)" }}>Lista zapełnia się szybko</p>
+                  <p className="text-lg font-bold text-foreground leading-tight">Tylko 350 miejsc</p>
+                  <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.68 0.20 150 / 0.80)" }}>Lista zapełnia się szybko</p>
                 </div>
               </div>
             </div>
@@ -140,19 +138,19 @@ export function AboutSection() {
             {/* Free */}
             <div
               className="relative p-6 flex items-center gap-4 group cursor-pointer overflow-hidden"
-              style={{ background: "oklch(0.08 0.008 60)" }}
+              style={{ background: "oklch(0.08 0.008 270)" }}
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, oklch(0.88 0.20 85 / 0.08), transparent)" }} />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, oklch(0.78 0.15 185 / 0.08), transparent)" }} />
               <div className="relative flex items-center gap-4">
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg, oklch(0.88 0.20 85 / 0.20), oklch(0.88 0.20 85 / 0.08))", border: "1px solid oklch(0.88 0.20 85 / 0.25)" }}
+                  style={{ background: "linear-gradient(135deg, oklch(0.78 0.15 185 / 0.20), oklch(0.78 0.15 185 / 0.08))", border: "1px solid oklch(0.78 0.15 185 / 0.25)" }}
                 >
-                  <Flame className="w-5 h-5" style={{ color: "oklch(0.88 0.20 85)" }} />
+                  <Flame className="w-5 h-5" style={{ color: "oklch(0.78 0.15 185)" }} />
                 </div>
                 <div>
                   <p className="text-lg font-bold text-foreground leading-tight">Wstęp wolny, 0 zł</p>
-                  <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.88 0.20 85 / 0.80)" }}>Bez opłat, bez haczyka</p>
+                  <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.78 0.15 185 / 0.80)" }}>Bez opłat, bez haczyka</p>
                 </div>
               </div>
             </div>
@@ -160,19 +158,19 @@ export function AboutSection() {
             {/* Urgency */}
             <div
               className="relative p-6 flex items-center gap-4 group cursor-pointer overflow-hidden"
-              style={{ background: "oklch(0.08 0.008 60)" }}
+              style={{ background: "oklch(0.08 0.008 270)" }}
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, oklch(0.70 0.20 55 / 0.08), transparent)" }} />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, oklch(0.58 0.17 240 / 0.08), transparent)" }} />
               <div className="relative flex items-center gap-4">
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "linear-gradient(135deg, oklch(0.70 0.20 55 / 0.20), oklch(0.70 0.20 55 / 0.08))", border: "1px solid oklch(0.70 0.20 55 / 0.25)" }}
+                  style={{ background: "linear-gradient(135deg, oklch(0.58 0.17 240 / 0.20), oklch(0.58 0.17 240 / 0.08))", border: "1px solid oklch(0.58 0.17 240 / 0.25)" }}
                 >
-                  <Clock className="w-5 h-5" style={{ color: "oklch(0.70 0.20 55)" }} />
+                  <Clock className="w-5 h-5" style={{ color: "oklch(0.58 0.17 240)" }} />
                 </div>
                 <div>
                   <p className="text-lg font-bold text-foreground leading-tight">Zero powtórek</p>
-                  <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.70 0.20 55 / 0.80)" }}>Jednorazowe wydarzenie</p>
+                  <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.58 0.17 240 / 0.80)" }}>Jednorazowe wydarzenie</p>
                 </div>
               </div>
             </div>
@@ -184,11 +182,11 @@ export function AboutSection() {
           className={`mt-16 flex justify-center transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <button
-            onClick={() => document.querySelector("#zapisz-sie")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => window.open(FORM_URL, "_blank", "noopener,noreferrer")}
             className="flex items-center gap-2 font-bold text-lg px-8 py-4 rounded-xl text-background transition-all hover:scale-105"
             style={{
-              background: "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
-              boxShadow: "0 0 24px oklch(0.82 0.18 78 / 0.4)",
+              background: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+              boxShadow: "0 0 24px oklch(0.68 0.20 150 / 0.4)",
             }}
           >
             Chcę być na sali

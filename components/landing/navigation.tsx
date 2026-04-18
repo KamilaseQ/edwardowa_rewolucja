@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { FORM_URL } from "@/lib/constants"
 
 const navItems = [
   { label: "O wydarzeniu", href: "#o-wydarzeniu" },
@@ -41,8 +42,8 @@ export function Navigation() {
       style={
         isScrolled
           ? {
-              backgroundColor: "oklch(0.06 0.005 60 / 0.92)",
-              borderBottomColor: "oklch(0.82 0.18 78 / 0.15)",
+              backgroundColor: "oklch(0.06 0.005 270 / 0.92)",
+              borderBottomColor: "oklch(0.68 0.20 150 / 0.15)",
             }
           : undefined
       }
@@ -57,13 +58,13 @@ export function Navigation() {
             <div
               className="w-0.5 h-6 rounded-full"
               style={{
-                background: "linear-gradient(to bottom, oklch(0.88 0.20 85), oklch(0.58 0.18 38))",
+                background: "linear-gradient(to bottom, oklch(0.78 0.15 185), oklch(0.62 0.22 290))",
               }}
             />
             <span
               className="font-display text-sm sm:text-base uppercase tracking-[0.15em] font-bold"
               style={{
-                backgroundImage: "linear-gradient(90deg, oklch(0.97 0.005 80), oklch(0.82 0.18 78) 50%, oklch(0.97 0.005 80))",
+                backgroundImage: "linear-gradient(90deg, oklch(0.97 0.005 80), oklch(0.68 0.20 150) 50%, oklch(0.97 0.005 80))",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -71,7 +72,7 @@ export function Navigation() {
                 animation: isScrolled ? "shimmer 4s linear infinite" : "none",
               }}
             >
-              EDWARDOWA REWOLUCJA
+              CZŁOWIEKU! EDEK NA UCZELNI
             </span>
           </button>
 
@@ -82,7 +83,7 @@ export function Navigation() {
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 className="relative text-sm font-medium uppercase tracking-wider transition-colors group"
-                style={{ color: "oklch(0.70 0.020 70)" }}
+                style={{ color: "oklch(0.60 0.015 270)" }}
               >
                 <span className="group-hover:text-foreground transition-colors">
                   {item.label}
@@ -91,19 +92,19 @@ export function Navigation() {
                   className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
                   style={{
                     background:
-                      "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.70 0.20 55))",
+                      "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.58 0.17 240))",
                   }}
                 />
               </button>
             ))}
             <Button
-              onClick={() => scrollToSection("#zapisz-sie")}
+              onClick={() => window.open(FORM_URL, "_blank", "noopener,noreferrer")}
               className="font-bold tracking-wide border-0 px-6"
               style={{
                 background:
-                  "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
-                color: "oklch(0.06 0.005 60)",
-                boxShadow: "0 0 20px oklch(0.82 0.18 78 / 0.35)",
+                  "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                color: "oklch(0.06 0.005 270)",
+                boxShadow: "0 0 20px oklch(0.68 0.20 150 / 0.35)",
               }}
             >
               Zapisz się
@@ -125,8 +126,8 @@ export function Navigation() {
           <div
             className="md:hidden absolute top-full left-0 right-0 border-b backdrop-blur-xl"
             style={{
-              backgroundColor: "oklch(0.06 0.005 60 / 0.97)",
-              borderBottomColor: "oklch(0.82 0.18 78 / 0.15)",
+              backgroundColor: "oklch(0.06 0.005 270 / 0.97)",
+              borderBottomColor: "oklch(0.68 0.20 150 / 0.15)",
             }}
           >
             <div className="flex flex-col p-6 gap-4">
@@ -135,20 +136,20 @@ export function Navigation() {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className="text-left text-lg transition-colors py-2"
-                  style={{ color: "oklch(0.70 0.020 70)" }}
+                  style={{ color: "oklch(0.60 0.015 270)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "oklch(0.97 0.005 80)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "oklch(0.70 0.020 70)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "oklch(0.60 0.015 270)")}
                 >
                   {item.label}
                 </button>
               ))}
               <Button
-                onClick={() => scrollToSection("#zapisz-sie")}
+                onClick={() => window.open(FORM_URL, "_blank", "noopener,noreferrer")}
                 className="mt-4 w-full font-bold border-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, oklch(0.82 0.18 78), oklch(0.88 0.20 85), oklch(0.70 0.20 55))",
-                  color: "oklch(0.06 0.005 60)",
+                    "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                  color: "oklch(0.06 0.005 270)",
                 }}
               >
                 Zapisz się

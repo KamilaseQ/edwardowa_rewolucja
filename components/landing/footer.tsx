@@ -18,7 +18,7 @@ export function Footer() {
               <Zap className="w-5 h-5 text-gradient-start" />
               <h3 className="font-display uppercase text-xl tracking-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
-                  EDWARDOWA REWOLUCJA
+                  CZŁOWIEKU! EDEK NA UCZELNI
                 </span>
               </h3>
             </div>
@@ -106,7 +106,7 @@ export function Footer() {
             © {currentYear} Edwardowa Rewolucja
           </p>
           <p className="text-sm text-foreground/50">
-            200 miejsc. Zero powtórek. <span className="text-gradient-start font-semibold">Zapisz się, zanim znikną.</span>
+            350 miejsc. Zero powtórek. <span className="text-gradient-start font-semibold">Zapisz się, zanim znikną.</span>
           </p>
         </div>
       </div>

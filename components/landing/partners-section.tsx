@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { ArrowUpRight } from "lucide-react"
+import { FORM_URL } from "@/lib/constants"
 
 interface Partner {
   name: string
@@ -15,28 +16,6 @@ interface Partner {
 }
 
 const partners: Partner[] = [
-  {
-    name: "Politechnika Warszawska",
-    role: "Organizator i gospodarz",
-    hue: 10,
-    url: "https://pw.edu.pl",
-    faviconDomain: "pw.edu.pl",
-    logoUrl: "/logos/pw.png",
-  },
-  {
-    name: "TVN",
-    role: "Patron medialny",
-    hue: 30,
-    url: "https://tvn.pl",
-    faviconDomain: "tvn.pl",
-  },
-  {
-    name: "VOX FM",
-    role: "Patron medialny",
-    hue: 200,
-    url: "https://voxfm.pl",
-    faviconDomain: "voxfm.pl",
-  },
   {
     name: "MERA Robotics",
     role: "Partner technologiczny",
@@ -198,16 +177,14 @@ export function PartnersSection() {
   const pause = () => { isPausedRef.current = true }
   const resume = () => { isPausedRef.current = false }
 
-  const scrollToSignup = () => {
-    document.querySelector("#zapisz-sie")?.scrollIntoView({ behavior: "smooth" })
-  }
+  const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
 
   return (
     <section
       ref={ref}
       id="partnerzy"
       className="relative py-20 overflow-hidden"
-      style={{ background: "oklch(0.06 0.005 60)", borderBottom: "1px solid oklch(0.82 0.18 78 / 0.10)" }}
+      style={{ background: "oklch(0.06 0.005 270)", borderBottom: "1px solid oklch(0.68 0.20 150 / 0.10)" }}
     >
       <div className={`transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
         {/* Header */}
@@ -229,12 +206,12 @@ export function PartnersSection() {
           {/* Left fade */}
           <div
             className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to right, oklch(0.06 0.005 60), transparent)" }}
+            style={{ background: "linear-gradient(to right, oklch(0.06 0.005 270), transparent)" }}
           />
           {/* Right fade */}
           <div
             className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to left, oklch(0.06 0.005 60), transparent)" }}
+            style={{ background: "linear-gradient(to left, oklch(0.06 0.005 270), transparent)" }}
           />
 
           {/* Track A */}
@@ -263,9 +240,9 @@ export function PartnersSection() {
             <span className="text-gradient-start font-semibold"> A Ty?</span>
           </p>
           <button
-            onClick={scrollToSignup}
+            onClick={openForm}
             className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all hover:gap-3 cursor-pointer"
-            style={{ color: "oklch(0.82 0.18 78)" }}
+            style={{ color: "oklch(0.68 0.20 150)" }}
           >
             Dołącz za darmo
             <ArrowUpRight className="w-4 h-4" />
