@@ -46,7 +46,7 @@ export function WhySection() {
               Dlaczego teraz
             </span>
             <h2 className="font-display uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight mb-8 leading-[1.25]" style={{ letterSpacing: "-0.02em" }}>
-              <span className="text-foreground">NOWA ERA</span>
+              <span className="text-foreground">ERA HUMANOIDÓW</span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
                 WŁAŚNIE SIĘ ZACZYNA
@@ -60,25 +60,25 @@ export function WhySection() {
               Dla tych, którzy już działają, to moment by obrać nowy kierunek i wyprzedzić resztę.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Na sali usłyszysz rzeczy, których nie znajdziesz w internecie.
+              Wystąpią twórcy i ludzie bezpośrednio zaangażowani w projekt. Ich perspektywa, ich doświadczenie.
             </p>
 
             {/* Mini stats */}
-            <div className="grid grid-cols-3 gap-4 mb-10">
-              <div className="p-4 rounded-xl bg-card/50 border border-border/50">
-                <TrendingUp className="w-5 h-5 text-gradient-start mb-2" />
-                <p className="text-2xl font-bold text-foreground">10x</p>
-                <p className="text-xs text-muted-foreground">wzrost rynku do 2030</p>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-10">
+              <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 min-w-0">
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-gradient-start mb-1.5" />
+                <p className="text-xl sm:text-2xl font-bold text-foreground">10x</p>
+                <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight">wzrost rynku do 2030</p>
               </div>
-              <div className="p-4 rounded-xl bg-card/50 border border-border/50">
-                <Clock className="w-5 h-5 text-gradient-mid mb-2" />
-                <p className="text-2xl font-bold text-foreground">Wczesny</p>
-                <p className="text-xs text-muted-foreground">etap rynku humanoidów</p>
+              <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 min-w-0">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-gradient-mid mb-1.5" />
+                <p className="text-base sm:text-2xl font-bold text-foreground leading-tight">Wczesny</p>
+                <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight">etap rynku</p>
               </div>
-              <div className="p-4 rounded-xl bg-card/50 border border-border/50">
-                <Target className="w-5 h-5 text-gradient-end mb-2" />
-                <p className="text-2xl font-bold text-foreground">Top 1%</p>
-                <p className="text-xs text-muted-foreground">early moverów</p>
+              <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 min-w-0">
+                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-gradient-end mb-1.5" />
+                <p className="text-xl sm:text-2xl font-bold text-foreground">Teraz</p>
+                <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight">czas na ruch</p>
               </div>
             </div>
 
@@ -178,27 +178,33 @@ export function WhySection() {
                   </text>
                 </svg>
 
-                {/* "You are here" label */}
-                <div 
-                  className={`absolute transition-all duration-500 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
-                  style={{ 
-                    top: '62%', 
-                    left: '12%',
-                    transitionDelay: '1.8s' 
-                  }}
+                {/* "You are here" label — desktop */}
+                <div
+                  className={`absolute hidden md:block transition-all duration-500 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
+                  style={{ top: '62%', left: '12%', transitionDelay: '1.8s' }}
                 >
                   <div className="bg-gradient-to-r from-gradient-start to-gradient-mid text-foreground px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider whitespace-nowrap shadow-xl shadow-gradient-start/30">
+                    Jesteś tutaj
+                  </div>
+                </div>
+
+                {/* "You are here" label — mobile */}
+                <div
+                  className={`absolute block md:hidden transition-all duration-500 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
+                  style={{ top: '18%', left: '6%', transitionDelay: '1.8s' }}
+                >
+                  <div className="bg-gradient-to-r from-gradient-start to-gradient-mid text-foreground px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap shadow-xl shadow-gradient-start/30">
                     Jesteś tutaj
                   </div>
                 </div>
               </div>
 
               {/* Phase labels */}
-              <div className="flex justify-between text-xs uppercase tracking-widest">
-                <span className="text-gradient-start font-bold">Teraz</span>
-                <span className="text-foreground/60">Early Adopter</span>
-                <span className="text-muted-foreground/40">Wzrost</span>
-                <span className="text-muted-foreground/20">Rynek Masowy</span>
+              <div className="flex justify-between text-[9px] sm:text-xs uppercase tracking-wide sm:tracking-widest gap-1">
+                <span className="text-gradient-start font-bold shrink-0">Teraz</span>
+                <span className="text-foreground/60 shrink-0">Early Adopter</span>
+                <span className="text-muted-foreground/40 hidden sm:block">Wzrost</span>
+                <span className="text-muted-foreground/20 shrink-0 text-right">Rynek Masowy</span>
               </div>
 
               {/* Caption */}

@@ -97,7 +97,6 @@ const EVENT_DATE = new Date("2026-04-29T14:00:00")
 
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const [tick, setTick] = useState(false)
   const timeLeft = useCountdown(EVENT_DATE)
   const sectionRef = useRef<HTMLElement>(null)
   const glowRef = useCursorGlow(sectionRef)
@@ -106,12 +105,6 @@ export function HeroSection() {
     const t = setTimeout(() => setIsLoaded(true), 100)
     return () => clearTimeout(t)
   }, [])
-
-  useEffect(() => {
-    setTick(true)
-    const t = setTimeout(() => setTick(false), 150)
-    return () => clearTimeout(t)
-  }, [timeLeft.seconds])
 
   const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
 
@@ -122,16 +115,17 @@ export function HeroSection() {
   const CountdownBox = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">
       <div
-        className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center transition-all duration-150 ${tick && label === "SEK" ? "scale-110" : "scale-100"}`}
+        className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center"
         style={{
           background: "linear-gradient(135deg, oklch(0.13 0.010 270), oklch(0.09 0.008 270))",
-          border: "1px solid var(--gradient-start-border, oklch(0.72 0.19 65 / 0.30))",
+          border: "1px solid oklch(0.72 0.19 65 / 0.30)",
           boxShadow: "0 0 18px oklch(0.72 0.19 65 / 0.10), inset 0 1px 0 oklch(0.72 0.19 65 / 0.15)",
+          willChange: "contents",
         }}
       >
         <span
           className="text-xl sm:text-2xl font-bold tabular-nums"
-          style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65 / 0.5)" }}
+          style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65 / 0.5)", fontVariantNumeric: "tabular-nums" }}
         >
           {String(value).padStart(2, "0")}
         </span>
@@ -213,7 +207,7 @@ export function HeroSection() {
             <span className="relative inline-flex rounded-full w-2 h-2" style={{ backgroundColor: "oklch(0.72 0.19 65)" }} />
           </span>
           <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "oklch(0.82 0.14 75)" }}>
-            29 Kwietnia 2026 &bull; Gmach Główny Politechniki Warszawskiej
+            29 Kwietnia 2026 &bull; Politechnika Warszawska
           </span>
         </div>
 
@@ -245,7 +239,7 @@ export function HeroSection() {
         <p
           className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-foreground/70 mb-6 leading-snug transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          Roboty humanoidalne z impetem wchodzą na rynek. Zrób pierwszy krok we właściwym kierunku.
+          Roboty humanoidalne z impetem wchodzą na rynek. To kolejna okazja biznesowa dla tych którzy działają dziś.
         </p>
 
         {/* Countdown */}

@@ -12,22 +12,22 @@ const faqs = [
   {
     question: "Dla kogo jest to wydarzenie?",
     answer:
-      "Dla każdego, kto nie chce przegapić startu nowej ery. Studenci, profesjonaliści, founderzy, inwestorzy, ciekawscy jeśli chcesz wiedzieć, co nadchodzi, to jest Twoje miejsce.",
+      "Dla ludzi którzy chcą wejść w erę humanoidów i sztucznej inteligencji. Dla studentów, dla przedsiębiorców, dla tych którzy budują przyszłość. Teraz jest czas na odważny krok w nowy rynek. Jeśli roboty to Twoja przyszłość, to jest Twoje miejsce.",
   },
   {
     question: "Czy wstęp jest płatny?",
     answer:
-      "Nie. Zero złotych. Wystarczy zarezerwować miejsce przez formularz i pojawić się na czas.",
+      "Nie. Wystarczy zarezerwować miejsce przez formularz i pojawić się na czas.",
   },
   {
     question: "Gdzie i kiedy?",
     answer:
-      "29 kwietnia 2026, godz. 14:00, Gmach Główny Politechniki Warszawskiej. Dokładny budynek i sala wyślemy do zarejestrowanych uczestników.",
+      "29 kwietnia 2026, godz. 14:00, Politechnika Warszawska, Gmach Główny.",
   },
   {
     question: "Jak długo to potrwa?",
     answer:
-      "3-4 godziny. Wystąpienia, Q&A z Edwardem, networking. Bez lania wody.",
+      "Około 2 godziny. Keynote Edwarda Warchockiego, sesja Q&A, networking z innymi uczestnikami.",
   },
   {
     question: "Czy mogę zadawać pytania?",
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Czy będzie nagranie?",
     answer:
-      "Planujemy nagrać fragmenty. Ale serio bycie tam na żywo to co innego.",
+      "Nagrywamy fragmenty aby podzielić się z innymi. Ale żeby poczuć całą energię eventu i nawiązać kontakty, trzeba być na żywo.",
   },
 ]
 

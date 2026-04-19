@@ -2,7 +2,7 @@
 
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import { useState } from "react"
-import { Camera, Zap } from "lucide-react"
+import { Camera, Zap, Phone } from "lucide-react"
 
 const organizers = [
   {
@@ -11,10 +11,11 @@ const organizers = [
     firstName: "Kamil",
     lastName: "Tański",
     initials: "KT",
-    tags: ["PW", "Builder", "AI"],
-    quote: "Nie czeka aż ktoś mu pozwoli.",
+    phone: "501747490",
+    tags: ["AI", "Sprzedaż", "Wizja"],
+    quote: "Myśli szerzej, niż większość odważa się planować.",
     description:
-      "Projekty na styku AI, automatyzacji i realnego biznesu. Politechnika to baza, reszta dzieje się poza salami wykładowymi.",
+      "Specjalista od AI. Łączy sprzedaż i intuicję do projektów, które z pozoru wydają się niemożliwe do zrealizowania.",
     gradientFrom: "oklch(0.72 0.19 65)",
     gradientTo: "oklch(0.62 0.16 50)",
     borderColor: "oklch(0.72 0.19 65 / 0.20)",
@@ -26,10 +27,11 @@ const organizers = [
     firstName: "Leon",
     lastName: "Bednarski",
     initials: "LB",
-    tags: ["PW", "Strategy", "Events"],
-    quote: "Wie, jak robić rzeczy, które ludzie zapamiętują.",
+    phone: "728561373",
+    tags: ["Kontrola", "Porządek", "Precyzja"],
+    quote: "Tam, gdzie on przejmuje kontrolę, wszystko zaczyna działać jak trzeba.",
     description:
-      "Porusza się tam, gdzie studenci rozmawiają z founderami jak równy z równym. Ma oko do detali i alergię na przeciętność.",
+      "Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
     gradientFrom: "oklch(0.62 0.16 50)",
     gradientTo: "oklch(0.55 0.14 35)",
     borderColor: "oklch(0.62 0.16 50 / 0.20)",
@@ -115,10 +117,10 @@ function OrganizerCard({
 
         {/* Content */}
         <div className="p-4 relative">
-          <div className="mb-3">
+          <div className="mb-4">
             <h3 className="text-2xl font-bold tracking-tight text-foreground leading-none">{org.firstName}</h3>
             <h3
-              className="text-2xl font-bold tracking-tight leading-none mt-1"
+              className="text-2xl font-bold tracking-tight leading-none mt-1 mb-3"
               style={{
                 backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
                 WebkitBackgroundClip: "text",
@@ -128,6 +130,19 @@ function OrganizerCard({
             >
               {org.lastName}
             </h3>
+            <a
+              href={`tel:+48${org.phone}`}
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+              style={{
+                border: `1.5px solid ${org.gradientFrom}`,
+                color: org.gradientFrom,
+                backgroundColor: `${org.gradientFrom}10`,
+              }}
+              title="Zadzwoń"
+            >
+              <Phone className="w-4 h-4" />
+              <span>+48 {org.phone.slice(0, 3)} {org.phone.slice(3, 6)} {org.phone.slice(6)}</span>
+            </a>
           </div>
 
           <div className="flex flex-wrap gap-1.5 mb-3">
@@ -147,7 +162,53 @@ function OrganizerCard({
           </div>
 
           <p className="text-sm font-bold text-foreground mb-2">{org.quote}</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">{org.description}</p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {org.id === "kamil" ? (
+              <>
+                {org.description.split("niemożliwe do zrealizowania").map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <span
+                        style={{
+                          fontWeight: "600",
+                          backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
+                      >
+                        niemożliwe do zrealizowania
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </>
+            ) : org.id === "leon" ? (
+              <>
+                {org.description.split("nie ma nigdy miejsca").map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <span
+                        style={{
+                          fontWeight: "600",
+                          backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
+                      >
+                        nie ma nigdy miejsca
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </>
+            ) : (
+              org.description
+            )}
+          </p>
         </div>
       </div>
     </div>
@@ -165,9 +226,9 @@ function CenterDivider({ isVisible }: { isVisible: boolean }) {
              style={{ border: "1px solid oklch(0.72 0.19 65 / 0.25)", boxShadow: "0 0 12px oklch(0.72 0.19 65 / 0.08)" }}>
           <Zap className="w-5 h-5" style={{ color: "oklch(0.72 0.19 65)" }} />
         </div>
-        <p className="text-[10px] uppercase tracking-[0.16em] font-bold text-center max-w-[140px] leading-snug"
+        <p className="text-[10px] uppercase tracking-[0.16em] font-bold text-center max-w-[160px] leading-snug"
            style={{ color: "oklch(0.72 0.19 65)" }}>
-          To nie jest kolejna studencka konferencja
+          Nie o przyszłości kiedyś.<br />O humanoidach już teraz
         </p>
       </div>
     </div>
@@ -216,7 +277,7 @@ export function OrganizersSection() {
                 animation: "shimmer 5s linear infinite",
               }}
             >
-              WYDARZENIA.
+              WYDARZENIA
             </span>
           </h2>
         </div>
@@ -244,22 +305,6 @@ export function OrganizersSection() {
           />
         </div>
 
-        {/* Bottom statement */}
-        <div
-          className={`text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-          style={{ transitionDelay: "400ms" }}
-        >
-          <div
-            className="inline-flex items-center gap-4 px-7 py-3.5 rounded-full"
-            style={{ background: "oklch(0.10 0.008 270)", border: "1px solid oklch(0.72 0.19 65 / 0.15)" }}
-          >
-            <span className="text-muted-foreground text-sm">Dwóch studentów Politechniki Warszawskiej</span>
-            <span className="w-px h-4" style={{ backgroundColor: "oklch(0.72 0.19 65 / 0.25)" }} />
-            <span className="text-sm font-semibold" style={{ color: "oklch(0.72 0.19 65)" }}>
-              350 osób, jeden robot, zero kompromisów
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   )

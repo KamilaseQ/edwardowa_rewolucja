@@ -1,7 +1,7 @@
 "use client"
 
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
-import { ArrowRight, Zap, Clock } from "lucide-react"
+import { ArrowRight, Zap, Clock, Users, TrendingUp } from "lucide-react"
 import { FORM_URL } from "@/lib/constants"
 
 export function SignupSection() {
@@ -39,23 +39,34 @@ export function SignupSection() {
               SWOJEJ SZANSY
             </span>
           </h2>
-          <p className="text-xl text-foreground/80 leading-relaxed mb-2">
-            Tylko 350 miejsc na sali. Ekskluzywne wydarzenie, którego nie znajdziesz na nagraniach.
-          </p>
-          <p className="text-base font-medium" style={{ color: "oklch(0.72 0.19 65)" }}>
-            Zapisz się teraz.
-          </p>
-        </div>
 
-        {/* Date indicator */}
-        <div
-          className={`flex justify-center mb-10 transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <div className="flex items-center gap-2 text-sm text-foreground/70">
-            <Clock className="w-4 h-4 text-gradient-mid" />
-            <span>29 kwietnia 2026, godz. 14:00, Gmach Główny Politechniki Warszawskiej</span>
+          {/* Combined Info Strip */}
+          <div
+            className={`flex flex-wrap justify-center items-center gap-6 mb-12 transition-all duration-700 delay-100 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            {/* 350 miejsc */}
+            <div className="flex items-center gap-2 text-foreground">
+              <Users className="w-5 h-5" style={{ color: "oklch(0.72 0.19 65)" }} />
+              <span className="font-semibold">350 miejsc</span>
+            </div>
+
+            <span style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>|</span>
+
+            {/* Wstęp wolny */}
+            <div className="flex items-center gap-2 text-foreground">
+              <TrendingUp className="w-5 h-5" style={{ color: "oklch(0.82 0.14 75)" }} />
+              <span className="font-semibold">Wstęp wolny</span>
+            </div>
+
+            <span style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>|</span>
+
+            {/* Data i miejsce */}
+            <div className="flex items-center gap-2 text-sm text-foreground/70">
+              <Clock className="w-4 h-4" style={{ color: "oklch(0.62 0.16 50)" }} />
+              <span>29 kwietnia, 14:00 · PW</span>
+            </div>
           </div>
         </div>
 
@@ -71,10 +82,11 @@ export function SignupSection() {
             <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-gradient-to-tl from-gradient-end/25 to-gradient-mid/25 rounded-full blur-[60px]" />
 
             <div className="relative">
-              <p className="text-foreground/70 text-lg mb-8 leading-relaxed">
-                Miejsca są ograniczone. Kliknij poniżej, wypełnij formularz rejestracyjny i zagwarantuj sobie miejsce.
+              <p className="text-lg text-foreground/90 leading-relaxed mb-8">
+                Kliknij poniżej i wypełnij formularz rejestracyjny.
+                <br />
+                <span className="font-semibold" style={{ color: "oklch(0.72 0.19 65)" }}>Zapewnij swój udział.</span>
               </p>
-
               <a
                 href={FORM_URL}
                 target="_blank"

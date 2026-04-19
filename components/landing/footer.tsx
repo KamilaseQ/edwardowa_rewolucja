@@ -60,7 +60,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-foreground/80 group">
                 <MapPin className="w-4 h-4 text-gradient-mid" />
-                <span className="group-hover:text-foreground transition-colors">Gmach Główny Politechniki Warszawskiej</span>
+                <span className="group-hover:text-foreground transition-colors">Politechnika Warszawska</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-4 h-4 text-gradient-end" />
@@ -106,7 +106,7 @@ export function Footer() {
             © {currentYear} Edek na uczelni
           </p>
           <p className="text-sm text-foreground/50">
-            29 kwietnia 2026 · Gmach Główny Politechniki Warszawskiej · <span className="text-gradient-start font-semibold">Wstęp wolny</span>
+            29 kwietnia 2026 · Politechnika Warszawska | Gmach Główny · <span className="text-gradient-start font-semibold">Wstęp wolny</span>
           </p>
         </div>
       </div>

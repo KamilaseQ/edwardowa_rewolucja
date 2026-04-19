@@ -56,6 +56,7 @@ export function SpeakerSection() {
                       src="/edekfotka.webp"
                       alt="Edward Warchocki pierwszy robot influencer w Polsce"
                       fill
+                      priority
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover object-[center_10%] opacity-90 transition-opacity duration-500 group-hover:opacity-100"
                     />
