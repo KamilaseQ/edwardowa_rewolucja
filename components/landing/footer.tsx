@@ -6,9 +6,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-gradient-start/20 bg-card/50 overflow-hidden">
+    <footer className="relative border-t border-gradient-start/15 bg-card/50 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-gradient-start/15 via-gradient-mid/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-gradient-start/10 via-gradient-mid/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 py-16 relative">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
@@ -60,15 +60,15 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-foreground/80 group">
                 <MapPin className="w-4 h-4 text-gradient-mid" />
-                <span className="group-hover:text-foreground transition-colors">Politechnika Warszawska</span>
+                <span className="group-hover:text-foreground transition-colors">Gmach Główny Politechniki Warszawskiej</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-4 h-4 text-gradient-end" />
                 <a
-                  href="mailto:kontakt@edwardowarewolucja.pl"
+                  href="mailto:edeknauczelni@gmail.com"
                   className="text-foreground/80 hover:text-foreground transition-colors"
                 >
-                  kontakt@edwardowarewolucja.pl
+                  edeknauczelni@gmail.com
                 </a>
               </li>
             </ul>
@@ -101,12 +101,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-gradient-start/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-gradient-start/8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground uppercase tracking-widest text-[10px]">
-            © {currentYear} Edwardowa Rewolucja
+            © {currentYear} Edek na uczelni
           </p>
           <p className="text-sm text-foreground/50">
-            350 miejsc. Zero powtórek. <span className="text-gradient-start font-semibold">Zapisz się, zanim znikną.</span>
+            29 kwietnia 2026 · Gmach Główny Politechniki Warszawskiej · <span className="text-gradient-start font-semibold">Wstęp wolny</span>
           </p>
         </div>
       </div>

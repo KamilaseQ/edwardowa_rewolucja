@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, Inter, Oswald } from 'next/font/google'
+import { Space_Grotesk, Inter, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -15,18 +15,17 @@ const inter = Inter({
   display: 'swap',
 });
 
-const oswald = Oswald({
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   variable: '--font-display',
-  weight: ['700'],
+  weight: ['400'],
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Człowieku! Edek na uczelni | 29 Kwietnia 2026 | Politechnika Warszawska',
-  description: 'Konferencja z Edwardem Warchockim — robotyka humanoidalna, AI, przyszłość biznesu. Na Politechnice Warszawskiej. Wstęp wolny.',
-  generator: 'v0.app',
-  keywords: ['Edward Warchocki', 'robotyka humanoidalna', 'konferencja biznesowa', 'Politechnika Warszawska', 'event warszawa 2026'],
+  title: 'Edek na uczelni | 29.04.2026 Robot humanoidalny na żywo',
+  description: 'Konferencja z Edwardem Warchockim robotyka humanoidalna, AI, przyszłość biznesu. 29 kwietnia 2026, Gmach Główny Politechniki Warszawskiej. Wstęp wolny. Ograniczona liczba miejsc.',
+  keywords: ['Edward Warchocki', 'robotyka humanoidalna', 'konferencja', 'Politechnika Warszawska', 'event warszawa 2026', 'robot humanoidalny', 'AI', 'technologia', 'Edek na uczelni'],
   icons: {
     icon: [
       {
@@ -45,9 +44,16 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Człowieku! Edek na uczelni | 29 Kwietnia 2026',
-    description: 'Konferencja z Edwardem Warchockim. Robotyka humanoidalna. 29.04.2026 Politechnika Warszawska.',
+    title: 'Edek na uczelni | 29.04.2026',
+    description: 'Robot humanoidalny na żywo. Konferencja na styku technologii, mediów i biznesu. Wstęp wolny.',
     type: 'website',
+    images: [{ url: '/nieb.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Edek na uczelni | 29.04.2026',
+    description: 'Robot humanoidalny na żywo. Konferencja na styku technologii, mediów i biznesu.',
+    images: ['/nieb.png'],
   },
 }
 
@@ -64,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} ${oswald.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${spaceGrotesk.variable} ${inter.variable} ${bebasNeue.variable} font-sans antialiased bg-background text-foreground`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

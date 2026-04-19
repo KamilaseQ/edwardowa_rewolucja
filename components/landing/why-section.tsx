@@ -29,23 +29,23 @@ export function WhySection() {
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gradient-start/8 via-gradient-mid/5 to-transparent" />
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-gradient-end/10 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gradient-start/6 via-gradient-mid/4 to-transparent" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-gradient-end/8 to-transparent rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div
-            className={`transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            className={`transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
             <span className="inline-flex items-center gap-3 text-sm uppercase tracking-widest text-gradient-start mb-6">
               <span className="w-12 h-px bg-gradient-to-r from-gradient-start to-gradient-mid" />
               Dlaczego teraz
             </span>
-            <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight mb-8 leading-[1.25]">
+            <h2 className="font-display uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight mb-8 leading-[1.25]" style={{ letterSpacing: "-0.02em" }}>
               <span className="text-foreground">NOWA ERA</span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end">
@@ -53,14 +53,14 @@ export function WhySection() {
               </span>
             </h2>
             <p className="text-xl text-foreground font-medium leading-relaxed mb-4">
-              Robotyka humanoidalna otwiera drzwi, które do tej pory były zamknięte.
+              Robotyka humanoidalna wchodzi na rynek szybciej, niż ktokolwiek przewidywał.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               Dla tych, którzy dopiero wchodzą w temat, to szansa by zacząć od razu we właściwym miejscu.
               Dla tych, którzy już działają, to moment by obrać nowy kierunek i wyprzedzić resztę.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Ta konferencja otwiera drzwi do okazji, o których dowiesz się tylko będąc na sali. Punkt kulminacyjny? Orędzie Edwarda. Więcej nie zdradzimy.
+              Na sali usłyszysz rzeczy, których nie znajdziesz w internecie.
             </p>
 
             {/* Mini stats */}
@@ -72,8 +72,8 @@ export function WhySection() {
               </div>
               <div className="p-4 rounded-xl bg-card/50 border border-border/50">
                 <Clock className="w-5 h-5 text-gradient-mid mb-2" />
-                <p className="text-2xl font-bold text-foreground">Ucieka</p>
-                <p className="text-xs text-muted-foreground">czas na decyzję</p>
+                <p className="text-2xl font-bold text-foreground">Wczesny</p>
+                <p className="text-xs text-muted-foreground">etap rynku humanoidów</p>
               </div>
               <div className="p-4 rounded-xl bg-card/50 border border-border/50">
                 <Target className="w-5 h-5 text-gradient-end mb-2" />
@@ -85,11 +85,11 @@ export function WhySection() {
             <Button
               onClick={openForm}
               size="lg"
-              className="font-bold text-lg px-8 group border-0 transition-all hover:scale-105"
+              className="font-bold text-lg px-8 group border-0 transition-all hover:scale-[1.03]"
               style={{
-                background: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                background: "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50))",
                 color: "oklch(0.06 0.005 270)",
-                boxShadow: "0 0 24px oklch(0.68 0.20 150 / 0.4)",
+                boxShadow: "0 0 20px oklch(0.72 0.19 65 / 0.3)",
               }}
             >
               Chcę tam być
@@ -99,13 +99,13 @@ export function WhySection() {
 
           {/* Chart */}
           <div
-            className={`transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            className={`transition-all duration-700 delay-300 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="relative bg-card border border-gradient-start/20 rounded-3xl p-8 md:p-12 overflow-hidden">
+            <div className="relative bg-card border border-gradient-start/15 rounded-3xl p-8 md:p-12 overflow-hidden">
               {/* Glow effect */}
-              <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-gradient-to-b from-gradient-start/25 to-transparent blur-2xl" />
+              <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-gradient-to-b from-gradient-start/20 to-transparent blur-2xl" />
               
               {/* Chart */}
               <div className="relative h-72 mb-8">
@@ -129,7 +129,7 @@ export function WhySection() {
                       <stop offset="100%" stopColor="var(--gradient-end)" />
                     </linearGradient>
                     <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="var(--gradient-start)" stopOpacity="0.4" />
+                      <stop offset="0%" stopColor="var(--gradient-start)" stopOpacity="0.35" />
                       <stop offset="100%" stopColor="var(--gradient-start)" stopOpacity="0" />
                     </linearGradient>
                   </defs>
@@ -138,7 +138,7 @@ export function WhySection() {
                   <path
                     d="M0 200 Q50 195 80 185 Q120 170 160 140 Q200 100 240 65 Q280 38 320 22 Q360 12 400 10 L400 220 L0 220 Z"
                     fill="url(#areaGradient)"
-                    className={`transition-all duration-1000 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
+                    className={`transition-all duration-700 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
                   />
                   
                   {/* S-curve line */}
@@ -148,7 +148,7 @@ export function WhySection() {
                     strokeWidth="4"
                     fill="none"
                     strokeLinecap="round"
-                    className={`transition-all duration-1000 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
+                    className={`transition-all duration-700 ${animateChart ? 'opacity-100' : 'opacity-0'}`}
                     style={{
                       strokeDasharray: 500,
                       strokeDashoffset: animateChart ? 0 : 500,
@@ -160,12 +160,12 @@ export function WhySection() {
                   <g className={`transition-all duration-500 ${animateChart ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1.5s' }}>
                     {/* Pulse ring */}
                     <circle cx="80" cy="185" r="16" fill="none" stroke="var(--gradient-start)" strokeWidth="2" strokeOpacity="0.3">
-                      <animate attributeName="r" values="12;24;12" dur="2s" repeatCount="indefinite" />
-                      <animate attributeName="stroke-opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="r" values="12;24;12" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite" />
                     </circle>
                     <circle cx="80" cy="185" r="10" fill="none" stroke="var(--gradient-start)" strokeWidth="1" strokeOpacity="0.5">
-                      <animate attributeName="r" values="10;18;10" dur="2s" repeatCount="indefinite" />
-                      <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="r" values="10;18;10" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="stroke-opacity" values="0.3;0;0.3" dur="2.5s" repeatCount="indefinite" />
                     </circle>
                     {/* Main dot */}
                     <circle cx="80" cy="185" r="10" fill="var(--gradient-start)" />
@@ -187,7 +187,7 @@ export function WhySection() {
                     transitionDelay: '1.8s' 
                   }}
                 >
-                  <div className="bg-gradient-to-r from-gradient-start to-gradient-mid text-foreground px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider whitespace-nowrap shadow-xl shadow-gradient-start/40">
+                  <div className="bg-gradient-to-r from-gradient-start to-gradient-mid text-foreground px-5 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider whitespace-nowrap shadow-xl shadow-gradient-start/30">
                     Jesteś tutaj
                   </div>
                 </div>

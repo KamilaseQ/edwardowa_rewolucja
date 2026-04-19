@@ -43,7 +43,7 @@ export function Navigation() {
         isScrolled
           ? {
               backgroundColor: "oklch(0.06 0.005 270 / 0.92)",
-              borderBottomColor: "oklch(0.68 0.20 150 / 0.15)",
+              borderBottomColor: "oklch(0.72 0.19 65 / 0.12)",
             }
           : undefined
       }
@@ -54,22 +54,22 @@ export function Navigation() {
             onClick={() => scrollToSection("#hero")}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            {/* Gold bar accent */}
+            {/* Warm bar accent */}
             <div
               className="w-0.5 h-6 rounded-full"
               style={{
-                background: "linear-gradient(to bottom, oklch(0.78 0.15 185), oklch(0.62 0.22 290))",
+                background: "linear-gradient(to bottom, oklch(0.82 0.14 75), oklch(0.55 0.14 35))",
               }}
             />
             <span
               className="font-display text-sm sm:text-base uppercase tracking-[0.15em] font-bold"
               style={{
-                backgroundImage: "linear-gradient(90deg, oklch(0.97 0.005 80), oklch(0.68 0.20 150) 50%, oklch(0.97 0.005 80))",
+                backgroundImage: "linear-gradient(90deg, oklch(0.97 0.005 80), oklch(0.72 0.19 65) 50%, oklch(0.97 0.005 80))",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: isScrolled ? "shimmer 4s linear infinite" : "none",
+                animation: isScrolled ? "shimmer 5s linear infinite" : "none",
               }}
             >
               CZŁOWIEKU! EDEK NA UCZELNI
@@ -92,7 +92,7 @@ export function Navigation() {
                   className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
                   style={{
                     background:
-                      "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.58 0.17 240))",
+                      "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.62 0.16 50))",
                   }}
                 />
               </button>
@@ -102,9 +102,9 @@ export function Navigation() {
               className="font-bold tracking-wide border-0 px-6"
               style={{
                 background:
-                  "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                  "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50))",
                 color: "oklch(0.06 0.005 270)",
-                boxShadow: "0 0 20px oklch(0.68 0.20 150 / 0.35)",
+                boxShadow: "0 0 18px oklch(0.72 0.19 65 / 0.25)",
               }}
             >
               Zapisz się
@@ -127,7 +127,7 @@ export function Navigation() {
             className="md:hidden absolute top-full left-0 right-0 border-b backdrop-blur-xl"
             style={{
               backgroundColor: "oklch(0.06 0.005 270 / 0.97)",
-              borderBottomColor: "oklch(0.68 0.20 150 / 0.15)",
+              borderBottomColor: "oklch(0.72 0.19 65 / 0.12)",
             }}
           >
             <div className="flex flex-col p-6 gap-4">
@@ -135,10 +135,8 @@ export function Navigation() {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-lg transition-colors py-2"
+                  className="text-left text-lg transition-colors py-2 hover:text-foreground"
                   style={{ color: "oklch(0.60 0.015 270)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "oklch(0.97 0.005 80)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "oklch(0.60 0.015 270)")}
                 >
                   {item.label}
                 </button>
@@ -148,7 +146,7 @@ export function Navigation() {
                 className="mt-4 w-full font-bold border-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                    "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50))",
                   color: "oklch(0.06 0.005 270)",
                 }}
               >

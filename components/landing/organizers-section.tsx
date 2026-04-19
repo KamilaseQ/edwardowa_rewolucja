@@ -15,10 +15,10 @@ const organizers = [
     quote: "Nie czeka aż ktoś mu pozwoli.",
     description:
       "Projekty na styku AI, automatyzacji i realnego biznesu. Politechnika to baza, reszta dzieje się poza salami wykładowymi.",
-    gradientFrom: "oklch(0.68 0.20 150)",
-    gradientTo: "oklch(0.58 0.17 240)",
-    borderColor: "oklch(0.68 0.20 150 / 0.25)",
-    activeBorder: "oklch(0.68 0.20 150 / 0.55)",
+    gradientFrom: "oklch(0.72 0.19 65)",
+    gradientTo: "oklch(0.62 0.16 50)",
+    borderColor: "oklch(0.72 0.19 65 / 0.20)",
+    activeBorder: "oklch(0.72 0.19 65 / 0.45)",
   },
   {
     id: "leon",
@@ -30,10 +30,10 @@ const organizers = [
     quote: "Wie, jak robić rzeczy, które ludzie zapamiętują.",
     description:
       "Porusza się tam, gdzie studenci rozmawiają z founderami jak równy z równym. Ma oko do detali i alergię na przeciętność.",
-    gradientFrom: "oklch(0.58 0.17 240)",
-    gradientTo: "oklch(0.62 0.22 290)",
-    borderColor: "oklch(0.58 0.17 240 / 0.25)",
-    activeBorder: "oklch(0.58 0.17 240 / 0.55)",
+    gradientFrom: "oklch(0.62 0.16 50)",
+    gradientTo: "oklch(0.55 0.14 35)",
+    borderColor: "oklch(0.62 0.16 50 / 0.20)",
+    activeBorder: "oklch(0.62 0.16 50 / 0.45)",
   },
 ]
 
@@ -54,7 +54,7 @@ function OrganizerCard({
 }) {
   return (
     <div
-      className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+      className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       style={{ transitionDelay: delay }}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
@@ -64,14 +64,14 @@ function OrganizerCard({
         style={{
           background: "oklch(0.10 0.008 270)",
           border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
-          transform: isActive ? "scale(1.015)" : "scale(1)",
+          transform: isActive ? "scale(1.01)" : "scale(1)",
         }}
       >
         {/* Glow overlay */}
         <div
           className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: `linear-gradient(135deg, ${org.gradientFrom}16, transparent 60%)`,
+            background: `linear-gradient(135deg, ${org.gradientFrom}14, transparent 60%)`,
             opacity: isActive ? 1 : 0,
           }}
         />
@@ -81,8 +81,8 @@ function OrganizerCard({
           <div
             className="w-full aspect-video rounded-xl flex items-center justify-center relative overflow-hidden"
             style={{
-              background: `linear-gradient(135deg, ${org.gradientFrom}12, ${org.gradientTo}06)`,
-              border: `1px dashed ${org.borderColor}`,
+              background: `linear-gradient(135deg, ${org.gradientFrom}10, ${org.gradientTo}05)`,
+              border: `1px solid ${org.borderColor}`,
             }}
           >
             <div className="flex flex-col items-center gap-2 opacity-50">
@@ -138,7 +138,7 @@ function OrganizerCard({
                 style={{
                   border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
                   color: isActive ? "oklch(0.97 0.005 80)" : "oklch(0.50 0.015 270)",
-                  backgroundColor: isActive ? `${org.gradientFrom}12` : "transparent",
+                  backgroundColor: isActive ? `${org.gradientFrom}10` : "transparent",
                 }}
               >
                 {tag}
@@ -157,17 +157,16 @@ function OrganizerCard({
 function CenterDivider({ isVisible }: { isVisible: boolean }) {
   return (
     <div
-      className={`flex items-center justify-center transition-all duration-700 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+      className={`flex items-center justify-center transition-all duration-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
       style={{ transitionDelay: "300ms" }}
     >
       <div className="relative py-8 lg:py-0 flex flex-col items-center gap-3">
-        {/* Simple icon + text */}
-        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-card shadow-[0_0_15px_rgba(var(--gradient-start),0.1)] transition-transform hover:scale-105 cursor-default"
-             style={{ border: "1px solid oklch(0.68 0.20 150 / 0.3)" }}>
-          <Zap className="w-5 h-5" style={{ color: "oklch(0.68 0.20 150)" }} />
+        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-card transition-transform hover:scale-105 cursor-default"
+             style={{ border: "1px solid oklch(0.72 0.19 65 / 0.25)", boxShadow: "0 0 12px oklch(0.72 0.19 65 / 0.08)" }}>
+          <Zap className="w-5 h-5" style={{ color: "oklch(0.72 0.19 65)" }} />
         </div>
         <p className="text-[10px] uppercase tracking-[0.16em] font-bold text-center max-w-[140px] leading-snug"
-           style={{ color: "oklch(0.68 0.20 150)" }}>
+           style={{ color: "oklch(0.72 0.19 65)" }}>
           To nie jest kolejna studencka konferencja
         </p>
       </div>
@@ -184,37 +183,37 @@ export function OrganizersSection() {
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-1/4 left-0 w-[400px] h-[400px] rounded-full blur-[80px]"
-          style={{ background: "radial-gradient(circle, oklch(0.68 0.20 150 / 0.08), transparent)" }}
+          style={{ background: "radial-gradient(circle, oklch(0.72 0.19 65 / 0.06), transparent)" }}
         />
         <div
           className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full blur-[80px]"
-          style={{ background: "radial-gradient(circle, oklch(0.62 0.22 290 / 0.08), transparent)" }}
+          style={{ background: "radial-gradient(circle, oklch(0.55 0.14 35 / 0.06), transparent)" }}
         />
       </div>
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
         <div
-          className={`mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="flex items-center gap-4 mb-8">
             <span className="text-sm uppercase tracking-[0.3em] text-gradient-start font-medium">Za kulisami</span>
             <div className="flex-1 h-px bg-gradient-to-r from-gradient-start/50 to-transparent" />
           </div>
 
-          <h2 className="font-display uppercase leading-[1.15]">
-            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
+          <h2 className="font-display uppercase leading-[1.15]" style={{ letterSpacing: "-0.02em" }}>
+            <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
               ORGANIZATORZY
             </span>
             <span
-              className="block text-5xl md:text-6xl lg:text-7xl font-bold"
+              className="block text-4xl md:text-5xl lg:text-6xl font-bold"
               style={{
-                backgroundImage: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240))",
+                backgroundImage: "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50))",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: "shimmer 4s linear infinite",
+                animation: "shimmer 5s linear infinite",
               }}
             >
               WYDARZENIA.
@@ -247,16 +246,16 @@ export function OrganizersSection() {
 
         {/* Bottom statement */}
         <div
-          className={`text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-          style={{ transitionDelay: "500ms" }}
+          className={`text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          style={{ transitionDelay: "400ms" }}
         >
           <div
             className="inline-flex items-center gap-4 px-7 py-3.5 rounded-full"
-            style={{ background: "oklch(0.10 0.008 270)", border: "1px solid oklch(0.68 0.20 150 / 0.18)" }}
+            style={{ background: "oklch(0.10 0.008 270)", border: "1px solid oklch(0.72 0.19 65 / 0.15)" }}
           >
             <span className="text-muted-foreground text-sm">Dwóch studentów Politechniki Warszawskiej</span>
-            <span className="w-px h-4" style={{ backgroundColor: "oklch(0.68 0.20 150 / 0.30)" }} />
-            <span className="text-sm font-semibold" style={{ color: "oklch(0.68 0.20 150)" }}>
+            <span className="w-px h-4" style={{ backgroundColor: "oklch(0.72 0.19 65 / 0.25)" }} />
+            <span className="text-sm font-semibold" style={{ color: "oklch(0.72 0.19 65)" }}>
               350 osób, jeden robot, zero kompromisów
             </span>
           </div>

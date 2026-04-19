@@ -125,18 +125,18 @@ export function HeroSection() {
         className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center transition-all duration-150 ${tick && label === "SEK" ? "scale-110" : "scale-100"}`}
         style={{
           background: "linear-gradient(135deg, oklch(0.13 0.010 270), oklch(0.09 0.008 270))",
-          border: "1px solid oklch(0.68 0.20 150 / 0.35)",
-          boxShadow: "0 0 20px oklch(0.68 0.20 150 / 0.12), inset 0 1px 0 oklch(0.68 0.20 150 / 0.20)",
+          border: "1px solid var(--gradient-start-border, oklch(0.72 0.19 65 / 0.30))",
+          boxShadow: "0 0 18px oklch(0.72 0.19 65 / 0.10), inset 0 1px 0 oklch(0.72 0.19 65 / 0.15)",
         }}
       >
         <span
           className="text-xl sm:text-2xl font-bold tabular-nums"
-          style={{ color: "oklch(0.87 0.12 185)", textShadow: "0 0 20px oklch(0.68 0.20 150 / 0.7)" }}
+          style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65 / 0.5)" }}
         >
           {String(value).padStart(2, "0")}
         </span>
       </div>
-      <span className="mt-1.5 text-[9px] uppercase tracking-[0.18em] font-semibold" style={{ color: "oklch(0.68 0.20 150 / 0.7)" }}>
+      <span className="mt-1.5 text-[9px] uppercase tracking-[0.18em] font-semibold" style={{ color: "oklch(0.72 0.19 65 / 0.6)" }}>
         {label}
       </span>
     </div>
@@ -153,34 +153,34 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-background" />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full animate-gold-flare"
-          style={{ background: "radial-gradient(circle, oklch(0.68 0.20 150 / 0.10) 0%, oklch(0.58 0.17 240 / 0.05) 40%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, oklch(0.72 0.19 65 / 0.08) 0%, oklch(0.62 0.16 50 / 0.04) 40%, transparent 70%)" }}
         />
         <div
           className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full animate-hero-aurora"
-          style={{ background: "radial-gradient(circle, oklch(0.68 0.20 150 / 0.15) 0%, transparent 60%)", filter: "blur(60px)" }}
+          style={{ background: "radial-gradient(circle, oklch(0.72 0.19 65 / 0.12) 0%, transparent 60%)", filter: "blur(60px)" }}
         />
         <div
           className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full"
-          style={{ background: "radial-gradient(circle, oklch(0.62 0.22 290 / 0.12) 0%, transparent 60%)", filter: "blur(80px)", animation: "hero-aurora 16s ease-in-out infinite reverse" }}
+          style={{ background: "radial-gradient(circle, oklch(0.55 0.14 35 / 0.10) 0%, transparent 60%)", filter: "blur(80px)", animation: "hero-aurora 16s ease-in-out infinite reverse" }}
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "linear-gradient(oklch(0.68 0.20 150 / 0.025) 1px, transparent 1px), linear-gradient(90deg, oklch(0.68 0.20 150 / 0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }}
+          style={{ backgroundImage: "linear-gradient(oklch(0.72 0.19 65 / 0.02) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.19 65 / 0.02) 1px, transparent 1px)", backgroundSize: "60px 60px" }}
         />
         <div
           className="absolute inset-0"
           style={{ background: "radial-gradient(ellipse 80% 80% at center, transparent 0%, oklch(0.06 0.005 270) 80%)" }}
         />
-        {[...Array(6)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 rounded-full"
-            style={{ left: `${12 + i * 15}%`, bottom: "15%", backgroundColor: `oklch(0.68 0.20 150 / ${0.3 + (i % 3) * 0.2})`, animation: `float-particle ${4 + i * 1.2}s linear infinite`, animationDelay: `${i * 0.8}s` }}
+            style={{ left: `${15 + i * 20}%`, bottom: "15%", backgroundColor: `oklch(0.72 0.19 65 / ${0.25 + (i % 3) * 0.15})`, animation: `float-particle ${6 + i * 1.5}s linear infinite`, animationDelay: `${i * 1}s` }}
           />
         ))}
       </div>
 
-      {/* Cursor glow — visible warm radial that follows mouse */}
+      {/* Cursor glow */}
       <div
         ref={glowRef}
         className="absolute top-0 left-0 pointer-events-none hidden md:block z-[1]"
@@ -194,7 +194,7 @@ export function HeroSection() {
         <div
           className="w-full h-full rounded-full"
           style={{
-            background: "radial-gradient(circle, oklch(0.68 0.20 150 / 0.22) 0%, oklch(0.58 0.17 240 / 0.08) 35%, transparent 65%)",
+            background: "radial-gradient(circle, oklch(0.72 0.19 65 / 0.16) 0%, oklch(0.62 0.16 50 / 0.06) 35%, transparent 65%)",
             filter: "blur(40px)",
           }}
         />
@@ -205,35 +205,36 @@ export function HeroSection() {
 
         {/* Live badge */}
         <div
-          className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-5 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-          style={{ background: "oklch(0.12 0.015 60 / 0.8)", border: "1px solid oklch(0.68 0.20 150 / 0.35)", backdropFilter: "blur(12px)" }}
+          className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-5 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          style={{ background: "oklch(0.12 0.015 60 / 0.8)", border: "1px solid oklch(0.72 0.19 65 / 0.30)", backdropFilter: "blur(12px)" }}
         >
           <span className="relative flex w-2 h-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "oklch(0.68 0.20 150)" }} />
-            <span className="relative inline-flex rounded-full w-2 h-2" style={{ backgroundColor: "oklch(0.68 0.20 150)" }} />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "oklch(0.72 0.19 65)" }} />
+            <span className="relative inline-flex rounded-full w-2 h-2" style={{ backgroundColor: "oklch(0.72 0.19 65)" }} />
           </span>
-          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "oklch(0.78 0.15 185)" }}>
-            29 Kwietnia 2026 &bull; Politechnika Warszawska
+          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "oklch(0.82 0.14 75)" }}>
+            29 Kwietnia 2026 &bull; Gmach Główny Politechniki Warszawskiej
           </span>
         </div>
 
         {/* Main Title */}
         <h1
-          className={`font-display uppercase leading-[0.92] mb-4 transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`font-display uppercase leading-[0.92] mb-4 transition-all duration-700 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          <span className="block font-bold tracking-tight text-foreground" style={{ fontSize: "clamp(2.2rem, 7.5vw, 7rem)" }}>
+          <span className="block font-bold tracking-tight text-foreground" style={{ fontSize: "clamp(2rem, 6vw, 5.5rem)", letterSpacing: "-0.02em" }}>
             CZŁOWIEKU!
           </span>
           <span
             className="block font-bold tracking-tight"
             style={{
-              fontSize: "clamp(2.2rem, 7.5vw, 7rem)",
-              backgroundImage: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240), oklch(0.68 0.20 150))",
+              fontSize: "clamp(2rem, 6vw, 5.5rem)",
+              letterSpacing: "-0.02em",
+              backgroundImage: "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50), oklch(0.72 0.19 65))",
               backgroundSize: "200% auto",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              animation: "shimmer 3s linear infinite",
+              animation: "shimmer 6s linear infinite",
             }}
           >
             EDEK NA UCZELNI
@@ -242,55 +243,55 @@ export function HeroSection() {
 
         {/* Tagline */}
         <p
-          className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-foreground/70 mb-6 leading-snug transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-foreground/70 mb-6 leading-snug transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          Nowe technologie rozdają karty. Czas zrobić pierwszy krok we właściwym kierunku.
+          Roboty humanoidalne z impetem wchodzą na rynek. Zrób pierwszy krok we właściwym kierunku.
         </p>
 
-        {/* Countdown — highlighted */}
+        {/* Countdown */}
         <div
-          className={`inline-flex items-center gap-3 sm:gap-4 px-6 py-4 rounded-2xl mb-6 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`inline-flex items-center gap-3 sm:gap-4 px-6 py-4 rounded-2xl mb-6 transition-all duration-700 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
           style={{
             background: "oklch(0.08 0.008 270 / 0.7)",
-            border: "1px solid oklch(0.68 0.20 150 / 0.20)",
+            border: "1px solid oklch(0.72 0.19 65 / 0.18)",
             backdropFilter: "blur(12px)",
-            boxShadow: "0 0 40px oklch(0.68 0.20 150 / 0.06)",
+            boxShadow: "0 0 30px oklch(0.72 0.19 65 / 0.05)",
           }}
         >
           <CountdownBox value={timeLeft.days} label="DNI" />
-          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.68 0.20 150 / 0.5)" }}>:</span>
+          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>:</span>
           <CountdownBox value={timeLeft.hours} label="GODZ" />
-          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.68 0.20 150 / 0.5)" }}>:</span>
+          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>:</span>
           <CountdownBox value={timeLeft.minutes} label="MIN" />
-          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.68 0.20 150 / 0.5)" }}>:</span>
+          <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>:</span>
           <CountdownBox value={timeLeft.seconds} label="SEK" />
         </div>
 
         {/* Info row */}
         <div
-          className={`flex flex-wrap justify-center items-center gap-3 sm:gap-4 mb-8 transition-all duration-1000 delay-[600ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`flex flex-wrap justify-center items-center gap-3 sm:gap-4 mb-8 transition-all duration-700 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="flex items-center gap-2 text-foreground/80 font-medium">
-            <Zap className="w-4 h-4" style={{ color: "oklch(0.78 0.15 185)" }} />
+            <Zap className="w-4 h-4" style={{ color: "oklch(0.82 0.14 75)" }} />
             <span className="text-sm tracking-wide">Wstęp wolny</span>
           </div>
 
           <span className="text-muted-foreground/30 hidden sm:block">|</span>
 
           <div className="flex items-center gap-2 font-bold">
-            <span className="text-sm tracking-wide" style={{ color: "oklch(0.68 0.20 150)" }}>Ograniczona pula 350 miejsc</span>
+            <span className="text-sm tracking-wide" style={{ color: "oklch(0.72 0.19 65)" }}>350 miejsc · rejestracja otwarta</span>
           </div>
         </div>
 
         {/* CTA Buttons */}
         <div
-          className={`flex flex-col sm:flex-row gap-3 justify-center transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`flex flex-col sm:flex-row gap-3 justify-center transition-all duration-700 delay-600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <Button
             onClick={openForm}
             size="lg"
             className="relative overflow-hidden text-sm sm:text-base px-7 py-5 font-bold tracking-wide border-0 group"
-            style={{ background: "linear-gradient(90deg, oklch(0.68 0.20 150), oklch(0.78 0.15 185), oklch(0.58 0.17 240), oklch(0.68 0.20 150))", backgroundSize: "200% auto", animation: "shimmer 2.5s linear infinite, pulse-glow 2s ease-in-out infinite", color: "oklch(0.06 0.005 270)" }}
+            style={{ background: "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50), oklch(0.72 0.19 65))", backgroundSize: "200% auto", animation: "shimmer 3s linear infinite, pulse-glow 2.5s ease-in-out infinite", color: "oklch(0.06 0.005 270)" }}
           >
             <span className="flex items-center gap-2">
               Rezerwuję miejsce
@@ -302,23 +303,23 @@ export function HeroSection() {
             variant="outline"
             size="lg"
             className="text-sm sm:text-base px-7 py-5 font-semibold transition-all hover:scale-[1.02]"
-            style={{ borderColor: "oklch(0.68 0.20 150 / 0.40)", color: "oklch(0.78 0.15 185)", backgroundColor: "oklch(0.68 0.20 150 / 0.06)" }}
+            style={{ borderColor: "oklch(0.72 0.19 65 / 0.35)", color: "oklch(0.82 0.14 75)", backgroundColor: "oklch(0.72 0.19 65 / 0.05)" }}
           >
             Kim jest Edward?
           </Button>
         </div>
       </div>
 
-      {/* Scroll indicator — pinned to bottom with guaranteed spacing */}
+      {/* Scroll indicator */}
       <div className="relative z-10 pb-6 pt-8">
         <button
           onClick={scrollToSpeaker}
-          className={`flex flex-col items-center gap-1.5 transition-all duration-1000 delay-[1200ms] cursor-pointer ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          className={`flex flex-col items-center gap-1.5 transition-all duration-700 delay-[800ms] cursor-pointer ${isLoaded ? "opacity-100" : "opacity-0"}`}
           style={{ color: "oklch(0.50 0.015 270)" }}
           aria-label="Przewiń w dół"
         >
           <span className="text-[10px] uppercase tracking-[0.2em]">Odkryj</span>
-          <ArrowDown className="w-4 h-4 animate-bounce" style={{ color: "oklch(0.68 0.20 150 / 0.6)" }} />
+          <ArrowDown className="w-4 h-4 animate-bounce" style={{ color: "oklch(0.72 0.19 65 / 0.5)" }} />
         </button>
       </div>
     </section>
