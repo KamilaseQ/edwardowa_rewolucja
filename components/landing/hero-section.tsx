@@ -284,7 +284,7 @@ export function HeroSection() {
           <Button
             onClick={openForm}
             size="lg"
-            className="relative overflow-hidden text-sm sm:text-base px-7 py-5 font-bold tracking-wide border-0 group"
+            className="relative overflow-hidden text-sm sm:text-base px-7 py-5 font-bold tracking-wide border-0 group hover:scale-[1.03] transition-transform duration-200"
             style={{ background: "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50), oklch(0.72 0.19 65))", backgroundSize: "200% auto", animation: "shimmer 3s linear infinite, pulse-glow 2.5s ease-in-out infinite", color: "oklch(0.06 0.005 270)" }}
           >
             <span className="flex items-center gap-2">

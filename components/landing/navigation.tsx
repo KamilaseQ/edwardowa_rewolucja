@@ -99,7 +99,7 @@ export function Navigation() {
             ))}
             <Button
               onClick={() => window.open(FORM_URL, "_blank", "noopener,noreferrer")}
-              className="font-bold tracking-wide border-0 px-6"
+              className="font-bold tracking-wide border-0 px-6 hover:scale-[1.05] transition-transform duration-200"
               style={{
                 background:
                   "linear-gradient(90deg, oklch(0.72 0.19 65), oklch(0.82 0.14 75), oklch(0.62 0.16 50))",
