@@ -25,7 +25,7 @@ const allPartners: Partner[] = [
   },
   {
     name: "WAiNS PW",
-    role: "Wydział Administracji i Nauk Społecznych",
+    role: "Organizator wydarzenia",
     hue: 65,
     url: "https://www.ans.pw.edu.pl",
     faviconDomain: "ans.pw.edu.pl",

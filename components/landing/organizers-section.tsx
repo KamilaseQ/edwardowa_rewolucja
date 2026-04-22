@@ -1,234 +1,162 @@
 "use client"
 
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
-import { useState } from "react"
-import { Camera, Zap, Phone } from "lucide-react"
+import { Phone, Linkedin } from "lucide-react"
+import Image from "next/image"
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+    </svg>
+  )
+}
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.56V6.79a4.85 4.85 0 01-1.07-.1z" />
+    </svg>
+  )
+}
 
 const organizers = [
   {
     id: "kamil",
-    number: "01",
     firstName: "Kamil",
     lastName: "Tański",
-    initials: "KT",
     phone: "501747490",
-    tags: ["AI", "Sprzedaż", "Wizja"],
+    linkedinUrl: "#",
+    instagramUrl: "#",
     quote: "Myśli szerzej, niż większość odważa się planować.",
     description:
       "Specjalista od AI. Łączy sprzedaż i intuicję do projektów, które z pozoru wydają się niemożliwe do zrealizowania.",
+    highlightPhrase: "niemożliwe do zrealizowania",
     gradientFrom: "oklch(0.72 0.19 65)",
     gradientTo: "oklch(0.62 0.16 50)",
     borderColor: "oklch(0.72 0.19 65 / 0.20)",
-    activeBorder: "oklch(0.72 0.19 65 / 0.45)",
   },
   {
     id: "leon",
-    number: "02",
     firstName: "Leon",
     lastName: "Bednarski",
-    initials: "LB",
     phone: "728561373",
-    tags: ["Kontrola", "Porządek", "Precyzja"],
+    linkedinUrl: "#",
+    instagramUrl: "#",
     quote: "Tam, gdzie on przejmuje kontrolę, wszystko zaczyna działać jak trzeba.",
     description:
       "Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
+    highlightPhrase: "nie ma nigdy miejsca",
     gradientFrom: "oklch(0.62 0.16 50)",
     gradientTo: "oklch(0.55 0.14 35)",
     borderColor: "oklch(0.62 0.16 50 / 0.20)",
-    activeBorder: "oklch(0.62 0.16 50 / 0.45)",
   },
 ]
 
-function OrganizerCard({
+const sharedSocials = {
+  instagramUrl: "#",
+  tiktokUrl: "#",
+}
+
+function PersonCard({
   org,
-  isActive,
-  onEnter,
-  onLeave,
-  delay,
   isVisible,
+  delay,
 }: {
   org: (typeof organizers)[0]
-  isActive: boolean
-  onEnter: () => void
-  onLeave: () => void
-  delay: string
   isVisible: boolean
+  delay: string
 }) {
   return (
     <div
       className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       style={{ transitionDelay: delay }}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
     >
       <div
-        className="relative h-full rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer"
+        className="rounded-2xl p-5 h-full"
         style={{
           background: "oklch(0.10 0.008 270)",
-          border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
-          transform: isActive ? "scale(1.01)" : "scale(1)",
+          border: `1px solid ${org.borderColor}`,
         }}
       >
-        {/* Glow overlay */}
-        <div
-          className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+        <h3 className="text-xl font-bold tracking-tight text-foreground leading-none">{org.firstName}</h3>
+        <h3
+          className="text-xl font-bold tracking-tight leading-none mt-0.5 mb-3"
           style={{
-            background: `linear-gradient(135deg, ${org.gradientFrom}14, transparent 60%)`,
-            opacity: isActive ? 1 : 0,
+            backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
           }}
-        />
+        >
+          {org.lastName}
+        </h3>
 
-        {/* Photo placeholder */}
-        <div className="p-4 pb-0">
-          <div
-            className="w-full aspect-video rounded-xl flex items-center justify-center relative overflow-hidden"
+        {/* Phone + LinkedIn + Instagram */}
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <a
+            href={`tel:+48${org.phone}`}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-semibold text-sm transition-all hover:scale-105"
             style={{
-              background: `linear-gradient(135deg, ${org.gradientFrom}10, ${org.gradientTo}05)`,
-              border: `1px solid ${org.borderColor}`,
+              border: `1.5px solid ${org.gradientFrom}`,
+              color: org.gradientFrom,
+              backgroundColor: `${org.gradientFrom}10`,
             }}
+            title="Zadzwoń"
           >
-            <div className="flex flex-col items-center gap-2 opacity-50">
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center"
-                style={{ background: `linear-gradient(135deg, ${org.gradientFrom}, ${org.gradientTo})` }}
-              >
-                <span className="text-base font-bold" style={{ color: "oklch(0.06 0.005 270)" }}>
-                  {org.initials}
+            <Phone className="w-3.5 h-3.5" />
+            <span>+48 {org.phone.slice(0, 3)} {org.phone.slice(3, 6)} {org.phone.slice(6)}</span>
+          </a>
+          <a
+            href={org.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all hover:scale-110"
+            style={{
+              border: `1.5px solid ${org.gradientFrom}`,
+              color: org.gradientFrom,
+              backgroundColor: `${org.gradientFrom}10`,
+            }}
+            title="LinkedIn"
+          >
+            <Linkedin className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={org.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all hover:scale-110"
+            style={{
+              border: `1.5px solid ${org.gradientFrom}`,
+              color: org.gradientFrom,
+              backgroundColor: `${org.gradientFrom}10`,
+            }}
+            title="Instagram"
+          >
+            <InstagramIcon className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        <p className="text-sm font-bold text-foreground mb-1.5">{org.quote}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {org.description.split(org.highlightPhrase).map((part, i, arr) => (
+            <span key={i}>
+              {part}
+              {i < arr.length - 1 && (
+                <span
+                  style={{
+                    fontWeight: "600",
+                    backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {org.highlightPhrase}
                 </span>
-              </div>
-              <div className="flex items-center gap-1.5" style={{ color: org.gradientFrom }}>
-                <Camera className="w-3 h-3" />
-                <span className="text-[10px] uppercase tracking-wider">Zdjęcie wkrótce</span>
-              </div>
-            </div>
-            <span
-              className="absolute top-2 left-3 text-2xl font-bold tabular-nums opacity-40"
-              style={{
-                backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              {org.number}
+              )}
             </span>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-4 relative">
-          <div className="mb-4">
-            <h3 className="text-2xl font-bold tracking-tight text-foreground leading-none">{org.firstName}</h3>
-            <h3
-              className="text-2xl font-bold tracking-tight leading-none mt-1 mb-3"
-              style={{
-                backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              {org.lastName}
-            </h3>
-            <a
-              href={`tel:+48${org.phone}`}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg font-semibold transition-all hover:scale-105"
-              style={{
-                border: `1.5px solid ${org.gradientFrom}`,
-                color: org.gradientFrom,
-                backgroundColor: `${org.gradientFrom}10`,
-              }}
-              title="Zadzwoń"
-            >
-              <Phone className="w-4 h-4" />
-              <span>+48 {org.phone.slice(0, 3)} {org.phone.slice(3, 6)} {org.phone.slice(6)}</span>
-            </a>
-          </div>
-
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {org.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-0.5 text-[10px] uppercase tracking-wider rounded-full transition-all duration-300"
-                style={{
-                  border: `1px solid ${isActive ? org.activeBorder : org.borderColor}`,
-                  color: isActive ? "oklch(0.97 0.005 80)" : "oklch(0.50 0.015 270)",
-                  backgroundColor: isActive ? `${org.gradientFrom}10` : "transparent",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <p className="text-sm font-bold text-foreground mb-2">{org.quote}</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {org.id === "kamil" ? (
-              <>
-                {org.description.split("niemożliwe do zrealizowania").map((part, i, arr) => (
-                  <span key={i}>
-                    {part}
-                    {i < arr.length - 1 && (
-                      <span
-                        style={{
-                          fontWeight: "600",
-                          backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          backgroundClip: "text",
-                        }}
-                      >
-                        niemożliwe do zrealizowania
-                      </span>
-                    )}
-                  </span>
-                ))}
-              </>
-            ) : org.id === "leon" ? (
-              <>
-                {org.description.split("nie ma nigdy miejsca").map((part, i, arr) => (
-                  <span key={i}>
-                    {part}
-                    {i < arr.length - 1 && (
-                      <span
-                        style={{
-                          fontWeight: "600",
-                          backgroundImage: `linear-gradient(90deg, ${org.gradientFrom}, ${org.gradientTo})`,
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          backgroundClip: "text",
-                        }}
-                      >
-                        nie ma nigdy miejsca
-                      </span>
-                    )}
-                  </span>
-                ))}
-              </>
-            ) : (
-              org.description
-            )}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function CenterDivider({ isVisible }: { isVisible: boolean }) {
-  return (
-    <div
-      className={`flex items-center justify-center transition-all duration-500 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
-      style={{ transitionDelay: "300ms" }}
-    >
-      <div className="relative py-8 lg:py-0 flex flex-col items-center gap-3">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-card transition-transform hover:scale-105 cursor-default"
-             style={{ border: "1px solid oklch(0.72 0.19 65 / 0.25)", boxShadow: "0 0 12px oklch(0.72 0.19 65 / 0.08)" }}>
-          <Zap className="w-5 h-5" style={{ color: "oklch(0.72 0.19 65)" }} />
-        </div>
-        <p className="text-[10px] uppercase tracking-[0.16em] font-bold text-center max-w-[160px] leading-snug"
-           style={{ color: "oklch(0.72 0.19 65)" }}>
-          Nie o przyszłości kiedyś.<br />O humanoidach już teraz
+          ))}
         </p>
       </div>
     </div>
@@ -237,7 +165,6 @@ function CenterDivider({ isVisible }: { isVisible: boolean }) {
 
 export function OrganizersSection() {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>({ threshold: 0.1 })
-  const [activeOrganizer, setActiveOrganizer] = useState<string | null>(null)
 
   return (
     <section ref={ref} id="organizatorzy" className="relative py-32 px-6 overflow-hidden">
@@ -255,17 +182,14 @@ export function OrganizersSection() {
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
         <div
-          className={`mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="flex items-center gap-4 mb-8">
             <span className="text-sm uppercase tracking-[0.3em] text-gradient-start font-medium">Za kulisami</span>
             <div className="flex-1 h-px bg-gradient-to-r from-gradient-start/50 to-transparent" />
           </div>
-
           <h2 className="font-display uppercase leading-[1.15]" style={{ letterSpacing: "-0.02em" }}>
-            <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              ORGANIZATORZY
-            </span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">ORGANIZATORZY</span>
             <span
               className="block text-4xl md:text-5xl lg:text-6xl font-bold"
               style={{
@@ -282,29 +206,103 @@ export function OrganizersSection() {
           </h2>
         </div>
 
-        {/* 3-column grid: card | circle | card */}
-        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-5 items-center mb-14">
-          <OrganizerCard
-            org={organizers[0]}
-            isActive={activeOrganizer === "kamil"}
-            onEnter={() => setActiveOrganizer("kamil")}
-            onLeave={() => setActiveOrganizer(null)}
-            delay="100ms"
-            isVisible={isVisible}
-          />
+        {/* Two-column layout: portrait photo | content */}
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          {/* Portrait photo */}
+          <div
+            className={`lg:col-span-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"}`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden relative">
+              <div className="absolute inset-0 p-[3px] rounded-3xl bg-gradient-to-br from-gradient-start via-gradient-mid to-gradient-end">
+                <div className="w-full h-full rounded-3xl bg-card relative overflow-hidden">
+                  <Image
+                    src="/organizers-photo.webp"
+                    alt="Kamil Tański i Leon Bednarski"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover object-[center_10%]"
+                  />
+                </div>
+              </div>
+              <div
+                className="absolute inset-0 blur-[60px] -z-10"
+                style={{ background: "linear-gradient(135deg, oklch(0.72 0.19 65 / 0.25), oklch(0.55 0.14 35 / 0.25))" }}
+              />
+            </div>
+          </div>
 
-          <CenterDivider isVisible={isVisible} />
+          {/* Right column: shared text + person cards + social */}
+          <div
+            className={`lg:col-span-8 flex flex-col gap-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}`}
+          >
+            {/* Shared intro */}
+            <div
+              className="rounded-2xl p-6"
+              style={{
+                background: "oklch(0.10 0.008 270)",
+                border: "1px solid oklch(0.72 0.19 65 / 0.12)",
+              }}
+            >
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                Dwóch przyjaciół, którzy łączą biznes, technologię i konkretne działanie. Gaszą pożary, pokonują smoki i biorą na siebie to, czego inni wolą nie ruszać, aby zawsze dowieźć projekt do końca. Na co dzień studenci PW i część zespołu Edwarda Warchockiego. Odpowiedzialni za sprzedaż i wdrożenia IT w Warszawskim Czasie. 
+              </p>
+            </div>
 
-          <OrganizerCard
-            org={organizers[1]}
-            isActive={activeOrganizer === "leon"}
-            onEnter={() => setActiveOrganizer("leon")}
-            onLeave={() => setActiveOrganizer(null)}
-            delay="200ms"
-            isVisible={isVisible}
-          />
+            {/* Individual cards side by side */}
+            <div className="grid sm:grid-cols-2 gap-5">
+              {organizers.map((org, i) => (
+                <PersonCard
+                  key={org.id}
+                  org={org}
+                  isVisible={isVisible}
+                  delay={`${300 + i * 100}ms`}
+                />
+              ))}
+            </div>
+
+            {/* Shared social */}
+            <div
+              className="rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-center gap-4"
+              style={{
+                background: "oklch(0.10 0.008 270)",
+                border: "1px solid oklch(0.72 0.19 65 / 0.12)",
+              }}
+            >
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">Śledź wydarzenie</span>
+              <div className="flex items-center gap-3">
+                <a
+                  href={sharedSocials.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105"
+                  style={{
+                    border: "1.5px solid oklch(0.72 0.19 65 / 0.4)",
+                    color: "oklch(0.72 0.19 65)",
+                    backgroundColor: "oklch(0.72 0.19 65 / 0.08)",
+                  }}
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                  Instagram
+                </a>
+                <a
+                  href={sharedSocials.tiktokUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105"
+                  style={{
+                    border: "1.5px solid oklch(0.72 0.19 65 / 0.4)",
+                    color: "oklch(0.72 0.19 65)",
+                    backgroundColor: "oklch(0.72 0.19 65 / 0.08)",
+                  }}
+                >
+                  <TikTokIcon className="w-4 h-4" />
+                  TikTok
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
   )

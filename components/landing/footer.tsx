@@ -106,7 +106,7 @@ export function Footer() {
             © {currentYear} Edek na uczelni
           </p>
           <p className="text-sm text-foreground/50">
-            29 kwietnia 2026 · Politechnika Warszawska | Gmach Główny · <span className="text-gradient-start font-semibold">Wstęp wolny</span>
+            29 kwietnia 2026 · Politechnika Warszawska | Gmach Główny, Mała Aula · <span className="text-gradient-start font-semibold">Wstęp wolny</span>
           </p>
         </div>
       </div>
