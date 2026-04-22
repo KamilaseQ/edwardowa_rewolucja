@@ -1,19 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, Inter, Bebas_Neue } from 'next/font/google'
+import { Space_Grotesk, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import { FORM_URL } from '@/lib/constants'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: '--font-sans',
-  display: 'swap',
-});
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-body',
   display: 'swap',
 });
 
@@ -228,7 +222,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${spaceGrotesk.variable} ${inter.variable} ${bebasNeue.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${spaceGrotesk.variable} ${bebasNeue.variable} font-sans antialiased bg-background text-foreground`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

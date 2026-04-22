@@ -100,19 +100,8 @@ function useCursorGlow(containerRef: React.RefObject<HTMLElement | null>) {
 
 const EVENT_DATE = new Date("2026-04-29T14:00:00+02:00")
 
-export function HeroSection() {
-  const isLoaded = true
-  const timeLeft = useCountdown(EVENT_DATE)
-  const sectionRef = useRef<HTMLElement>(null)
-  const glowRef = useCursorGlow(sectionRef)
-
-  const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
-
-  const scrollToSpeaker = () => {
-    document.querySelector("#prelegent")?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const CountdownBox = ({ value, label }: { value: number | null; label: string }) => (
+function CountdownBox({ value, label }: { value: number | null; label: string }) {
+  return (
     <div className="flex flex-col items-center">
       <div
         className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center"
@@ -124,7 +113,8 @@ export function HeroSection() {
         }}
       >
         <span
-          className="text-xl sm:text-2xl font-bold tabular-nums"
+          key={value ?? "loading"}
+          className="text-xl sm:text-2xl font-bold tabular-nums animate-countdown-bounce"
           style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65 / 0.5)", fontVariantNumeric: "tabular-nums" }}
         >
           {value === null ? "--" : String(value).padStart(2, "0")}
@@ -135,6 +125,19 @@ export function HeroSection() {
       </span>
     </div>
   )
+}
+
+export function HeroSection() {
+  const isLoaded = true
+  const timeLeft = useCountdown(EVENT_DATE)
+  const sectionRef = useRef<HTMLElement>(null)
+  const glowRef = useCursorGlow(sectionRef)
+
+  const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
+
+  const scrollToSpeaker = () => {
+    document.querySelector("#prelegent")?.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
     <section

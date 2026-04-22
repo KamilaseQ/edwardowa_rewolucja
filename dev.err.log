@@ -62,3 +62,49 @@ https://react.dev/link/hydration-mismatch
   127 |           className="text-xl sm:text-2xl font-bold tabular-nums"
   128 |           style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65...
   129 |         >
+⨯ ReferenceError: Inter is not defined
+    at module evaluation (app\layout.tsx:14:15)
+    at module evaluation (C:\Users\212ka\source\repos\edwardowa_rewolucja\.next\dev\server\chunks\ssr\[root-of-the-server]__0-fmt~4._.js:352:47)
+  12 | });
+  13 |
+> 14 | const inter = Inter({ 
+     |               ^
+  15 |   subsets: ["latin"],
+  16 |   variable: '--font-body',
+  17 |   display: 'swap',
+⨯ ReferenceError: Inter is not defined
+    at module evaluation (app\layout.tsx:14:15)
+    at module evaluation (C:\Users\212ka\source\repos\edwardowa_rewolucja\.next\dev\server\chunks\ssr\[root-of-the-server]__0-fmt~4._.js:352:47)
+  12 | });
+  13 |
+> 14 | const inter = Inter({ 
+     |               ^
+  15 |   subsets: ["latin"],
+  16 |   variable: '--font-body',
+  17 |   display: 'swap', {
+  page: '/'
+}
+⨯ ReferenceError: Inter is not defined
+    at module evaluation (app\layout.tsx:14:15)
+    at module evaluation (C:\Users\212ka\source\repos\edwardowa_rewolucja\.next\dev\server\chunks\ssr\[root-of-the-server]__0-fmt~4._.js:352:47)
+  12 | });
+  13 |
+> 14 | const inter = Inter({ 
+     |               ^
+  15 |   subsets: ["latin"],
+  16 |   variable: '--font-body',
+  17 |   display: 'swap', {
+  page: '/'
+}
+⨯ ReferenceError: Inter is not defined
+    at module evaluation (app\layout.tsx:14:15)
+    at module evaluation (C:\Users\212ka\source\repos\edwardowa_rewolucja\.next\dev\server\chunks\ssr\[root-of-the-server]__0-fmt~4._.js:352:47)
+  12 | });
+  13 |
+> 14 | const inter = Inter({ 
+     |               ^
+  15 |   subsets: ["latin"],
+  16 |   variable: '--font-body',
+  17 |   display: 'swap', {
+  page: '/'
+}
