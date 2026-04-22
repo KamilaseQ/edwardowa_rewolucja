@@ -207,7 +207,7 @@ export function HeroSection() {
             <span className="relative inline-flex rounded-full w-2 h-2" style={{ backgroundColor: "oklch(0.72 0.19 65)" }} />
           </span>
           <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "oklch(0.82 0.14 75)" }}>
-            29 Kwietnia 2026 &bull; Politechnika Warszawska
+            29 Kwietnia 2026 &bull; 200-lecie Politechniki Warszawskiej
           </span>
         </div>
 

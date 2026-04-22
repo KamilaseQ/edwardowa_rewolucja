@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "Dla kogo jest to wydarzenie?",
     answer:
-      "Dla ludzi którzy chcą wejść w erę humanoidów i sztucznej inteligencji. Dla studentów, dla przedsiębiorców, dla tych którzy budują przyszłość. Teraz jest czas na odważny krok w nowy rynek. Jeśli roboty to Twoja przyszłość, to jest Twoje miejsce.",
+      "Dla ludzi, którzy chcą wejść w erę humanoidów i sztucznej inteligencji. Dla studentów, dla przedsiębiorców, dla tych, którzy budują przyszłość. Teraz jest czas na odważny krok w nowy rynek. ",
   },
   {
     question: "Czy wstęp jest płatny?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Jak długo to potrwa?",
     answer:
-      "Około 2 godziny. Keynote Edwarda Warchockiego, sesja Q&A, networking z innymi uczestnikami.",
+      "Około 2 godziny. Pokaz Edwarda Warchockiego, sesja Q&A, networking z innymi uczestnikami.",
   },
   {
     question: "Czy mogę zadawać pytania?",
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Czy będzie nagranie?",
     answer:
-      "Nagrywamy fragmenty aby podzielić się z innymi. Ale żeby poczuć całą energię eventu i nawiązać kontakty, trzeba być na żywo.",
+      "Nagramy tylko fragmenty wydarzenia, jednak najwięcej zyskasz będąc tam osobiście. To właśnie na miejscu poczujesz atmosferę konferencji i nawiążesz wartościowe kontakty.",
   },
 ]
 

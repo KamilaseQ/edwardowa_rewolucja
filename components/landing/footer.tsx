@@ -21,7 +21,7 @@ export function Footer() {
               </h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Jedno wydarzenie. Jedna szansa. Jeden dzień, który zmieni Twoje spojrzenie na przyszłość.
+              Edek na uczelni. Z okazji 200-lecia Politechniki Warszawskiej. Jedno wydarzenie. Jedna szansa. Jeden dzień, który zmieni Twoje spojrzenie na przyszłość biznesu.
             </p>
             <div className="flex gap-3">
               <a 
@@ -101,7 +101,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-gradient-start/8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground uppercase tracking-widest text-[10px]">
-            © {currentYear} Edek na uczelni
+            © {currentYear} Edek na uczelni na 200-lecie Politechniki Warszawskiej
           </p>
           <p className="text-sm text-foreground/50">
             29 kwietnia 2026 · Politechnika Warszawska | Gmach Główny, Mała Aula · <span className="text-gradient-start font-semibold">Wstęp wolny</span>
