@@ -239,7 +239,7 @@ export function HeroSection() {
         <p
           className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-foreground/70 mb-6 leading-snug transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          Roboty humanoidalne z impetem wchodzą na rynek. To kolejna okazja biznesowa dla tych którzy działają dziś.
+          Roboty humanoidalne z impetem wchodzą na rynek. To kolejna okazja biznesowa dla tych, którzy działają natychmiast.
         </p>
 
         {/* Countdown */}
