@@ -9,6 +9,8 @@ import { SignupSection } from "@/components/landing/signup-section"
 import { Navigation } from "@/components/landing/navigation"
 import { Footer } from "@/components/landing/footer"
 
+export const dynamic = "force-dynamic"
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">

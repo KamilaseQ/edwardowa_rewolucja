@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, Inter, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import { FORM_URL } from '@/lib/constants'
 import './globals.css'
 
@@ -22,6 +23,68 @@ const bebasNeue = Bebas_Neue({
   weight: ['400'],
   display: 'swap',
 });
+
+const chunkRecoveryScript = `
+(() => {
+  const storageKey = "next-chunk-reload-attempted";
+
+  const isChunkError = (value) =>
+    typeof value === "string" &&
+    /ChunkLoadError|Failed to load chunk|Failed to fetch dynamically imported module|Loading chunk [\\w-]+ failed|_next\\/static\\/chunks\\//i.test(value);
+
+  const reloadOnce = () => {
+    try {
+      if (window.sessionStorage.getItem(storageKey) === "1") {
+        return;
+      }
+      window.sessionStorage.setItem(storageKey, "1");
+    } catch {}
+
+    window.location.reload();
+  };
+
+  window.addEventListener(
+    "error",
+    (event) => {
+      const target = event.target;
+      const assetUrl =
+        target instanceof HTMLScriptElement || target instanceof HTMLLinkElement
+          ? target.src || target.href || ""
+          : "";
+      const message = [event.message, event.filename, assetUrl].filter(Boolean).join(" ");
+
+      if (isChunkError(message)) {
+        reloadOnce();
+      }
+    },
+    true
+  );
+
+  window.addEventListener("unhandledrejection", (event) => {
+    const reason = event.reason;
+    const message =
+      typeof reason === "string"
+        ? reason
+        : typeof reason?.message === "string"
+          ? reason.message
+          : "";
+
+    if (isChunkError(message)) {
+      reloadOnce();
+    }
+  });
+
+  window.addEventListener(
+    "load",
+    () => {
+      try {
+        window.sessionStorage.removeItem(storageKey);
+      } catch {}
+    },
+    { once: true }
+  );
+})();
+`
 
 export const metadata: Metadata = {
   title: 'Edek na uczelni | 29.04.2026 Robot humanoidalny na żywo',
@@ -145,6 +208,11 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
+        <Script
+          id="chunk-recovery"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: chunkRecoveryScript }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

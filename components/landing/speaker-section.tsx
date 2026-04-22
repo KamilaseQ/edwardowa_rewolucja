@@ -14,7 +14,7 @@ const stats = [
   { end: 1, prefix: "#", suffix: "", label: "Robot w Polsce", gradient: "from-gradient-end to-gradient-start" },
 ]
 
-const mediaLogos = ["Reuters", "TVN", "Polsat News", "Sejm RP", "Money.pl", "Spider's Web", "WP"]
+const mediaLogos = ["BBC", "Reuters", "TVN", "Polsat News", "Sejm RP", "Money.pl", "Spider's Web", "WP"]
 
 export function SpeakerSection() {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>({ threshold: 0.1 })
@@ -103,7 +103,7 @@ export function SpeakerSection() {
               500 milionów wyświetleń. Setki współprac. Pierwszy polski robot influencer.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
-              Fenomen na skalę światową. Wspominany przez Reuters, gość Sejmu, TVN, Polsat News. Na tym wydarzeniu dowiesz się, co dzieje się za kulisami projektu, który śledzi cały świat.
+              Fenomen na skalę światową. Wspominany przez BBC, Reuters, gość Sejmu, TVN, Polsat News. Na tym wydarzeniu dowiesz się, co dzieje się za kulisami projektu, który śledzi cały świat.
             </p>
 
             {/* Media mentions */}
