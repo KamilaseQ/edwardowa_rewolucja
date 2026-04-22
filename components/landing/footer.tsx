@@ -24,9 +24,9 @@ export function Footer() {
               Edek na uczelni. Jedno wydarzenie. Jedna szansa. Jeden dzień, który zmieni Twoje spojrzenie na przyszłość biznesu. Zorganizowano z okazji 200-lecia Politechniki Warszawskiej.
             </p>
             <div className="flex gap-3">
-              <a 
-                href="https://warchocki.pl" 
-                target="_blank" 
+              <a
+                href="https://warchocki.pl"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-gradient-start hover:text-foreground transition-colors"
               >
@@ -34,9 +34,9 @@ export function Footer() {
                 <ArrowUpRight className="w-3 h-3" />
               </a>
               <span className="text-gradient-mid/30">|</span>
-              <a 
-                href="https://merarobotics.com" 
-                target="_blank" 
+              <a
+                href="https://merarobotics.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-xs uppercase tracking-wider text-gradient-mid hover:text-foreground transition-colors"
               >

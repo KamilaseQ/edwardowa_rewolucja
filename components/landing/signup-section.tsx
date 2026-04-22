@@ -49,7 +49,7 @@ export function SignupSection() {
             {/* 350 miejsc */}
             <div className="flex items-center gap-2 text-foreground">
               <Users className="w-5 h-5" style={{ color: "oklch(0.72 0.19 65)" }} />
-              <span className="font-semibold">350 miejsc</span>
+              <span className="font-semibold">300 miejsc</span>
             </div>
 
             <span style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>|</span>

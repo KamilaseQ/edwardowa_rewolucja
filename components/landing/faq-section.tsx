@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "Gdzie i kiedy?",
     answer:
-      "29 kwietnia 2026, godz. 14:00-16:00, Politechnika Warszawska, Gmach Główny, Mała Aula.",
+      "29 kwietnia 2026, godz. 14:00 - 15:30, Politechnika Warszawska, Gmach Główny, Mała Aula.",
   },
   {
     question: "Czego mogę się spodziewać?",

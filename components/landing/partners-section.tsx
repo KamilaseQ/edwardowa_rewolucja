@@ -24,6 +24,15 @@ const allPartners: Partner[] = [
     logoBg: "linear-gradient(135deg, oklch(0.13 0.02 65), oklch(0.09 0.01 65))",
   },
   {
+    name: "Politechnika Warszawska",
+    role: "200 lat tradycji",
+    hue: 45,
+    url: "#",
+    faviconDomain: "",
+    logoUrl: "/logo200.png",
+    logoBg: "#000000",
+  },
+  {
     name: "WAiNS PW",
     role: "Organizator wydarzenia",
     hue: 65,

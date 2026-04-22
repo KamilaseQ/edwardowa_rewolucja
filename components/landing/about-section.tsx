@@ -29,7 +29,7 @@ const features = [
     title: "Networking",
     subtitle: "bez barier",
     description: "Founderzy, studenci i eksperci w jednym miejscu.",
-    stat: "350",
+    stat: "300",
     statLabel: "osób",
     gradient: "from-gradient-end to-gradient-start",
   },
@@ -128,7 +128,7 @@ export function AboutSection() {
                   <Lock className="w-5 h-5" style={{ color: "oklch(0.72 0.19 65)" }} />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-foreground leading-tight">Tylko 350 miejsc</p>
+                  <p className="text-lg font-bold text-foreground leading-tight">Tylko 300 miejsc</p>
                   <p className="text-xs tracking-wide mt-0.5" style={{ color: "oklch(0.72 0.19 65 / 0.70)" }}>Rejestracja otwarta</p>
                 </div>
               </div>

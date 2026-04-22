@@ -273,7 +273,7 @@ export function HeroSection() {
           <span className="text-muted-foreground/30 hidden sm:block">|</span>
 
           <div className="flex items-center gap-2 font-bold">
-            <span className="text-sm tracking-wide" style={{ color: "oklch(0.72 0.19 65)" }}>350 miejsc · rejestracja otwarta</span>
+            <span className="text-sm tracking-wide" style={{ color: "oklch(0.72 0.19 65)" }}>300 miejsc · rejestracja otwarta</span>
           </div>
         </div>
 
