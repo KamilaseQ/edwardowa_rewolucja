@@ -20,14 +20,29 @@ function TikTokIcon({ className }: { className?: string }) {
   )
 }
 
-const organizers = [
+type Organizer = {
+  id: string
+  firstName: string
+  lastName: string
+  phone: string
+  linkedinUrl?: string
+  instagramUrl?: string
+  quote: string
+  description: string
+  highlightPhrase: string
+  gradientFrom: string
+  gradientTo: string
+  borderColor: string
+}
+
+const organizers: Organizer[] = [
   {
     id: "kamil",
     firstName: "Kamil",
     lastName: "Tański",
     phone: "501747490",
-    linkedinUrl: "#",
-    instagramUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/kamil-ta%C5%84ski-05141736a/",
+    instagramUrl: "https://www.instagram.com/kamilaseq/",
     quote: "Myśli szerzej, niż większość odważa się planować.",
     description:
       "Specjalista od AI. Łączy sprzedaż i intuicję do projektów, które z pozoru wydają się niemożliwe do zrealizowania.",
@@ -41,8 +56,8 @@ const organizers = [
     firstName: "Leon",
     lastName: "Bednarski",
     phone: "728561373",
-    linkedinUrl: "#",
-    instagramUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/kamil-ta%C5%84ski-05141736a/",
+    instagramUrl: "https://www.instagram.com/bednarski_leon/",
     quote: "Tam, gdzie on przejmuje kontrolę, wszystko zaczyna działać jak trzeba.",
     description:
       "Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
@@ -54,8 +69,8 @@ const organizers = [
 ]
 
 const sharedSocials = {
-  instagramUrl: "#",
-  tiktokUrl: "#",
+  instagramUrl: "https://www.instagram.com/kamil_i_leon/",
+  tiktokUrl: "https://www.tiktok.com/@kamilileon",
 }
 
 function PersonCard({
@@ -63,7 +78,7 @@ function PersonCard({
   isVisible,
   delay,
 }: {
-  org: (typeof organizers)[0]
+  org: Organizer
   isVisible: boolean
   delay: string
 }) {
@@ -107,34 +122,40 @@ function PersonCard({
             <Phone className="w-3.5 h-3.5" />
             <span>+48 {org.phone.slice(0, 3)} {org.phone.slice(3, 6)} {org.phone.slice(6)}</span>
           </a>
-          <a
-            href={org.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all hover:scale-110"
-            style={{
-              border: `1.5px solid ${org.gradientFrom}`,
-              color: org.gradientFrom,
-              backgroundColor: `${org.gradientFrom}10`,
-            }}
-            title="LinkedIn"
-          >
-            <Linkedin className="w-3.5 h-3.5" />
-          </a>
-          <a
-            href={org.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all hover:scale-110"
-            style={{
-              border: `1.5px solid ${org.gradientFrom}`,
-              color: org.gradientFrom,
-              backgroundColor: `${org.gradientFrom}10`,
-            }}
-            title="Instagram"
-          >
-            <InstagramIcon className="w-3.5 h-3.5" />
-          </a>
+          {org.linkedinUrl && (
+            <a
+              href={org.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all hover:scale-110"
+              style={{
+                border: `1.5px solid ${org.gradientFrom}`,
+                color: org.gradientFrom,
+                backgroundColor: `${org.gradientFrom}10`,
+              }}
+              title="LinkedIn"
+              aria-label={`LinkedIn ${org.firstName} ${org.lastName}`}
+            >
+              <Linkedin className="w-3.5 h-3.5" />
+            </a>
+          )}
+          {org.instagramUrl && (
+            <a
+              href={org.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-lg transition-all hover:scale-110"
+              style={{
+                border: `1.5px solid ${org.gradientFrom}`,
+                color: org.gradientFrom,
+                backgroundColor: `${org.gradientFrom}10`,
+              }}
+              title="Instagram"
+              aria-label={`Instagram ${org.firstName} ${org.lastName}`}
+            >
+              <InstagramIcon className="w-3.5 h-3.5" />
+            </a>
+          )}
         </div>
 
         <p className="text-sm font-bold text-foreground mb-1.5">{org.quote}</p>

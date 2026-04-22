@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, Inter, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { FORM_URL } from '@/lib/constants'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({ 
@@ -70,10 +71,11 @@ export const metadata: Metadata = {
     siteName: 'Edek na uczelni',
     images: [
       {
-        url: '/nieb.webp',
+        url: '/og-banner.jpg',
         width: 1200,
-        height: 630,
+        height: 800,
         alt: 'Edek na uczelni - konferencja z Edwardem Warchockim',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -81,8 +83,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Edek na uczelni | 29.04.2026',
     description: 'Robot humanoidalny na żywo. Konferencja na styku technologii, mediów i biznesu.',
-    images: ['/nieb.webp'],
-    creator: '@EdwardWarchocki',
+    images: ['/og-banner.jpg'],
+    creator: '@edwardwarchocki',
   },
 }
 
@@ -116,7 +118,7 @@ export default function RootLayout({
         addressCountry: 'PL',
       },
     },
-    image: '/nieb.webp',
+    image: '/og-banner.jpg',
     eventAttendanceMode: 'OfflineEventAttendanceMode',
     eventStatus: 'EventScheduled',
     organizer: {
@@ -126,7 +128,7 @@ export default function RootLayout({
     },
     offers: {
       '@type': 'Offer',
-      url: 'https://forms.gle/PLACEHOLDER_UZUPELNIJ_URL',
+      url: FORM_URL,
       price: '0',
       priceCurrency: 'PLN',
       availability: 'InStock',
