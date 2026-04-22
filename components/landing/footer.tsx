@@ -1,9 +1,7 @@
-"use client"
-
 import { MapPin, Calendar, Mail, ArrowUpRight, Zap } from "lucide-react"
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = 2026
 
   return (
     <footer className="relative border-t border-gradient-start/15 bg-card/50 overflow-hidden">

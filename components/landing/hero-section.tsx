@@ -28,8 +28,8 @@ function calculateTimeLeft(targetDate: Date): TimeLeft {
   }
 }
 
-function useCountdown(targetDate: Date): TimeLeft {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft(targetDate))
+function useCountdown(targetDate: Date): TimeLeft | null {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
 
   useEffect(() => {
     const calculate = () => {
@@ -98,7 +98,7 @@ function useCursorGlow(containerRef: React.RefObject<HTMLElement | null>) {
   return element
 }
 
-const EVENT_DATE = new Date("2026-04-29T14:00:00")
+const EVENT_DATE = new Date("2026-04-29T14:00:00+02:00")
 
 export function HeroSection() {
   const isLoaded = true
@@ -112,7 +112,7 @@ export function HeroSection() {
     document.querySelector("#prelegent")?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const CountdownBox = ({ value, label }: { value: number; label: string }) => (
+  const CountdownBox = ({ value, label }: { value: number | null; label: string }) => (
     <div className="flex flex-col items-center">
       <div
         className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center"
@@ -127,7 +127,7 @@ export function HeroSection() {
           className="text-xl sm:text-2xl font-bold tabular-nums"
           style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65 / 0.5)", fontVariantNumeric: "tabular-nums" }}
         >
-          {String(value).padStart(2, "0")}
+          {value === null ? "--" : String(value).padStart(2, "0")}
         </span>
       </div>
       <span className="mt-1.5 text-[9px] uppercase tracking-[0.18em] font-semibold" style={{ color: "oklch(0.72 0.19 65 / 0.6)" }}>
@@ -252,13 +252,13 @@ export function HeroSection() {
             boxShadow: "0 0 30px oklch(0.72 0.19 65 / 0.05)",
           }}
         >
-          <CountdownBox value={timeLeft.days} label="DNI" />
+          <CountdownBox value={timeLeft?.days ?? null} label="DNI" />
           <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>:</span>
-          <CountdownBox value={timeLeft.hours} label="GODZ" />
+          <CountdownBox value={timeLeft?.hours ?? null} label="GODZ" />
           <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>:</span>
-          <CountdownBox value={timeLeft.minutes} label="MIN" />
+          <CountdownBox value={timeLeft?.minutes ?? null} label="MIN" />
           <span className="text-xl font-bold animate-countdown-pulse" style={{ color: "oklch(0.72 0.19 65 / 0.4)" }}>:</span>
-          <CountdownBox value={timeLeft.seconds} label="SEK" />
+          <CountdownBox value={timeLeft?.seconds ?? null} label="SEK" />
         </div>
 
         {/* Info row */}
