@@ -12,23 +12,28 @@ interface TimeLeft {
   seconds: number
 }
 
+function calculateTimeLeft(targetDate: Date): TimeLeft {
+  const now = new Date().getTime()
+  const distance = targetDate.getTime() - now
+
+  if (distance <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  }
+
+  return {
+    days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((distance % (1000 * 60)) / 1000),
+  }
+}
+
 function useCountdown(targetDate: Date): TimeLeft {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => calculateTimeLeft(targetDate))
 
   useEffect(() => {
     const calculate = () => {
-      const now = new Date().getTime()
-      const distance = targetDate.getTime() - now
-      if (distance <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-        return
-      }
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      })
+      setTimeLeft(calculateTimeLeft(targetDate))
     }
     calculate()
     const interval = setInterval(calculate, 1000)
@@ -96,15 +101,10 @@ function useCursorGlow(containerRef: React.RefObject<HTMLElement | null>) {
 const EVENT_DATE = new Date("2026-04-29T14:00:00")
 
 export function HeroSection() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const isLoaded = true
   const timeLeft = useCountdown(EVENT_DATE)
   const sectionRef = useRef<HTMLElement>(null)
   const glowRef = useCursorGlow(sectionRef)
-
-  useEffect(() => {
-    const t = setTimeout(() => setIsLoaded(true), 100)
-    return () => clearTimeout(t)
-  }, [])
 
   const openForm = () => window.open(FORM_URL, "_blank", "noopener,noreferrer")
 

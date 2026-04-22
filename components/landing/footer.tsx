@@ -1,3 +1,5 @@
+"use client"
+
 import { MapPin, Calendar, Mail, ArrowUpRight, Zap } from "lucide-react"
 
 export function Footer() {

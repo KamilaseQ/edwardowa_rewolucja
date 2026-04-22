@@ -1,0 +1,64 @@
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+        <SegmentViewNode type="page" pagePath="page.tsx">
+          <SegmentTrieNode>
+          <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+            <Home params={Promise} searchParams={Promise}>
+              <main className="min-h-scre...">
+                <Navigation>
+                <HeroSection>
+                  <section ref={{current:null}} id="hero" className="relative m...">
+                    <div>
+                    <div>
+                    <div className="relative z...">
+                      <div>
+                      <h1>
+                      <p>
+                      <div className="inline-fle..." style={{...}}>
+                        <CountdownBox>
+                        <span>
+                        <CountdownBox>
+                        <span>
+                        <CountdownBox>
+                        <span>
+                        <CountdownBox value={36} label="SEK">
+                          <div className="flex flex-...">
+                            <div className="relative w..." style={{...}}>
+                              <span
+                                className="text-xl sm:text-2xl font-bold tabular-nums"
+                                style={{color:"oklch(0.90...",textShadow:"0 0 18px o...",fontVariantNumeric:"tabular-nums"}}
+                              >
++                               36
+-                               39
+                            ...
+                      ...
+                    ...
+                ...
+        ...
+      ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at CountdownBox (components/landing/hero-section.tsx:126:9)
+    at HeroSection (components/landing/hero-section.tsx:261:11)
+    at Home (app/page.tsx:18:7)
+  124 |         }}
+  125 |       >
+> 126 |         <span
+      |         ^
+  127 |           className="text-xl sm:text-2xl font-bold tabular-nums"
+  128 |           style={{ color: "oklch(0.90 0.12 75)", textShadow: "0 0 18px oklch(0.72 0.19 65...
+  129 |         >
