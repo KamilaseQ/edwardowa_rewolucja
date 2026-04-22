@@ -22,12 +22,12 @@ const faqs = [
   {
     question: "Gdzie i kiedy?",
     answer:
-      "29 kwietnia 2026, godz. 14:00, Politechnika Warszawska, Gmach Główny, Mała Aula.",
+      "29 kwietnia 2026, godz. 14:00-16:00, Politechnika Warszawska, Gmach Główny, Mała Aula.",
   },
   {
-    question: "Jak długo to potrwa?",
+    question: "Czego mogę się spodziewać?",
     answer:
-      "Około 2 godziny. Pokaz Edwarda Warchockiego, sesja Q&A, networking z innymi uczestnikami.",
+      "Spotkania z Edwardem Warchockim i jego zespołem, którzy pokażą technologię z bliska i opowiedzą o jej realnym potencjale. Usłyszysz też wystapienia wybitnych profesorów. To będzie konkretna wiedza, inspiracja i okazja do poznania ludzi zainteresowanych nowoczesnym biznesem i innowacjami.",
   },
   {
     question: "Czy mogę zadawać pytania?",

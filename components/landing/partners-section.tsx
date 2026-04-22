@@ -59,6 +59,15 @@ const allPartners: Partner[] = [
     logoBg: "oklch(0.09 0.008 60)",
   },
   {
+    name: "TVPW",
+    role: "Patron medialny",
+    hue: 10,
+    url: "https://tvpw.pl",
+    faviconDomain: "tvpw.pl",
+    logoUrl: "/logos/tvpw.png",
+    logoBg: "#ffffff",
+  },
+  {
     name: "RKN PW",
     role: "Rada Kół Naukowych",
     hue: 45,
