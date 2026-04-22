@@ -113,7 +113,7 @@ export function SpeakerSection() {
                 {mediaLogos.map((logo) => (
                   <span
                     key={logo}
-                    className="px-4 py-2 text-xs uppercase tracking-wider border rounded-full text-foreground/80 hover:text-foreground hover:border-gradient-start hover:bg-gradient-start/10 transition-all cursor-default"
+                    className={`px-4 py-2 text-xs uppercase tracking-wider border rounded-full text-foreground/80 hover:text-foreground hover:border-gradient-start hover:bg-gradient-start/10 transition-all cursor-default${logo === "WP" ? " md:hidden" : ""}`}
                     style={{
                       borderColor: "oklch(0.72 0.19 65 / 0.25)",
                     }}

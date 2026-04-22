@@ -58,9 +58,9 @@ const organizers: Organizer[] = [
     phone: "728561373",
     linkedinUrl: "https://www.linkedin.com/in/kamil-ta%C5%84ski-05141736a/",
     instagramUrl: "https://www.instagram.com/bednarski_leon/",
-    quote: "Tam, gdzie on przejmuje kontrolę, wszystko zaczyna działać jak trzeba.",
+    quote: "Gdy przejmuje kontrolę, wszystko działa jak trzeba.",
     description:
-      "Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
+      "Creative Strategist. Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
     highlightPhrase: "nie ma nigdy miejsca",
     gradientFrom: "oklch(0.62 0.16 50)",
     gradientTo: "oklch(0.55 0.14 35)",
