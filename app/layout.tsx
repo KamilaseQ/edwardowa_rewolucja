@@ -111,23 +111,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
-        sizes: '32x32',
-        type: 'image/x-icon',
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
       },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    shortcut: '/favicon.ico',
-    apple: [
-      {
-        url: '/apple-icon.png',
-        sizes: '180x180',
-        type: 'image/png',
-      },
-    ],
+    apple: '/apple-icon.png',
   },
   openGraph: {
     title: 'Edek na uczelni | 29.04.2026',
@@ -138,7 +134,7 @@ export const metadata: Metadata = {
     siteName: 'Edek na uczelni',
     images: [
       {
-        url: 'https://edeknauczelni.pl/og-banner.jpg',
+        url: '/og-banner.jpg',
         width: 1200,
         height: 800,
         alt: 'Edek na uczelni - konferencja z Edwardem Warchockim',
@@ -150,7 +146,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Edek na uczelni | 29.04.2026',
     description: 'Robot humanoidalny na żywo. Konferencja na styku technologii, mediów i biznesu.',
-    images: ['https://edeknauczelni.pl/og-banner.jpg'],
+    images: ['/og-banner.jpg'],
     creator: '@edwardwarchocki',
   },
 }
@@ -185,7 +181,7 @@ export default function RootLayout({
         addressCountry: 'PL',
       },
     },
-    image: 'https://edeknauczelni.pl/og-banner.jpg',
+    image: '/og-banner.jpg',
     eventAttendanceMode: 'OfflineEventAttendanceMode',
     eventStatus: 'EventScheduled',
     organizer: {

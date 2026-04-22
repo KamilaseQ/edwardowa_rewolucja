@@ -21,7 +21,7 @@ export function Footer() {
               </h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Edek na uczelni. Jedno wydarzenie. Jedna szansa. Jeden dzień, który zmieni Twoje spojrzenie na przyszłość biznesu. Zorganizowano z okazji 200-lecia Politechniki Warszawskiej.
+              Edek na uczelni. Z okazji 200-lecia Politechniki Warszawskiej. Jedno wydarzenie. Jedna szansa. Jeden dzień, który zmieni Twoje spojrzenie na przyszłość biznesu.
             </p>
             <div className="flex gap-3">
               <a 
