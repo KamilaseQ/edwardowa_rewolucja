@@ -60,7 +60,7 @@ const organizers: Organizer[] = [
     instagramUrl: "https://www.instagram.com/bednarski_leon/",
     quote: "Gdy przejmuje kontrolę, wszystko działa jak trzeba.",
     description:
-      "Creative Strategist. Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
+      "Social Media Specialist & Creative Strategist. Spokojny, konkretny i bezbłędnie uporządkowany. Kontroluje rzeczy tak, że chaos nie ma nigdy miejsca.",
     highlightPhrase: "nie ma nigdy miejsca",
     gradientFrom: "oklch(0.62 0.16 50)",
     gradientTo: "oklch(0.55 0.14 35)",
