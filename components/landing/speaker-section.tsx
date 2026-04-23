@@ -125,7 +125,7 @@ export function SpeakerSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 py-8 border-y border-gradient-start/20 mb-10">
+            <div className="grid grid-cols-3 gap-3 md:gap-8 py-8 border-y border-gradient-start/20 mb-10">
               {stats.map((stat) => (
                 <div key={stat.label}>
                   <div className="text-3xl md:text-4xl font-bold text-foreground">

@@ -112,6 +112,24 @@ const allPartners: Partner[] = [
     logoUrl: "/logos/warchocki.svg",
     logoBg: "#000000",
   },
+  {
+    name: "STEM Forum",
+    role: "Partner wydarzenia",
+    hue: 165,
+    url: "#",
+    faviconDomain: "",
+    logoUrl: "/logos/stemforum.png",
+    logoBg: "linear-gradient(135deg, oklch(0.13 0.06 175), oklch(0.09 0.04 175))",
+  },
+  {
+    name: "SKN Manager",
+    role: "Koło naukowe",
+    hue: 210,
+    url: "#",
+    faviconDomain: "",
+    logoUrl: "/logos/sknmanager.png",
+    logoBg: "#ffffff",
+  },
 ]
 
 const LOGO_W = 110

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, Bebas_Neue } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import { FORM_URL } from '@/lib/constants'
 import './globals.css'
@@ -224,7 +223,6 @@ export default function RootLayout({
       </head>
       <body className={`${spaceGrotesk.variable} ${bebasNeue.variable} font-sans antialiased bg-background text-foreground`}>
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

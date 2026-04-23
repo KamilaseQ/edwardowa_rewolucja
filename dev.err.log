@@ -108,3 +108,1873 @@ https://react.dev/link/hydration-mismatch
   17 |   display: 'swap', {
   page: '/'
 }
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+[browser] Can't perform a React state update on a component that hasn't mounted yet. This indicates that you have a side-effect in your render function that asynchronously tries to update the component. Move this work to useEffect instead. 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <div data-slot="accordion" className="space-y-4" data-orientation="vertical" onKeyDown={function handleEvent} ...>
+      ...
+        <AccordionItemProvider scope={undefined} open={false} disabled={undefined} triggerId="radix-_R_d...">
+          <Collapsible data-orientation="vertical" data-state="closed" __scopeCollapsible={{...}} ...>
+            <CollapsibleProvider scope={{...}} disabled={undefined} contentId="radix-_R_2..." open={false} ...>
+              <Primitive.div data-state="closed" data-disabled={undefined} data-orientation="vertical" ...>
+                <div data-state="closed" data-disabled={undefined} data-orientation="vertical" data-slot="accordion-..." ...>
+                  ...
+                    <h3 data-orientation="vertical" data-state="closed" data-disabled={undefined} className="flex" ...>
+                      <AccordionTrigger data-slot="accordion-..." className={"focus-vi..."}>
+                        <AccordionCollectionItemSlot scope={undefined}>
+                          <AccordionCollectionItemSlot.Slot data-radix-collection-item="" ref={function}>
+                            <AccordionCollectionItemSlot.SlotClone data-radix-collection-item="" ref={function}>
+                              <CollapsibleTrigger aria-disabled={undefined} data-orientation="vertical" ...>
+                                <Primitive.button type="button" aria-controls="radix-_R_2..." aria-expanded={false} ...>
+                                  <button
+                                    type="button"
++                                   aria-controls="radix-_R_2d8inelb_"
+-                                   aria-controls="radix-_R_9l2atmlb_"
+                                    aria-expanded={false}
+                                    data-state="closed"
+                                    data-disabled={undefined}
+                                    disabled={undefined}
+                                    aria-disabled={undefined}
+                                    data-orientation="vertical"
++                                   id="radix-_R_d8inelb_"
+-                                   id="radix-_R_1l2atmlb_"
+                                    data-slot="accordion-trigger"
+                                    className={"focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 item..."}
+                                    data-radix-collection-item=""
+                                    onClick={function handleEvent}
+                                    ref={function}
+                                  >
+                  <AccordionContent className="text-muted...">
+                    <AccordionContent data-slot="accordion-..." className="data-[stat...">
+                      <CollapsibleContent role="region" aria-labelledby="radix-_R_d..." data-orientation="vertical" ...>
+                        <Presence present={false}>
+                          <Primitive.div data-state="closed" data-disabled={undefined} id="radix-_R_2..." hidden={true} ...>
+                            <div
+                              data-state="closed"
+                              data-disabled={undefined}
++                             id="radix-_R_2d8inelb_"
+-                             id="radix-_R_9l2atmlb_"
+                              hidden={true}
+                              role="region"
++                             aria-labelledby="radix-_R_d8inelb_"
+-                             aria-labelledby="radix-_R_1l2atmlb_"
+                              data-orientation="vertical"
+                              data-slot="accordion-content"
+                              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-..."
+                              style={{--radix-collapsible-content-height:undefined,--radix-collapsible-content-width:undefined, ...}}
+                              ref={function}
+                            >
+      ...
+        <AccordionItemProvider scope={undefined} open={false} disabled={undefined} triggerId="radix-_R_l...">
+          <Collapsible data-orientation="vertical" data-state="closed" __scopeCollapsible={{...}} ...>
+            <CollapsibleProvider scope={{...}} disabled={undefined} contentId="radix-_R_2..." open={false} ...>
+              <Primitive.div data-state="closed" data-disabled={undefined} data-orientation="vertical" ...>
+                <div data-state="closed" data-disabled={undefined} data-orientation="vertical" data-slot="accordion-..." ...>
+                  ...
+                    <h3 data-orientation="vertical" data-state="closed" data-disabled={undefined} className="flex" ...>
+                      <AccordionTrigger data-slot="accordion-..." className={"focus-vi..."}>
+                        <AccordionCollectionItemSlot scope={undefined}>
+                          <AccordionCollectionItemSlot.Slot data-radix-collection-item="" ref={function}>
+                            <AccordionCollectionItemSlot.SlotClone data-radix-collection-item="" ref={function}>
+                              <CollapsibleTrigger aria-disabled={undefined} data-orientation="vertical" ...>
+                                <Primitive.button type="button" aria-controls="radix-_R_2..." aria-expanded={false} ...>
+                                  <button
+                                    type="button"
++                                   aria-controls="radix-_R_2l8inelb_"
+-                                   aria-controls="radix-_R_al2atmlb_"
+                                    aria-expanded={false}
+                                    data-state="closed"
+                                    data-disabled={undefined}
+                                    disabled={undefined}
+                                    aria-disabled={undefined}
+                                    data-orientation="vertical"
++                                   id="radix-_R_l8inelb_"
+-                                   id="radix-_R_2l2atmlb_"
+                                    data-slot="accordion-trigger"
+                                    className={"focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 item..."}
+                                    data-radix-collection-item=""
+                                    onClick={function handleEvent}
+                                    ref={function}
+                                  >
+                  <AccordionContent className="text-muted...">
+                    <AccordionContent data-slot="accordion-..." className="data-[stat...">
+                      <CollapsibleContent role="region" aria-labelledby="radix-_R_l..." data-orientation="vertical" ...>
+                        <Presence present={false}>
+                          <Primitive.div data-state="closed" data-disabled={undefined} id="radix-_R_2..." hidden={true} ...>
+                            <div
+                              data-state="closed"
+                              data-disabled={undefined}
++                             id="radix-_R_2l8inelb_"
+-                             id="radix-_R_al2atmlb_"
+                              hidden={true}
+                              role="region"
++                             aria-labelledby="radix-_R_l8inelb_"
+-                             aria-labelledby="radix-_R_2l2atmlb_"
+                              data-orientation="vertical"
+                              data-slot="accordion-content"
+                              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-..."
+                              style={{--radix-collapsible-content-height:undefined,--radix-collapsible-content-width:undefined, ...}}
+                              ref={function}
+                            >
+      ...
+        <AccordionItemProvider scope={undefined} open={false} disabled={undefined} triggerId="radix-_R_t...">
+          <Collapsible data-orientation="vertical" data-state="closed" __scopeCollapsible={{...}} ...>
+            <CollapsibleProvider scope={{...}} disabled={undefined} contentId="radix-_R_2..." open={false} ...>
+              <Primitive.div data-state="closed" data-disabled={undefined} data-orientation="vertical" ...>
+                <div data-state="closed" data-disabled={undefined} data-orientation="vertical" data-slot="accordion-..." ...>
+                  ...
+                    <h3 data-orientation="vertical" data-state="closed" data-disabled={undefined} className="flex" ...>
+                      <AccordionTrigger data-slot="accordion-..." className={"focus-vi..."}>
+                        <AccordionCollectionItemSlot scope={undefined}>
+                          <AccordionCollectionItemSlot.Slot data-radix-collection-item="" ref={function}>
+                            <AccordionCollectionItemSlot.SlotClone data-radix-collection-item="" ref={function}>
+                              <CollapsibleTrigger aria-disabled={undefined} data-orientation="vertical" ...>
+                                <Primitive.button type="button" aria-controls="radix-_R_2..." aria-expanded={false} ...>
+                                  <button
+                                    type="button"
++                                   aria-controls="radix-_R_2t8inelb_"
+-                                   aria-controls="radix-_R_bl2atmlb_"
+                                    aria-expanded={false}
+                                    data-state="closed"
+                                    data-disabled={undefined}
+                                    disabled={undefined}
+                                    aria-disabled={undefined}
+                                    data-orientation="vertical"
++                                   id="radix-_R_t8inelb_"
+-                                   id="radix-_R_3l2atmlb_"
+                                    data-slot="accordion-trigger"
+                                    className={"focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 item..."}
+                                    data-radix-collection-item=""
+                                    onClick={function handleEvent}
+                                    ref={function}
+                                  >
+                  <AccordionContent className="text-muted...">
+                    <AccordionContent data-slot="accordion-..." className="data-[stat...">
+                      <CollapsibleContent role="region" aria-labelledby="radix-_R_t..." data-orientation="vertical" ...>
+                        <Presence present={false}>
+                          <Primitive.div data-state="closed" data-disabled={undefined} id="radix-_R_2..." hidden={true} ...>
+                            <div
+                              data-state="closed"
+                              data-disabled={undefined}
++                             id="radix-_R_2t8inelb_"
+-                             id="radix-_R_bl2atmlb_"
+                              hidden={true}
+                              role="region"
++                             aria-labelledby="radix-_R_t8inelb_"
+-                             aria-labelledby="radix-_R_3l2atmlb_"
+                              data-orientation="vertical"
+                              data-slot="accordion-content"
+                              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-..."
+                              style={{--radix-collapsible-content-height:undefined,--radix-collapsible-content-width:undefined, ...}}
+                              ref={function}
+                            >
+      ...
+        <AccordionItemProvider scope={undefined} open={false} disabled={undefined} triggerId="radix-_R_1...">
+          <Collapsible data-orientation="vertical" data-state="closed" __scopeCollapsible={{...}} ...>
+            <CollapsibleProvider scope={{...}} disabled={undefined} contentId="radix-_R_3..." open={false} ...>
+              <Primitive.div data-state="closed" data-disabled={undefined} data-orientation="vertical" ...>
+                <div data-state="closed" data-disabled={undefined} data-orientation="vertical" data-slot="accordion-..." ...>
+                  ...
+                    <h3 data-orientation="vertical" data-state="closed" data-disabled={undefined} className="flex" ...>
+                      <AccordionTrigger data-slot="accordion-..." className={"focus-vi..."}>
+                        <AccordionCollectionItemSlot scope={undefined}>
+                          <AccordionCollectionItemSlot.Slot data-radix-collection-item="" ref={function}>
+                            <AccordionCollectionItemSlot.SlotClone data-radix-collection-item="" ref={function}>
+                              <CollapsibleTrigger aria-disabled={undefined} data-orientation="vertical" ...>
+                                <Primitive.button type="button" aria-controls="radix-_R_3..." aria-expanded={false} ...>
+                                  <button
+                                    type="button"
++                                   aria-controls="radix-_R_358inelb_"
+-                                   aria-controls="radix-_R_cl2atmlb_"
+                                    aria-expanded={false}
+                                    data-state="closed"
+                                    data-disabled={undefined}
+                                    disabled={undefined}
+                                    aria-disabled={undefined}
+                                    data-orientation="vertical"
++                                   id="radix-_R_158inelb_"
+-                                   id="radix-_R_4l2atmlb_"
+                                    data-slot="accordion-trigger"
+                                    className={"focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 item..."}
+                                    data-radix-collection-item=""
+                                    onClick={function handleEvent}
+                                    ref={function}
+                                  >
+                  <AccordionContent className="text-muted...">
+                    <AccordionContent data-slot="accordion-..." className="data-[stat...">
+                      <CollapsibleContent role="region" aria-labelledby="radix-_R_1..." data-orientation="vertical" ...>
+                        <Presence present={false}>
+                          <Primitive.div data-state="closed" data-disabled={undefined} id="radix-_R_3..." hidden={true} ...>
+                            <div
+                              data-state="closed"
+                              data-disabled={undefined}
++                             id="radix-_R_358inelb_"
+-                             id="radix-_R_cl2atmlb_"
+                              hidden={true}
+                              role="region"
++                             aria-labelledby="radix-_R_158inelb_"
+-                             aria-labelledby="radix-_R_4l2atmlb_"
+                              data-orientation="vertical"
+                              data-slot="accordion-content"
+                              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-..."
+                              style={{--radix-collapsible-content-height:undefined,--radix-collapsible-content-width:undefined, ...}}
+                              ref={function}
+                            >
+      ...
+        <AccordionItemProvider scope={undefined} open={false} disabled={undefined} triggerId="radix-_R_1...">
+          <Collapsible data-orientation="vertical" data-state="closed" __scopeCollapsible={{...}} ...>
+            <CollapsibleProvider scope={{...}} disabled={undefined} contentId="radix-_R_3..." open={false} ...>
+              <Primitive.div data-state="closed" data-disabled={undefined} data-orientation="vertical" ...>
+                <div data-state="closed" data-disabled={undefined} data-orientation="vertical" data-slot="accordion-..." ...>
+                  ...
+                    <h3 data-orientation="vertical" data-state="closed" data-disabled={undefined} className="flex" ...>
+                      <AccordionTrigger data-slot="accordion-..." className={"focus-vi..."}>
+                        <AccordionCollectionItemSlot scope={undefined}>
+                          <AccordionCollectionItemSlot.Slot data-radix-collection-item="" ref={function}>
+                            <AccordionCollectionItemSlot.SlotClone data-radix-collection-item="" ref={function}>
+                              <CollapsibleTrigger aria-disabled={undefined} data-orientation="vertical" ...>
+                                <Primitive.button type="button" aria-controls="radix-_R_3..." aria-expanded={false} ...>
+                                  <button
+                                    type="button"
++                                   aria-controls="radix-_R_3d8inelb_"
+-                                   aria-controls="radix-_R_dl2atmlb_"
+                                    aria-expanded={false}
+                                    data-state="closed"
+                                    data-disabled={undefined}
+                                    disabled={undefined}
+                                    aria-disabled={undefined}
+                                    data-orientation="vertical"
++                                   id="radix-_R_1d8inelb_"
+-                                   id="radix-_R_5l2atmlb_"
+                                    data-slot="accordion-trigger"
+                                    className={"focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 item..."}
+                                    data-radix-collection-item=""
+                                    onClick={function handleEvent}
+                                    ref={function}
+                                  >
+                  <AccordionContent className="text-muted...">
+                    <AccordionContent data-slot="accordion-..." className="data-[stat...">
+                      <CollapsibleContent role="region" aria-labelledby="radix-_R_1..." data-orientation="vertical" ...>
+                        <Presence present={false}>
+                          <Primitive.div data-state="closed" data-disabled={undefined} id="radix-_R_3..." hidden={true} ...>
+                            <div
+                              data-state="closed"
+                              data-disabled={undefined}
++                             id="radix-_R_3d8inelb_"
+-                             id="radix-_R_dl2atmlb_"
+                              hidden={true}
+                              role="region"
++                             aria-labelledby="radix-_R_1d8inelb_"
+-                             aria-labelledby="radix-_R_5l2atmlb_"
+                              data-orientation="vertical"
+                              data-slot="accordion-content"
+                              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-..."
+                              style={{--radix-collapsible-content-height:undefined,--radix-collapsible-content-width:undefined, ...}}
+                              ref={function}
+                            >
+      ...
+        <AccordionItemProvider scope={undefined} open={false} disabled={undefined} triggerId="radix-_R_1...">
+          <Collapsible data-orientation="vertical" data-state="closed" __scopeCollapsible={{...}} ...>
+            <CollapsibleProvider scope={{...}} disabled={undefined} contentId="radix-_R_3..." open={false} ...>
+              <Primitive.div data-state="closed" data-disabled={undefined} data-orientation="vertical" ...>
+                <div data-state="closed" data-disabled={undefined} data-orientation="vertical" data-slot="accordion-..." ...>
+                  ...
+                    <h3 data-orientation="vertical" data-state="closed" data-disabled={undefined} className="flex" ...>
+                      <AccordionTrigger data-slot="accordion-..." className={"focus-vi..."}>
+                        <AccordionCollectionItemSlot scope={undefined}>
+                          <AccordionCollectionItemSlot.Slot data-radix-collection-item="" ref={function}>
+                            <AccordionCollectionItemSlot.SlotClone data-radix-collection-item="" ref={function}>
+                              <CollapsibleTrigger aria-disabled={undefined} data-orientation="vertical" ...>
+                                <Primitive.button type="button" aria-controls="radix-_R_3..." aria-expanded={false} ...>
+                                  <button
+                                    type="button"
++                                   aria-controls="radix-_R_3l8inelb_"
+-                                   aria-controls="radix-_R_el2atmlb_"
+                                    aria-expanded={false}
+                                    data-state="closed"
+                                    data-disabled={undefined}
+                                    disabled={undefined}
+                                    aria-disabled={undefined}
+                                    data-orientation="vertical"
++                                   id="radix-_R_1l8inelb_"
+-                                   id="radix-_R_6l2atmlb_"
+                                    data-slot="accordion-trigger"
+                                    className={"focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 item..."}
+                                    data-radix-collection-item=""
+                                    onClick={function handleEvent}
+                                    ref={function}
+                                  >
+                  <AccordionContent className="text-muted...">
+                    <AccordionContent data-slot="accordion-..." className="data-[stat...">
+                      <CollapsibleContent role="region" aria-labelledby="radix-_R_1..." data-orientation="vertical" ...>
+                        <Presence present={false}>
+                          <Primitive.div data-state="closed" data-disabled={undefined} id="radix-_R_3..." hidden={true} ...>
+                            <div
+                              data-state="closed"
+                              data-disabled={undefined}
++                             id="radix-_R_3l8inelb_"
+-                             id="radix-_R_el2atmlb_"
+                              hidden={true}
+                              role="region"
++                             aria-labelledby="radix-_R_1l8inelb_"
+-                             aria-labelledby="radix-_R_6l2atmlb_"
+                              data-orientation="vertical"
+                              data-slot="accordion-content"
+                              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-..."
+                              style={{--radix-collapsible-content-height:undefined,--radix-collapsible-content-width:undefined, ...}}
+                              ref={function}
+                            >
+ 
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/accordion.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-accordion'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m * [36mas[0m [33mAccordionPrimitive[0m [36mfrom[0m [32m'@radix-ui/react-accordion'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m { [33mChevronDownIcon[0m } [36mfrom[0m [32m'lucide-react'[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:2:1
+Module not found: Can't resolve '@radix-ui/react-slot'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:2:1
+Module not found: Can't resolve '@radix-ui/react-slot'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:2:1
+Module not found: Can't resolve '@radix-ui/react-slot'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:2:1
+Module not found: Can't resolve '@radix-ui/react-slot'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/app-index.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/app-router.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/builtin/error-styles.js:27:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component SSR:
+    ./node_modules/next/dist/client/components/builtin/error-styles.js [Client Component SSR]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Client Component SSR]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Server Component]
+
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/builtin/error-styles.js
+    ./node_modules/next/dist/client/components/builtin/global-error.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/builtin/error-styles.js:27:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component SSR:
+    ./node_modules/next/dist/client/components/builtin/error-styles.js [Client Component SSR]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Client Component SSR]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Server Component]
+
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/builtin/error-styles.js
+    ./node_modules/next/dist/client/components/builtin/global-error.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/builtin/global-error.js:14:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  #1 [Client Component Browser]:
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Client Component Browser]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Server Component]
+
+  #2 [Client Component SSR]:
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Client Component SSR]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Server Component]
+
+  #3 [Client Component Browser]:
+    ./node_modules/next/dist/client/components/builtin/global-error.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/builtin/global-error.js:14:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  #1 [Client Component Browser]:
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Client Component Browser]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Server Component]
+
+  #2 [Client Component SSR]:
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Client Component SSR]
+    ./node_modules/next/dist/client/components/builtin/global-error.js [Server Component]
+
+  #3 [Client Component Browser]:
+    ./node_modules/next/dist/client/components/builtin/global-error.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/errors/root-error-boundary.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/errors/root-error-boundary.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/layout-router.js:27:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:32:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/image-component.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/image-component.js:12:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/lib/console.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/lib/console.js
+    ./node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/react-client-callbacks/on-recoverable-error.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/script.js:28:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./node_modules/next/dist/client/script.js
+    ./node_modules/next/script.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/script.js:28:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./node_modules/next/dist/client/script.js
+    ./node_modules/next/script.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js
+    ./node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/next-devtools/userspace/app/client-entry.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js
+    ./node_modules/next/dist/next-devtools/userspace/app/errors/index.js
+    ./node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js:35:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js:31:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/next-devtools/userspace/app/errors/use-error-handler.js
+    ./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js:36:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/format-webpack-messages.js:33:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/format-webpack-messages.js
+    ./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js
+    ./node_modules/next/dist/client/dev/hot-reloader/app/web-socket.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  #1 [Client Component Browser]:
+    ./node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+  #2 [Client Component Browser]:
+    ./node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js [Client Component Browser]
+    ./node_modules/next/dist/client/script.js [Client Component Browser]
+    ./node_modules/next/dist/client/script.js [Server Component]
+    ./node_modules/next/script.js [Server Component]
+    ./app/layout.tsx [Server Component]
+
+  #3 [Client Component Browser]:
+    ./node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/head.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/head.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component SSR]
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/head.js:24:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component SSR]
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/image-config-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/image-config-context.shared-runtime.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/image-external.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/image-external.js:23:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/router-context.shared-runtime.js:11:34
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_default'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_default' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/router-context.shared-runtime.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/app-router.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/error-boundary.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/error-boundary.js
+    ./node_modules/next/dist/client/react-client-callbacks/error-boundary-callbacks.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/http-access-fallback/error-boundary.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/http-access-fallback/error-boundary.js
+    ./node_modules/next/dist/client/components/dev-root-http-access-fallback-boundary.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/layout-router.js:28:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/layout-router.js [Client Component Browser]
+    ./node_modules/next/dist/esm/client/components/layout-router.js [Server Component]
+    ./node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/navigation.js:85:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/navigation.js
+    ./node_modules/next/dist/client/components/redirect-boundary.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/redirect-boundary.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/redirect-boundary.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/render-from-template-context.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/render-from-template-context.js [Client Component Browser]
+    ./node_modules/next/dist/esm/client/components/render-from-template-context.js [Server Component]
+    ./node_modules/next/dist/esm/server/app-render/entry-base.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/components/use-action-queue.js:31:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/client/components/use-action-queue.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/image-component.js:13:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/image-component.js:13:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/script.js:29:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./node_modules/next/dist/client/script.js
+    ./node_modules/next/script.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/client/script.js:29:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Server Component:
+    ./node_modules/next/dist/client/script.js
+    ./node_modules/next/script.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js:12:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/next-devtools/userspace/app/app-dev-overlay-error-boundary.js
+    ./node_modules/next/dist/next-devtools/userspace/app/client-entry.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/head.js:25:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component SSR]
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/head.js:25:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component Browser]
+    ./node_modules/next/dist/client/image-component.js [Client Component Browser]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component Browser]
+    ./node_modules/next/image.js [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Client Component Browser]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/next/dist/shared/lib/head.js [Client Component SSR]
+    ./node_modules/next/dist/client/image-component.js [Client Component SSR]
+    ./node_modules/next/dist/shared/lib/image-external.js [Client Component SSR]
+    ./node_modules/next/image.js [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Client Component SSR]
+    ./components/landing/organizers-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js:24:35
+Module not found: Can't resolve '@swc/helpers/_/_interop_require_wildcard'
+Import map: aliased to module '@swc/helpers' with subpath '/_/_interop_require_wildcard' inside of [project]/node_modules/next
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/next/dist/shared/lib/server-inserted-html.shared-runtime.js
+    ./node_modules/next/dist/client/components/navigation.js
+    ./node_modules/next/dist/client/components/redirect-boundary.js
+    ./node_modules/next/dist/client/components/app-router.js
+    ./node_modules/next/dist/client/app-index.js
+    ./node_modules/next/dist/client/app-next-turbopack.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:3:1
+Module not found: Can't resolve 'class-variance-authority'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+  [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+  [90m6 |[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:3:1
+Module not found: Can't resolve 'class-variance-authority'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+  [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+  [90m6 |[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:3:1
+Module not found: Can't resolve 'class-variance-authority'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+  [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+  [90m6 |[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/ui/button.tsx:3:1
+Module not found: Can't resolve 'class-variance-authority'
+  [90m1 |[0m [36mimport[0m * [36mas[0m [33mReact[0m [36mfrom[0m [32m'react'[0m
+  [90m2 |[0m [36mimport[0m { [33mSlot[0m } [36mfrom[0m [32m'@radix-ui/react-slot'[0m
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { cva, [36mtype[0m [33mVariantProps[0m } [36mfrom[0m [32m'class-variance-authority'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mimport[0m { cn } [36mfrom[0m [32m'@/lib/utils'[0m
+  [90m6 |[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/button.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Client Component Browser]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/button.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Client Component SSR]
+    ./components/landing/navigation.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./lib/utils.ts:1:1
+Module not found: Can't resolve 'clsx'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { clsx, [36mtype[0m [33mClassValue[0m } [36mfrom[0m [32m'clsx'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { twMerge } [36mfrom[0m [32m'tailwind-merge'[0m
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mfunction[0m cn(...inputs: [33mClassValue[0m[]) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./lib/utils.ts [Client Component Browser]
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./lib/utils.ts [Client Component SSR]
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./lib/utils.ts:1:1
+Module not found: Can't resolve 'clsx'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { clsx, [36mtype[0m [33mClassValue[0m } [36mfrom[0m [32m'clsx'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { twMerge } [36mfrom[0m [32m'tailwind-merge'[0m
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mfunction[0m cn(...inputs: [33mClassValue[0m[]) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./lib/utils.ts [Client Component Browser]
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./lib/utils.ts [Client Component SSR]
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./lib/utils.ts:1:1
+Module not found: Can't resolve 'clsx'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { clsx, [36mtype[0m [33mClassValue[0m } [36mfrom[0m [32m'clsx'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { twMerge } [36mfrom[0m [32m'tailwind-merge'[0m
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mfunction[0m cn(...inputs: [33mClassValue[0m[]) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./lib/utils.ts [Client Component Browser]
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./lib/utils.ts [Client Component SSR]
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./lib/utils.ts:1:1
+Module not found: Can't resolve 'clsx'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { clsx, [36mtype[0m [33mClassValue[0m } [36mfrom[0m [32m'clsx'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { twMerge } [36mfrom[0m [32m'tailwind-merge'[0m
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mfunction[0m cn(...inputs: [33mClassValue[0m[]) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./lib/utils.ts [Client Component Browser]
+    ./components/ui/accordion.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Client Component Browser]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./lib/utils.ts [Client Component SSR]
+    ./components/ui/accordion.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Client Component SSR]
+    ./components/landing/faq-section.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\212ka\AppData\Local\Temp\next-panic-63004c95c00a92645ce1a8686c81e91.log.
+
+To help make Turbopack better, report this error by clicking here: https://bugs.nextjs.org/search?category=turbopack-error-report&title=Turbopack%20Error%3A%20File%20not%20found%3A%20FileSystemPath%20%7B%20fs%3A%20ResolvedVc%28RawVc%3A%3ATaskCell%289%2C%20%22turbo_tasks_fs%3A%3ADiskFileSystem%230%22%29%29%2C%20path%3A%20%22node_modules%2Fnext%2Fdist%2Flib%2Fdefault-transpiled-packages.json%22%20%7D&body=Turbopack%20version%3A%20%600ca967b8%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0AFile%20not%20found%3A%20FileSystemPath%20%7B%20fs%3A%20ResolvedVc%28RawVc%3A%3ATaskCell%289%2C%20%22turbo_tasks_fs%3A%3ADiskFileSystem%230%22%29%29%2C%20path%3A%20%22node_modules%2Fnext%2Fdist%2Flib%2Fdefault-transpiled-packages.json%22%20%7D%0A%0ADebug%20info%3A%0A-%20Execution%20of%20subscribe_issues_and_diags_operation%20failed%0A-%20Execution%20of%20%3CAppEndpoint%20as%20Endpoint%3E%3A%3Aserver_changed%20failed%0A-%20Execution%20of%20%2AProject%3A%3Aserver_changed%20failed%0A-%20Execution%20of%20%2AAppEndpointOutput%3A%3Aserver_assets%20failed%0A-%20Execution%20of%20AppEndpoint%3A%3Aoutput%20failed%0A-%20Execution%20of%20AppEndpoint%3A%3Aapp_page_entry%20failed%0A-%20Execution%20of%20%2Aget_app_page_entry%20failed%0A-%20Execution%20of%20AppProject%3A%3Arsc_module_context%20failed%0A-%20Execution%20of%20%2AModuleAssetContext%3A%3Anew%20failed%0A-%20Execution%20of%20%2AAppProject%3A%3Aget_rsc_transitions%20failed%0A-%20Execution%20of%20AppProject%3A%3Aecmascript_client_reference_transition%20failed%0A-%20Execution%20of%20%2ANextEcmascriptClientReferenceTransition%3A%3Anew%20failed%0A-%20Execution%20of%20AppProject%3A%3Aclient_transition%20failed%0A-%20Execution%20of%20%2AFullContextTransition%3A%3Anew%20failed%0A-%20Execution%20of%20AppProject%3A%3Aclient_module_context%20failed%0A-%20Execution%20of%20%2AModuleAssetContext%3A%3Anew%20failed%0A-%20Execution%20of%20get_client_module_options_context%20failed%0A-%20Execution%20of%20%2Aget_jsx_transform_options%20failed%0A-%20Execution%20of%20get_client_resolve_options_context%20failed%0A-%20Execution%20of%20get_transpiled_packages%20failed%0A-%20File%20not%20found%3A%20FileSystemPath%20%7B%20fs%3A%20ResolvedVc%28RawVc%3A%3ATaskCell%289%2C%20%22turbo_tasks_fs%3A%3ADiskFileSystem%230%22%29%29%2C%20path%3A%20%22node_modules%2Fnext%2Fdist%2Flib%2Fdefault-transpiled-packages.json%22%20%7D%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\212ka\AppData\Local\Temp\next-panic-63004c95c00a92645ce1a8686c81e91.log.
+
+To help make Turbopack better, report this error by clicking here: https://bugs.nextjs.org/search?category=turbopack-error-report&title=Turbopack%20Error%3A%20Next.js%20package%20not%20found&body=Turbopack%20version%3A%20%600ca967b8%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0ANext.js%20package%20not%20found%0A%0ADebug%20info%3A%0A-%20Execution%20of%20subscribe_issues_and_diags_operation%20failed%0A-%20Execution%20of%20pick_endpoint%20failed%0A-%20Execution%20of%20entrypoints_without_collectibles_operation%20failed%0A-%20Execution%20of%20Project%3A%3Aentrypoints_with_app_route_filter%20failed%0A-%20Execution%20of%20AppProject%3A%3Aroutes_with_filter%20failed%0A-%20Execution%20of%20directory_tree_to_entrypoints_internal%20failed%0A-%20Execution%20of%20directory_tree_to_loader_tree%20failed%0A-%20Next.js%20package%20not%20found%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+Error: Turbopack build failed with 1 errors:
+./app
+Error: Next.js inferred your workspace root, but it may not be correct.
+    We couldn't find the Next.js package (next/package.json) from the project directory: C:\Users\212ka\source\repos\edwardowa_rewolucja\app
+     To fix this, set turbopack.root in your Next.js config, or ensure the Next.js package is resolvable from this directory.
+    Note: For security and performance reasons, files outside of the project directory will not be compiled.
+    See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+
+    at ignore-listed frames

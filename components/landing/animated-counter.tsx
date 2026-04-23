@@ -54,7 +54,7 @@ export function AnimatedCounter({
         {count.toLocaleString("pl-PL")}
         {suffix}
       </div>
-      <div className="mt-2 text-sm md:text-base text-muted-foreground uppercase tracking-widest">
+      <div className="mt-2 text-[10px] md:text-base text-muted-foreground uppercase tracking-normal md:tracking-widest leading-tight">
         {label}
       </div>
     </div>
