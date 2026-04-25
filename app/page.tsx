@@ -7,11 +7,13 @@ import { OrganizersSection } from "@/components/landing/organizers-section"
 import { FAQSection } from "@/components/landing/faq-section"
 import { SignupSection } from "@/components/landing/signup-section"
 import { Navigation } from "@/components/landing/navigation"
+import { AnnouncementBanner } from "@/components/landing/announcement-banner"
 import { Footer } from "@/components/landing/footer"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <AnnouncementBanner />
       <Navigation />
       <HeroSection />
       <PartnersSection />

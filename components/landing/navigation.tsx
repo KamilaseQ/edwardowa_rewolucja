@@ -34,19 +34,20 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "backdrop-blur-xl border-b"
           : "bg-transparent"
       }`}
-      style={
-        isScrolled
+      style={{
+        top: "var(--banner-h, 0px)",
+        ...(isScrolled
           ? {
               backgroundColor: "oklch(0.06 0.005 270 / 0.92)",
               borderBottomColor: "oklch(0.72 0.19 65 / 0.12)",
             }
-          : undefined
-      }
+          : {}),
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">

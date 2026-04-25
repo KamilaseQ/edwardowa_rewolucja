@@ -43,6 +43,7 @@
   --sidebar-accent-foreground: oklch(0.97 0.005 80);
   --sidebar-border: oklch(0.20 0.012 270);
   --sidebar-ring: oklch(0.70 0.17 65);
+  --banner-h: 42px;
 }
 
 .dark {
@@ -140,6 +141,11 @@
 
 @keyframes shimmer {
   0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes banner-shimmer {
+  0% { background-position: 0% center; }
   100% { background-position: 200% center; }
 }
 
